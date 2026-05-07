@@ -1,0 +1,56 @@
+const { query } = require('../config/database');
+
+const findByStudentAndCourse = async (studentId, courseId) => {
+  const result = await query(
+    `
+      SELECT id, student_id, course_id, progress, enrolled_at
+      FROM enrollments
+      WHERE student_id = $1 AND course_id = $2
+      LIMIT 1
+    `,
+    [studentId, courseId]
+  );
+
+  return result.rows[0] || null;
+};
+
+const create = async ({ studentId, courseId }) => {
+  const result = await query(
+    `
+      INSERT INTO enrollments (student_id, course_id)
+      VALUES ($1, $2)
+      RETURNING id, student_id, course_id, progress, enrolled_at
+    `,
+    [studentId, courseId]
+  );
+
+  return result.rows[0] || null;
+};
+
+const findByStudentId = async (studentId) => {
+  const result = await query(
+    `
+      SELECT
+        e.id,
+        e.progress,
+        e.enrolled_at,
+        c.id AS course_id,
+        c.title,
+        c.description,
+        c.thumbnail
+      FROM enrollments e
+      JOIN courses c ON c.id = e.course_id
+      WHERE e.student_id = $1
+      ORDER BY e.enrolled_at DESC
+    `,
+    [studentId]
+  );
+
+  return result.rows;
+};
+
+module.exports = {
+  findByStudentAndCourse,
+  create,
+  findByStudentId,
+};
