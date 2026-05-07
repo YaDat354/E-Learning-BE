@@ -59,8 +59,33 @@ const create = async ({ title, description, thumbnail, teacherId }) => {
   return result.rows[0] || null;
 };
 
+const updateById = async (courseId, { title, description, thumbnail }) => {
+  const result = await query(
+    `
+      UPDATE courses
+      SET
+        title = COALESCE($1, title),
+        description = COALESCE($2, description),
+        thumbnail = COALESCE($3, thumbnail),
+        updated_at = NOW()
+      WHERE id = $4
+      RETURNING id, title, description, thumbnail, teacher_id, created_at, updated_at
+    `,
+    [title || null, description || null, thumbnail || null, courseId]
+  );
+
+  return result.rows[0] || null;
+};
+
+const deleteById = async (courseId) => {
+  const result = await query('DELETE FROM courses WHERE id = $1 RETURNING id', [courseId]);
+  return result.rows[0] || null;
+};
+
 module.exports = {
   listAll,
   findById,
   create,
+  updateById,
+  deleteById,
 };

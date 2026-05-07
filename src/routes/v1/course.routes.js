@@ -13,6 +13,8 @@ const router = express.Router();
 router.get('/', courseController.listCourses);
 router.get('/:courseId', courseController.getCourseById);
 router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), courseController.createCourse);
+router.patch('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), courseController.updateCourse);
+router.delete('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), courseController.deleteCourse);
 router.use('/:courseId/lessons', lessonRoutes);
 router.use('/:courseId/assignments', assignmentRoutes);
 router.use('/:courseId/quizzes', quizRoutes);

@@ -49,8 +49,38 @@ const findByStudentId = async (studentId) => {
   return result.rows;
 };
 
+const findById = async (enrollmentId) => {
+  const result = await query(
+    `
+      SELECT id, student_id, course_id, progress, enrolled_at
+      FROM enrollments
+      WHERE id = $1
+      LIMIT 1
+    `,
+    [enrollmentId]
+  );
+
+  return result.rows[0] || null;
+};
+
+const updateProgress = async (enrollmentId, progress) => {
+  const result = await query(
+    `
+      UPDATE enrollments
+      SET progress = $1
+      WHERE id = $2
+      RETURNING id, student_id, course_id, progress, enrolled_at
+    `,
+    [progress, enrollmentId]
+  );
+
+  return result.rows[0] || null;
+};
+
 module.exports = {
   findByStudentAndCourse,
   create,
   findByStudentId,
+  findById,
+  updateProgress,
 };

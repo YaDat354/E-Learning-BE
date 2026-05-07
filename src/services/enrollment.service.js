@@ -29,7 +29,32 @@ const enrollCourse = async ({ studentId, courseId, userRole }) => {
 
 const getMyEnrollments = async (studentId) => enrollmentModel.findByStudentId(studentId);
 
+const updateEnrollmentProgress = async ({ enrollmentId, progress, user }) => {
+  if (progress === undefined || progress === null) {
+    throw new HttpError(400, 'progress is required');
+  }
+
+  const numericProgress = Number(progress);
+
+  if (Number.isNaN(numericProgress) || numericProgress < 0 || numericProgress > 100) {
+    throw new HttpError(400, 'progress must be a number between 0 and 100');
+  }
+
+  const enrollment = await enrollmentModel.findById(enrollmentId);
+
+  if (!enrollment) {
+    throw new HttpError(404, 'Enrollment not found');
+  }
+
+  if (user.role === roles.STUDENT && enrollment.student_id !== user.id) {
+    throw new HttpError(403, 'Forbidden');
+  }
+
+  return enrollmentModel.updateProgress(enrollmentId, numericProgress);
+};
+
 module.exports = {
   enrollCourse,
   getMyEnrollments,
+  updateEnrollmentProgress,
 };

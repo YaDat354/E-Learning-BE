@@ -34,8 +34,37 @@ const createCourse = asyncHandler(async (req, res) => {
   });
 });
 
+const updateCourse = asyncHandler(async (req, res) => {
+  const data = await courseService.updateCourse(
+    req.params.courseId,
+    {
+      title: req.body.title,
+      description: req.body.description,
+      thumbnail: req.body.thumbnail,
+    },
+    req.user
+  );
+
+  res.json({
+    success: true,
+    message: 'Course updated successfully',
+    data,
+  });
+});
+
+const deleteCourse = asyncHandler(async (req, res) => {
+  await courseService.deleteCourse(req.params.courseId, req.user);
+
+  res.json({
+    success: true,
+    message: 'Course deleted successfully',
+  });
+});
+
 module.exports = {
   listCourses,
   getCourseById,
   createCourse,
+  updateCourse,
+  deleteCourse,
 };

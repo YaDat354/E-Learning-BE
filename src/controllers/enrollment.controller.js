@@ -25,7 +25,22 @@ const getMyEnrollments = asyncHandler(async (req, res) => {
   });
 });
 
+const updateEnrollmentProgress = asyncHandler(async (req, res) => {
+  const data = await enrollmentService.updateEnrollmentProgress({
+    enrollmentId: req.params.enrollmentId,
+    progress: req.body.progress,
+    user: req.user,
+  });
+
+  res.json({
+    success: true,
+    message: 'Enrollment progress updated successfully',
+    data,
+  });
+});
+
 module.exports = {
   enrollCourse,
   getMyEnrollments,
+  updateEnrollmentProgress,
 };

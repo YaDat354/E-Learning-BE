@@ -58,8 +58,8 @@ const swaggerDefinition = {
         type: 'object',
         required: ['title'],
         properties: {
-          title:       { type: 'string', example: 'Node.js For Beginners' },
-          description: { type: 'string', example: 'Learn Node.js from scratch' },
+          title:       { type: 'string', example: 'English Communication Basics' },
+          description: { type: 'string', example: 'Build speaking confidence for daily situations' },
           thumbnail:   { type: 'string', format: 'uri', example: 'https://example.com/thumb.jpg' },
         },
       },
@@ -256,6 +256,37 @@ const swaggerDefinition = {
           },
         },
       },
+      patch: {
+        tags: ['Users'],
+        summary: 'Update current user profile',
+        description: 'Updates fullName and/or avatar for authenticated user.',
+        security: [{ BearerAuth: [] }],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  fullName: { type: 'string', example: 'Student Demo Updated' },
+                  avatar: { type: 'string', example: 'https://example.com/avatar.jpg' },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: { description: 'Profile updated successfully' },
+          400: {
+            description: 'No update fields provided',
+            content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } },
+          },
+          401: {
+            description: 'Missing or invalid token',
+            content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } },
+          },
+        },
+      },
     },
 
     // ── Courses ─────────────────────────────────────────────────
@@ -357,6 +388,60 @@ const swaggerDefinition = {
           },
         },
       },
+      patch: {
+        tags: ['Courses'],
+        summary: 'Update a course',
+        description: 'Requires role teacher/admin. Teacher can only update own course.',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          {
+            in: 'path',
+            name: 'courseId',
+            required: true,
+            schema: { type: 'string', format: 'uuid' },
+          },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                properties: {
+                  title: { type: 'string', example: 'Updated Course Title' },
+                  description: { type: 'string', example: 'Updated description' },
+                  thumbnail: { type: 'string', example: 'https://example.com/new-thumb.jpg' },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: { description: 'Course updated' },
+          400: { description: 'No update fields provided' },
+          403: { description: 'Forbidden' },
+          404: { description: 'Course not found' },
+        },
+      },
+      delete: {
+        tags: ['Courses'],
+        summary: 'Delete a course',
+        description: 'Requires role teacher/admin. Teacher can only delete own course.',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          {
+            in: 'path',
+            name: 'courseId',
+            required: true,
+            schema: { type: 'string', format: 'uuid' },
+          },
+        ],
+        responses: {
+          200: { description: 'Course deleted' },
+          403: { description: 'Forbidden' },
+          404: { description: 'Course not found' },
+        },
+      },
     },
 
     // ── Enrollments ─────────────────────────────────────────────
@@ -428,6 +513,42 @@ const swaggerDefinition = {
             description: 'Unauthorized',
             content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } },
           },
+        },
+      },
+    },
+    '/api/v1/enrollments/{enrollmentId}/progress': {
+      patch: {
+        tags: ['Enrollments'],
+        summary: 'Update enrollment progress',
+        description: 'Student can update own enrollment progress. Admin can update any.',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          {
+            in: 'path',
+            name: 'enrollmentId',
+            required: true,
+            schema: { type: 'string', format: 'uuid' },
+          },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['progress'],
+                properties: {
+                  progress: { type: 'number', minimum: 0, maximum: 100, example: 45 },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: { description: 'Progress updated' },
+          400: { description: 'Invalid progress value' },
+          403: { description: 'Forbidden' },
+          404: { description: 'Enrollment not found' },
         },
       },
     },

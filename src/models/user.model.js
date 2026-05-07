@@ -67,8 +67,26 @@ const create = async ({ fullName, email, password, role }) => {
   return result.rows[0] || null;
 };
 
+const updateById = async (id, { fullName, avatar }) => {
+  const result = await query(
+    `
+      UPDATE users
+      SET
+        full_name = COALESCE($1, full_name),
+        avatar = COALESCE($2, avatar),
+        updated_at = NOW()
+      WHERE id = $3
+      RETURNING id
+    `,
+    [fullName || null, avatar || null, id]
+  );
+
+  return result.rows[0] || null;
+};
+
 module.exports = {
   findByEmail,
   findById,
   create,
+  updateById,
 };
