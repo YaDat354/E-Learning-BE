@@ -21,6 +21,9 @@ const swaggerDefinition = {
     { name: 'Users',       description: 'Current user profile' },
     { name: 'Courses',     description: 'Course catalogue & creation' },
     { name: 'Enrollments', description: 'Student course enrollment' },
+    { name: 'Lessons',     description: 'Lesson management in course' },
+    { name: 'Assignments', description: 'Assignments and submissions' },
+    { name: 'Quizzes',     description: 'Quizzes, questions, results' },
   ],
   components: {
     securitySchemes: {
@@ -426,6 +429,205 @@ const swaggerDefinition = {
             content: { 'application/json': { schema: { $ref: '#/components/schemas/ErrorResponse' } } },
           },
         },
+      },
+    },
+
+    // ── Lessons ─────────────────────────────────────────────────
+    '/api/v1/courses/{courseId}/lessons': {
+      get: {
+        tags: ['Lessons'],
+        summary: 'List lessons by course',
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 200: { description: 'Lesson list' } },
+      },
+      post: {
+        tags: ['Lessons'],
+        summary: 'Create lesson (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 201: { description: 'Lesson created' }, 403: { description: 'Forbidden' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/lessons/{lessonId}': {
+      get: {
+        tags: ['Lessons'],
+        summary: 'Get lesson details',
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Lesson details' } },
+      },
+      patch: {
+        tags: ['Lessons'],
+        summary: 'Update lesson (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Lesson updated' }, 403: { description: 'Forbidden' } },
+      },
+      delete: {
+        tags: ['Lessons'],
+        summary: 'Delete lesson (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Lesson deleted' }, 403: { description: 'Forbidden' } },
+      },
+    },
+
+    // ── Assignments ─────────────────────────────────────────────
+    '/api/v1/courses/{courseId}/assignments': {
+      get: {
+        tags: ['Assignments'],
+        summary: 'List assignments by course',
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 200: { description: 'Assignment list' } },
+      },
+      post: {
+        tags: ['Assignments'],
+        summary: 'Create assignment (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 201: { description: 'Assignment created' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/assignments/{assignmentId}': {
+      get: {
+        tags: ['Assignments'],
+        summary: 'Get assignment by id',
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Assignment detail' } },
+      },
+      patch: {
+        tags: ['Assignments'],
+        summary: 'Update assignment (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Assignment updated' } },
+      },
+      delete: {
+        tags: ['Assignments'],
+        summary: 'Delete assignment (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Assignment deleted' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions': {
+      post: {
+        tags: ['Assignments'],
+        summary: 'Submit assignment (student)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 201: { description: 'Submission created' }, 409: { description: 'Already submitted' } },
+      },
+      get: {
+        tags: ['Assignments'],
+        summary: 'List submissions for assignment (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Submission list' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/assignments/{assignmentId}/submissions/{submissionId}/grade': {
+      patch: {
+        tags: ['Assignments'],
+        summary: 'Grade submission (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'assignmentId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'submissionId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Submission graded' } },
+      },
+    },
+    '/api/v1/submissions/me': {
+      get: {
+        tags: ['Assignments'],
+        summary: 'List my submissions',
+        security: [{ BearerAuth: [] }],
+        responses: { 200: { description: 'My submissions' } },
+      },
+    },
+
+    // ── Quizzes ─────────────────────────────────────────────────
+    '/api/v1/courses/{courseId}/quizzes': {
+      get: {
+        tags: ['Quizzes'],
+        summary: 'List quizzes by course',
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 200: { description: 'Quiz list' } },
+      },
+      post: {
+        tags: ['Quizzes'],
+        summary: 'Create quiz (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [{ in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } }],
+        responses: { 201: { description: 'Quiz created' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/quizzes/{quizId}': {
+      get: {
+        tags: ['Quizzes'],
+        summary: 'Get quiz detail with questions',
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'quizId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Quiz detail' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/quizzes/{quizId}/questions': {
+      post: {
+        tags: ['Quizzes'],
+        summary: 'Add question to quiz (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'quizId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 201: { description: 'Question created' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/quizzes/{quizId}/submit': {
+      post: {
+        tags: ['Quizzes'],
+        summary: 'Submit quiz (student)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'quizId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 201: { description: 'Quiz submitted' }, 409: { description: 'Already submitted' } },
+      },
+    },
+    '/api/v1/quiz-results/me': {
+      get: {
+        tags: ['Quizzes'],
+        summary: 'List my quiz results',
+        security: [{ BearerAuth: [] }],
+        responses: { 200: { description: 'Result list' } },
       },
     },
   },
