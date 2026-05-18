@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "fullName": "Teacher Real 1",
+      "email": "teacher.real1@gmail.com",
+      "role": "teacher",
+      "password": "123456"
+    },
+    {
+      "fullName": "Student Real 1",
+      "email": "student.real1@gmail.com",
+      "role": "student",
+      "password": "123456"
+    }
+  ],
+  "courses": [
+    {
+      "title": "English A1 - Real Class",
+      "description": "Real curriculum for A1 learners",
+      "thumbnail": "https://example.com/course-a1.jpg",
+      "teacherEmail": "teacher.real1@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Lesson 1",
+          "content": "Lesson content",
+          "videoUrl": "https://example.com/video-1"
+        }
+      ],
+      "assignments": [
+        {
+          "title": "Assignment 1",
+          "description": "Do exercise 1",
+          "dueDate": "2026-12-31T23:59:59.000Z",
+          "maxScore": 100
+        }
+      ],
+      "quizzes": [
+        {
+          "title": "Quiz 1",
+          "description": "Check lesson 1",
+          "timeLimit": 900,
+          "questions": [
+            {
+              "orderIndex": 1,
+              "content": "2 + 2 = ?",
+              "type": "single_choice",
+              "answers": [
+                { "content": "4", "isCorrect": true },
+                { "content": "3", "isCorrect": false }
+              ]
+            }
+          ]
+        }
+      ],
+      "enrolledStudentEmails": [
+        "student.real1@gmail.com"
+      ]
+    }
+  ]
+}

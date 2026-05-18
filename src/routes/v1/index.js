@@ -6,6 +6,8 @@ const courseRoutes = require('./course.routes');
 const enrollmentRoutes = require('./enrollment.routes');
 const submissionRoutes = require('./submission.routes');
 const quizResultRoutes = require('./quiz-result.routes');
+const notificationRoutes = require('./notification.routes');
+const learningLogRoutes = require('./learning-log.routes');
 
 const router = express.Router();
 
@@ -15,5 +17,7 @@ router.use('/courses', courseRoutes);
 router.use('/enrollments', enrollmentRoutes);
 router.use('/submissions', submissionRoutes);
 router.use('/quiz-results', quizResultRoutes);
+router.use('/notifications', notificationRoutes);
+router.use('/learning-logs', learningLogRoutes);
 
 module.exports = router;

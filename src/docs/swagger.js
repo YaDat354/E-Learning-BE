@@ -600,6 +600,55 @@ const swaggerDefinition = {
         responses: { 200: { description: 'Lesson deleted' }, 403: { description: 'Forbidden' } },
       },
     },
+    '/api/v1/courses/{courseId}/lessons/{lessonId}/files': {
+      get: {
+        tags: ['Lessons'],
+        summary: 'List lesson files',
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Lesson file list' } },
+      },
+      post: {
+        tags: ['Lessons'],
+        summary: 'Create lesson file (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['fileName', 'fileUrl'],
+                properties: {
+                  fileName: { type: 'string', example: 'lesson-1.pdf' },
+                  fileUrl: { type: 'string', example: 'https://cdn.example.com/lesson-1.pdf' },
+                },
+              },
+            },
+          },
+        },
+        responses: { 201: { description: 'Lesson file created' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/lessons/{lessonId}/files/{fileId}': {
+      delete: {
+        tags: ['Lessons'],
+        summary: 'Delete lesson file (teacher/admin)',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'lessonId', required: true, schema: { type: 'string', format: 'uuid' } },
+          { in: 'path', name: 'fileId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Lesson file deleted' } },
+      },
+    },
 
     // ── Assignments ─────────────────────────────────────────────
     '/api/v1/courses/{courseId}/assignments': {
@@ -741,6 +790,90 @@ const swaggerDefinition = {
           { in: 'path', name: 'quizId', required: true, schema: { type: 'string', format: 'uuid' } },
         ],
         responses: { 201: { description: 'Quiz submitted' }, 409: { description: 'Already submitted' } },
+      },
+    },
+    '/api/v1/courses/{courseId}/discussions': {
+      get: {
+        tags: ['Quizzes'],
+        summary: 'List discussions in a course',
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Discussion list' } },
+      },
+      post: {
+        tags: ['Quizzes'],
+        summary: 'Create discussion post',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'courseId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['content'],
+                properties: {
+                  content: { type: 'string', example: 'Em chua hieu bai nay, thay co the giai thich them khong?' },
+                  parentId: { type: 'string', format: 'uuid', nullable: true },
+                },
+              },
+            },
+          },
+        },
+        responses: { 201: { description: 'Discussion created' } },
+      },
+    },
+    '/api/v1/learning-logs/me': {
+      get: {
+        tags: ['Users'],
+        summary: 'Get my learning logs',
+        security: [{ BearerAuth: [] }],
+        responses: { 200: { description: 'Learning logs list' } },
+      },
+    },
+    '/api/v1/learning-logs': {
+      post: {
+        tags: ['Users'],
+        summary: 'Create or update learning log',
+        security: [{ BearerAuth: [] }],
+        requestBody: {
+          required: true,
+          content: {
+            'application/json': {
+              schema: {
+                type: 'object',
+                required: ['lessonId'],
+                properties: {
+                  lessonId: { type: 'string', format: 'uuid' },
+                  learningTime: { type: 'number', example: 300 },
+                },
+              },
+            },
+          },
+        },
+        responses: { 200: { description: 'Learning log upserted' } },
+      },
+    },
+    '/api/v1/notifications/me': {
+      get: {
+        tags: ['Users'],
+        summary: 'Get my notifications',
+        security: [{ BearerAuth: [] }],
+        responses: { 200: { description: 'Notification list' } },
+      },
+    },
+    '/api/v1/notifications/{notificationId}/read': {
+      patch: {
+        tags: ['Users'],
+        summary: 'Mark notification as read',
+        security: [{ BearerAuth: [] }],
+        parameters: [
+          { in: 'path', name: 'notificationId', required: true, schema: { type: 'string', format: 'uuid' } },
+        ],
+        responses: { 200: { description: 'Notification marked as read' } },
       },
     },
     '/api/v1/quiz-results/me': {

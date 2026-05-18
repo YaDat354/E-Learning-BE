@@ -8,6 +8,8 @@
     "dev": "nodemon src/app.js",
     "db:check": "node -e \"require('./src/config/database').query('SELECT NOW()').then(() => { console.log('Database connection OK'); process.exit(0); }).catch((error) => { console.error(error.message); process.exit(1); })\"",
     "db:sync": "node src/database/run-sql-file.js src/database/migrations/001_sync_schema_for_current_code.sql",
+    "db:seed": "node src/scripts/seed-sample-data.js",
+    "db:import-real": "node src/scripts/import-real-data.js",
     "db:migrate2": "node src/database/run-sql-file.js src/database/migrations/002_lessons_assignments_quizzes.sql",
     "test:smoke": "node src/scripts/smoke-test.js",
     "test": "echo \"Error: no test specified\" && exit 1"

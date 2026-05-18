@@ -16,7 +16,7 @@ const getLessonById = async (courseId, lessonId) => {
 
 const createLesson = async (courseId, body, user) => {
   const course = await courseModel.findById(courseId);
-  if (!course) throw new HttpError('Course not found', 404);
+  if (!course) throw new HttpError(404, 'Course not found');
 
   // teacher can only add lessons to their own courses
   if (user.role === 'teacher' && course.teacher_id !== user.id) {

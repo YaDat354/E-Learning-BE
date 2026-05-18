@@ -4,6 +4,12 @@ const assignmentController = require('../../controllers/assignment.controller');
 const { authenticate } = require('../../middlewares/auth.middleware');
 const { authorizeRoles } = require('../../middlewares/role.middleware');
 const roles = require('../../constants/roles');
+const {
+  validateCreateAssignment,
+  validateUpdateAssignment,
+  validateSubmitAssignment,
+  validateGradeSubmission,
+} = require('../../validations/validators');
 
 const router = express.Router({ mergeParams: true });
 
@@ -12,12 +18,12 @@ router.get('/', assignmentController.getAssignments);
 router.get('/:assignmentId', assignmentController.getAssignmentById);
 
 // Teacher/Admin management
-router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), assignmentController.createAssignment);
-router.patch('/:assignmentId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), assignmentController.updateAssignment);
+router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateCreateAssignment, assignmentController.createAssignment);
+router.patch('/:assignmentId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateAssignment, assignmentController.updateAssignment);
 router.delete('/:assignmentId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), assignmentController.deleteAssignment);
 
 // Student submission
-router.post('/:assignmentId/submissions', authenticate, authorizeRoles(roles.STUDENT), assignmentController.submitAssignment);
+router.post('/:assignmentId/submissions', authenticate, authorizeRoles(roles.STUDENT), validateSubmitAssignment, assignmentController.submitAssignment);
 
 // Teacher/Admin review
 router.get('/:assignmentId/submissions', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), assignmentController.getSubmissions);
@@ -25,6 +31,7 @@ router.patch(
   '/:assignmentId/submissions/:submissionId/grade',
   authenticate,
   authorizeRoles(roles.TEACHER, roles.ADMIN),
+  validateGradeSubmission,
   assignmentController.gradeSubmission
 );
 
