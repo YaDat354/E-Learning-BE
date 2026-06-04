@@ -10,6 +10,8 @@
     "db:sync": "node src/database/run-sql-file.js src/database/migrations/001_sync_schema_for_current_code.sql",
     "db:seed": "node src/scripts/seed-sample-data.js",
     "db:import-real": "node src/scripts/import-real-data.js",
+    "db:crawl-english": "node src/scripts/crawl-english-data.js",
+    "db:import-crawled": "node src/scripts/import-real-data.js data/crawled-english-data.json",
     "db:reset-real": "node src/scripts/reset-and-import-real.js",
     "db:migrate2": "node src/database/run-sql-file.js src/database/migrations/002_lessons_assignments_quizzes.sql",
     "test:smoke": "node src/scripts/smoke-test.js",

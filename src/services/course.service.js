@@ -3,6 +3,7 @@ const lessonModel = require('../models/lesson.model');
 const enrollmentModel = require('../models/enrollment.model');
 const discussionModel = require('../models/discussion.model');
 const HttpError = require('../utils/http-error');
+const { toMediaPayload } = require('../utils/media-source');
 
 const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
@@ -33,19 +34,26 @@ const formatDurationLabel = (totalMinutes) => {
   return `${hours} gio ${minutes} phut`;
 };
 
-const mapLessonForDetail = (lesson, index) => ({
-  id: lesson.id,
-  courseId: lesson.course_id,
-  title: lesson.title,
-  content: lesson.content,
-  videoUrl: lesson.video_url,
-  orderIndex: lesson.order_index,
-  duration: lesson.duration,
-  durationLabel: lesson.duration ? `${lesson.duration} phut` : 'Dang cap nhat',
-  isPreview: index === 0,
-  createdAt: lesson.created_at,
-  updatedAt: lesson.updated_at,
-});
+const mapLessonForDetail = (lesson, index) => {
+  const mediaState = toMediaPayload(lesson.video_url);
+
+  return {
+    id: lesson.id,
+    courseId: lesson.course_id,
+    title: lesson.title,
+    content: lesson.content,
+    videoUrl: lesson.video_url,
+    orderIndex: lesson.order_index,
+    duration: lesson.duration,
+    durationLabel: lesson.duration ? `${lesson.duration} phut` : 'Dang cap nhat',
+    isPreview: index === 0,
+    sourceType: mediaState.sourceType,
+    isPlayable: mediaState.isPlayable,
+    media: mediaState.media,
+    createdAt: lesson.created_at,
+    updatedAt: lesson.updated_at,
+  };
+};
 
 const getCourseById = async (courseId, currentUser) => {
   const course = await courseModel.findById(courseId);

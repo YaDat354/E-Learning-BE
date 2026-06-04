@@ -1,17 +1,30 @@
 const lessonModel = require('../models/lesson.model');
 const courseModel = require('../models/course.model');
 const HttpError = require('../utils/http-error');
+const { toMediaPayload } = require('../utils/media-source');
+
+const mapLesson = (lesson) => {
+  const mediaState = toMediaPayload(lesson.video_url);
+
+  return {
+    ...lesson,
+    sourceType: mediaState.sourceType,
+    isPlayable: mediaState.isPlayable,
+    media: mediaState.media,
+  };
+};
 
 const getLessons = async (courseId) => {
   const course = await courseModel.findById(courseId);
   if (!course) throw new HttpError(404, 'Course not found');
-  return lessonModel.findByCourseId(courseId);
+  const lessons = await lessonModel.findByCourseId(courseId);
+  return lessons.map(mapLesson);
 };
 
 const getLessonById = async (courseId, lessonId) => {
   const lesson = await lessonModel.findById(lessonId);
   if (!lesson || lesson.course_id !== courseId) throw new HttpError(404, 'Lesson not found');
-  return lesson;
+  return mapLesson(lesson);
 };
 
 const createLesson = async (courseId, body, user) => {

@@ -1,0 +1,303 @@
+{
+  "users": [
+    {
+      "fullName": "Crawler Teacher",
+      "email": "crawler.teacher@gmail.com",
+      "role": "teacher",
+      "password": "123456"
+    },
+    {
+      "fullName": "Crawler Student",
+      "email": "crawler.student@gmail.com",
+      "role": "student",
+      "password": "123456"
+    }
+  ],
+  "courses": [
+    {
+      "title": "British Council Listening A1",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Request Your Boss",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_A_request_from_your_boss.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Voicemail Message",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_A_voicemail_message.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 3,
+          "title": "Booking Table",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Booking_a_table.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 4,
+          "title": "Business Cards",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Business_cards.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 5,
+          "title": "Finding Library",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Finding_%20the_library.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 6,
+          "title": "Meeting New Team Member",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_a_new_team_member.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 7,
+          "title": "Meeting Other Students",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_other_students.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 8,
+          "title": "Meeting People Dinner",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_people_at_a_dinner.mp3",
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Morning Briefing",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Morning_briefing.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Invitation Party",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_An_invitation_to_a_party.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 3,
+          "title": "Changing Meeting Time",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_a_meeting_time.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 4,
+          "title": "Changing Plans",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_plans.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 5,
+          "title": "Facts Figures",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Facts_and_figures.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 6,
+          "title": "Four Conversations",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Four_conversations.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 7,
+          "title": "Instructions Assignment",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Academic_Instructions_for_an_assignment.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 8,
+          "title": "Leaving Message",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Leaving_a_message.mp3",
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Phone Call Customer",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_phone_call_from_a_customer.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Student Discussion",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Student_discussion.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 3,
+          "title": "Team Meeting About Diversity",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Team_meeting_about_diversity.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 4,
+          "title": "Weather Forecast",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_weather_forecast.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 5,
+          "title": "Interview About Listening Skills",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_interview_about_listening_skills.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 6,
+          "title": "Introduction Lecture",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_introduction_to_a_lecture.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 7,
+          "title": "Arriving Late Class",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Arriving_late_to_class.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 8,
+          "title": "Chemist",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_At_the_chemist.mp3",
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Business Interview",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_business_interview.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Design Presentation",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_design_presentation.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 3,
+          "title": "Digital Detox Podcast",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Digital_detox_podcast.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 4,
+          "title": "Lecture About Experiment",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_lecture_about_an_experiment.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 5,
+          "title": "Talk About Motivation",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_talk_about_motivation.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 6,
+          "title": "Business News",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Business_news.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 7,
+          "title": "Creating Study Group",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Creating_a_study_group.mp3",
+          "duration": 20
+        },
+        {
+          "orderIndex": 8,
+          "title": "Film Reviews",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Film_reviews.mp3",
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    }
+  ],
+  "meta": {
+    "source": "learnenglish.britishcouncil.org",
+    "generatedAt": "2026-06-04T07:48:03.409Z",
+    "notes": "Metadata links only. Respect source website terms and copyright."
+  }
+}

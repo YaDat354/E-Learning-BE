@@ -1,4 +1,5 @@
 const HttpError = require('../utils/http-error');
+const { classifyMediaSource } = require('../utils/media-source');
 
 const ensureBodyObject = (body) => {
   if (!body || typeof body !== 'object' || Array.isArray(body)) {
@@ -80,9 +81,15 @@ const validateUpdateCourse = (req, res, next) => {
 
 const validateCreateLesson = (req, res, next) => {
   ensureBodyObject(req.body);
-  const { title, orderIndex, duration } = req.body;
+  const { title, orderIndex, duration, videoUrl } = req.body;
 
   if (!isNonEmptyString(title)) throw new HttpError(400, 'title is required');
+  if (videoUrl !== undefined) {
+    const sourceType = classifyMediaSource(videoUrl);
+    if (!['audio', 'video', 'youtube'].includes(sourceType)) {
+      throw new HttpError(400, 'videoUrl must be a direct media URL or a valid YouTube URL');
+    }
+  }
   if (orderIndex !== undefined && (!Number.isInteger(orderIndex) || orderIndex < 0)) {
     throw new HttpError(400, 'orderIndex must be an integer >= 0');
   }
@@ -98,6 +105,14 @@ const validateUpdateLesson = (req, res, next) => {
   if (Object.keys(req.body).length === 0) {
     throw new HttpError(400, 'At least one field is required');
   }
+
+  if (req.body.videoUrl !== undefined) {
+    const sourceType = classifyMediaSource(req.body.videoUrl);
+    if (!['audio', 'video', 'youtube'].includes(sourceType)) {
+      throw new HttpError(400, 'videoUrl must be a direct media URL or a valid YouTube URL');
+    }
+  }
+
   next();
 };
 
