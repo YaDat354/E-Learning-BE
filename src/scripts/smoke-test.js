@@ -26,6 +26,7 @@ const run = async () => {
 
   const course = await courseService.createCourse({
     title: `Smoke Course ${suffix}`,
+    level: 'co_ban',
     description: 'Smoke test course',
     teacherId: teacher.user.id,
   });

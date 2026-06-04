@@ -1,11 +1,22 @@
 const { query } = require('../config/database');
 
-const listAll = async () => {
+const listAll = async ({ level } = {}) => {
+  const clauses = [];
+  const params = [];
+
+  if (level) {
+    params.push(level);
+    clauses.push(`c.level = $${params.length}`);
+  }
+
+  const whereSql = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : '';
+
   const result = await query(
     `
       SELECT
         c.id,
         c.title,
+        c.level,
         c.description,
         c.thumbnail,
         c.created_at,
@@ -15,8 +26,17 @@ const listAll = async () => {
         u.email AS teacher_email
       FROM courses c
       LEFT JOIN users u ON u.id = c.teacher_id
-      ORDER BY c.created_at DESC
-    `
+      ${whereSql}
+      ORDER BY
+        CASE c.level
+          WHEN 'co_ban' THEN 1
+          WHEN 'trung_cap' THEN 2
+          WHEN 'cao_cap' THEN 3
+          ELSE 4
+        END ASC,
+        c.created_at DESC
+    `,
+    params
   );
 
   return result.rows;
@@ -28,6 +48,7 @@ const findById = async (courseId) => {
       SELECT
         c.id,
         c.title,
+        c.level,
         c.description,
         c.thumbnail,
         c.created_at,
@@ -46,32 +67,33 @@ const findById = async (courseId) => {
   return result.rows[0] || null;
 };
 
-const create = async ({ title, description, thumbnail, teacherId }) => {
+const create = async ({ title, level, description, thumbnail, teacherId }) => {
   const result = await query(
     `
-      INSERT INTO courses (title, description, thumbnail, teacher_id)
-      VALUES ($1, $2, $3, $4)
-      RETURNING id, title, description, thumbnail, teacher_id, created_at, updated_at
+      INSERT INTO courses (title, level, description, thumbnail, teacher_id)
+      VALUES ($1, $2, $3, $4, $5)
+      RETURNING id, title, level, description, thumbnail, teacher_id, created_at, updated_at
     `,
-    [title, description || null, thumbnail || null, teacherId]
+    [title, level || 'co_ban', description || null, thumbnail || null, teacherId]
   );
 
   return result.rows[0] || null;
 };
 
-const updateById = async (courseId, { title, description, thumbnail }) => {
+const updateById = async (courseId, { title, level, description, thumbnail }) => {
   const result = await query(
     `
       UPDATE courses
       SET
         title = COALESCE($1, title),
-        description = COALESCE($2, description),
-        thumbnail = COALESCE($3, thumbnail),
+        level = COALESCE($2, level),
+        description = COALESCE($3, description),
+        thumbnail = COALESCE($4, thumbnail),
         updated_at = NOW()
-      WHERE id = $4
-      RETURNING id, title, description, thumbnail, teacher_id, created_at, updated_at
+      WHERE id = $5
+      RETURNING id, title, level, description, thumbnail, teacher_id, created_at, updated_at
     `,
-    [title || null, description || null, thumbnail || null, courseId]
+    [title || null, level || null, description || null, thumbnail || null, courseId]
   );
 
   return result.rows[0] || null;

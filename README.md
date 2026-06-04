@@ -71,6 +71,8 @@ JWT_EXPIRES_IN=1d
 | `npm start`       | Start in production mode                         |
 | `npm run db:check`| Test PostgreSQL connectivity                     |
 | `npm run db:sync` | Run migration `001_sync_schema_for_current_code` |
+| `npm run db:seed` | Seed sample data                                  |
+| `npm run db:import-real` | Import real data from `data/real-data.json` |
 | `npm run test:smoke` | Run smoke test (auth + course + enrollment)  |
 
 ---
@@ -147,6 +149,31 @@ npm run test:smoke
 ```
 
 Expected output: `AUTH_TEACHER_OK`, `AUTH_STUDENT_OK`, `COURSE_CREATED_OK`, `ENROLLMENT_CREATED_OK`, `MY_ENROLLMENTS_OK`
+
+---
+
+## Import Real Data
+
+1. Prepare your data payload at `data/real-data.json`.
+2. Ensure DB schema is up-to-date:
+
+```bash
+npm run db:sync
+```
+
+3. Run import:
+
+```bash
+npm run db:import-real
+```
+
+Optional: import from a custom file path.
+
+```bash
+node src/scripts/import-real-data.js path/to/real-data.json
+```
+
+Note: `JWT_SECRET` must be a strong value (minimum 16 chars, not `change-me`).
 
 ---
 

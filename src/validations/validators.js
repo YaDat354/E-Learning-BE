@@ -45,9 +45,13 @@ const validateLogin = (req, res, next) => {
 
 const validateCreateCourse = (req, res, next) => {
   ensureBodyObject(req.body);
-  const { title, description, thumbnail } = req.body;
+  const { title, level, description, thumbnail } = req.body;
+  const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
   if (!isNonEmptyString(title)) throw new HttpError(400, 'title is required');
+  if (!isNonEmptyString(level) || !allowedLevels.includes(level)) {
+    throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
+  }
   if (description !== undefined && typeof description !== 'string') {
     throw new HttpError(400, 'description must be a string');
   }
@@ -60,10 +64,15 @@ const validateCreateCourse = (req, res, next) => {
 
 const validateUpdateCourse = (req, res, next) => {
   ensureBodyObject(req.body);
-  const { title, description, thumbnail } = req.body;
+  const { title, level, description, thumbnail } = req.body;
+  const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
-  if (title === undefined && description === undefined && thumbnail === undefined) {
-    throw new HttpError(400, 'At least one field (title, description, thumbnail) is required');
+  if (level !== undefined && (!isNonEmptyString(level) || !allowedLevels.includes(level))) {
+    throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
+  }
+
+  if (title === undefined && level === undefined && description === undefined && thumbnail === undefined) {
+    throw new HttpError(400, 'At least one field (title, level, description, thumbnail) is required');
   }
 
   next();
@@ -194,6 +203,39 @@ const validateUpdateProfile = (req, res, next) => {
   next();
 };
 
+const validateCreateStudent = (req, res, next) => {
+  ensureBodyObject(req.body);
+  const { fullName, email, password } = req.body;
+
+  if (!isNonEmptyString(fullName)) throw new HttpError(400, 'fullName is required');
+  if (!isNonEmptyString(email)) throw new HttpError(400, 'email is required');
+  if (!email.includes('@')) throw new HttpError(400, 'email is invalid');
+  if (!isNonEmptyString(password) || password.length < 6) {
+    throw new HttpError(400, 'password must be at least 6 characters');
+  }
+
+  next();
+};
+
+const validateUpdateStudent = (req, res, next) => {
+  ensureBodyObject(req.body);
+  const { fullName, email, password, avatar } = req.body;
+
+  if (fullName === undefined && email === undefined && password === undefined && avatar === undefined) {
+    throw new HttpError(400, 'At least one field (fullName, email, password, avatar) is required');
+  }
+
+  if (email !== undefined && (!isNonEmptyString(email) || !email.includes('@'))) {
+    throw new HttpError(400, 'email is invalid');
+  }
+
+  if (password !== undefined && (!isNonEmptyString(password) || password.length < 6)) {
+    throw new HttpError(400, 'password must be at least 6 characters');
+  }
+
+  next();
+};
+
 const validateCreateLessonFile = (req, res, next) => {
   ensureBodyObject(req.body);
   const { fileName, fileUrl } = req.body;
@@ -236,6 +278,8 @@ module.exports = {
   validateEnrollCourse,
   validateUpdateEnrollmentProgress,
   validateUpdateProfile,
+  validateCreateStudent,
+  validateUpdateStudent,
   validateCreateLessonFile,
   validateUpsertLearningLog,
   validateCreateDiscussion,

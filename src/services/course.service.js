@@ -1,27 +1,109 @@
 const courseModel = require('../models/course.model');
+const lessonModel = require('../models/lesson.model');
+const enrollmentModel = require('../models/enrollment.model');
+const discussionModel = require('../models/discussion.model');
 const HttpError = require('../utils/http-error');
 
-const listCourses = async () => courseModel.listAll();
+const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
-const getCourseById = async (courseId) => {
+const listCourses = async ({ level } = {}) => {
+  if (level && !allowedLevels.includes(level)) {
+    throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
+  }
+
+  return courseModel.listAll({ level });
+};
+
+const formatDurationLabel = (totalMinutes) => {
+  if (!totalMinutes || totalMinutes <= 0) {
+    return 'Dang cap nhat';
+  }
+
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  if (hours === 0) {
+    return `${minutes} phut`;
+  }
+
+  if (minutes === 0) {
+    return `${hours} gio`;
+  }
+
+  return `${hours} gio ${minutes} phut`;
+};
+
+const mapLessonForDetail = (lesson, index) => ({
+  id: lesson.id,
+  courseId: lesson.course_id,
+  title: lesson.title,
+  content: lesson.content,
+  videoUrl: lesson.video_url,
+  orderIndex: lesson.order_index,
+  duration: lesson.duration,
+  durationLabel: lesson.duration ? `${lesson.duration} phut` : 'Dang cap nhat',
+  isPreview: index === 0,
+  createdAt: lesson.created_at,
+  updatedAt: lesson.updated_at,
+});
+
+const getCourseById = async (courseId, currentUser) => {
   const course = await courseModel.findById(courseId);
 
   if (!course) {
     throw new HttpError(404, 'Course not found');
   }
 
-  return course;
+  const lessons = await lessonModel.findByCourseId(courseId);
+  const mappedLessons = lessons.map(mapLessonForDetail);
+
+  const totalDurationMinutes = mappedLessons.reduce(
+    (sum, lesson) => sum + (Number(lesson.duration) || 0),
+    0
+  );
+
+  const totalStudents = await enrollmentModel.countByCourseId(courseId);
+  const totalDiscussions = await discussionModel.countByCourseId(courseId);
+
+  let isEnrolled = false;
+  if (currentUser && currentUser.role === 'student') {
+    const enrollment = await enrollmentModel.findByStudentAndCourse(currentUser.id, courseId);
+    isEnrolled = Boolean(enrollment);
+  }
+
+  return {
+    ...course,
+    thumbnailUrl: course.thumbnail,
+    teacher: {
+      id: course.teacher_id,
+      fullName: course.teacher_name,
+      email: course.teacher_email,
+    },
+    lessons: mappedLessons,
+    stats: {
+      totalLessons: mappedLessons.length,
+      totalStudents,
+      totalDurationMinutes,
+      totalDurationLabel: formatDurationLabel(totalDurationMinutes),
+      totalDiscussions,
+    },
+    isEnrolled,
+  };
 };
 
-const createCourse = async ({ title, description, thumbnail, teacherId }) => {
+const createCourse = async ({ title, level, description, thumbnail, teacherId }) => {
   if (!title) {
     throw new HttpError(400, 'title is required');
   }
 
-  return courseModel.create({ title, description, thumbnail, teacherId });
+  if (!level || !allowedLevels.includes(level)) {
+    throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
+  }
+
+  return courseModel.create({ title, level, description, thumbnail, teacherId });
 };
 
-const updateCourse = async (courseId, { title, description, thumbnail }, user) => {
+const updateCourse = async (courseId, { title, level, description, thumbnail }, user) => {
   const course = await courseModel.findById(courseId);
 
   if (!course) {
@@ -32,11 +114,15 @@ const updateCourse = async (courseId, { title, description, thumbnail }, user) =
     throw new HttpError(403, 'Forbidden');
   }
 
-  if (!title && !description && !thumbnail) {
-    throw new HttpError(400, 'At least one field (title, description, thumbnail) is required');
+  if (level && !allowedLevels.includes(level)) {
+    throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  return courseModel.updateById(courseId, { title, description, thumbnail });
+  if (!title && !level && !description && !thumbnail) {
+    throw new HttpError(400, 'At least one field (title, level, description, thumbnail) is required');
+  }
+
+  return courseModel.updateById(courseId, { title, level, description, thumbnail });
 };
 
 const deleteCourse = async (courseId, user) => {

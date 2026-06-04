@@ -39,6 +39,11 @@ const findById = async (id) => {
   return result.rows[0] || null;
 };
 
+const listByRole = async (role) => {
+  const result = await query(`${baseSelect} WHERE r.name = $1 ORDER BY u.created_at DESC`, [role]);
+  return result.rows;
+};
+
 const create = async ({ fullName, email, password, role }) => {
   const useLegacyRoleColumn = await hasLegacyRoleColumn();
 
@@ -84,9 +89,36 @@ const updateById = async (id, { fullName, avatar }) => {
   return result.rows[0] || null;
 };
 
+const adminUpdateById = async (id, { fullName, email, password, avatar }) => {
+  const result = await query(
+    `
+      UPDATE users
+      SET
+        full_name = COALESCE($1, full_name),
+        email = COALESCE($2, email),
+        password = COALESCE($3, password),
+        avatar = COALESCE($4, avatar),
+        updated_at = NOW()
+      WHERE id = $5
+      RETURNING id
+    `,
+    [fullName || null, email || null, password || null, avatar || null, id]
+  );
+
+  return result.rows[0] || null;
+};
+
+const deleteById = async (id) => {
+  const result = await query('DELETE FROM users WHERE id = $1 RETURNING id', [id]);
+  return result.rows[0] || null;
+};
+
 module.exports = {
   findByEmail,
   findById,
+  listByRole,
   create,
   updateById,
+  adminUpdateById,
+  deleteById,
 };

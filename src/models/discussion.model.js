@@ -23,7 +23,17 @@ const create = async ({ courseId, userId, content, parentId }) => {
   return result.rows[0] || null;
 };
 
+const countByCourseId = async (courseId) => {
+  const result = await query(
+    `SELECT COUNT(*)::int AS total_discussions FROM discussions WHERE course_id = $1`,
+    [courseId]
+  );
+
+  return result.rows[0]?.total_discussions || 0;
+};
+
 module.exports = {
   findByCourseId,
   create,
+  countByCourseId,
 };

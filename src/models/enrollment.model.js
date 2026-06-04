@@ -63,6 +63,19 @@ const findById = async (enrollmentId) => {
   return result.rows[0] || null;
 };
 
+const countByCourseId = async (courseId) => {
+  const result = await query(
+    `
+      SELECT COUNT(*)::int AS total_students
+      FROM enrollments
+      WHERE course_id = $1
+    `,
+    [courseId]
+  );
+
+  return result.rows[0]?.total_students || 0;
+};
+
 const updateProgress = async (enrollmentId, progress) => {
   const result = await query(
     `
@@ -82,5 +95,6 @@ module.exports = {
   create,
   findByStudentId,
   findById,
+  countByCourseId,
   updateProgress,
 };

@@ -85,27 +85,28 @@ const findUserByEmail = async (email) => {
   return result.rows[0] || null;
 };
 
-const upsertCourse = async ({ title, description, thumbnail, teacherId }) => {
+const upsertCourse = async ({ title, level, description, thumbnail, teacherId }) => {
   const found = await query('SELECT id FROM courses WHERE title = $1 AND teacher_id = $2 LIMIT 1', [title, teacherId]);
 
   if (found.rows[0]) {
     const updated = await query(
       `UPDATE courses
-       SET description = $1,
-           thumbnail = $2,
+       SET level = $1,
+           description = $2,
+           thumbnail = $3,
            updated_at = NOW()
-       WHERE id = $3
+       WHERE id = $4
        RETURNING id`,
-      [description || null, thumbnail || null, found.rows[0].id]
+      [level || 'co_ban', description || null, thumbnail || null, found.rows[0].id]
     );
     return updated.rows[0].id;
   }
 
   const inserted = await query(
-    `INSERT INTO courses (title, description, thumbnail, teacher_id)
-     VALUES ($1, $2, $3, $4)
+    `INSERT INTO courses (title, level, description, thumbnail, teacher_id)
+     VALUES ($1, $2, $3, $4, $5)
      RETURNING id`,
-    [title, description || null, thumbnail || null, teacherId]
+    [title, level || 'co_ban', description || null, thumbnail || null, teacherId]
   );
   return inserted.rows[0].id;
 };
@@ -296,6 +297,32 @@ const ensureEnrollments = async (studentEmails, courseId) => {
   }
 };
 
+const upsertDiscussion = async ({ courseId, userId, content, parentId }) => {
+  const found = await query(
+    `SELECT id
+     FROM discussions
+     WHERE course_id = $1
+       AND user_id = $2
+       AND content = $3
+       AND ((parent_id IS NULL AND $4::uuid IS NULL) OR parent_id = $4)
+     LIMIT 1`,
+    [courseId, userId, content, parentId || null]
+  );
+
+  if (found.rows[0]) {
+    return found.rows[0].id;
+  }
+
+  const inserted = await query(
+    `INSERT INTO discussions (course_id, user_id, content, parent_id)
+     VALUES ($1, $2, $3, $4)
+     RETURNING id`,
+    [courseId, userId, content, parentId || null]
+  );
+
+  return inserted.rows[0]?.id || null;
+};
+
 const run = async () => {
   if (!fs.existsSync(payloadPath)) {
     console.error(`Import file not found: ${payloadPath}`);
@@ -327,6 +354,7 @@ const run = async () => {
 
     const courseId = await upsertCourse({
       title: course.title,
+      level: course.level,
       description: course.description,
       thumbnail: course.thumbnail,
       teacherId: teacher.id,
@@ -347,6 +375,26 @@ const run = async () => {
       for (const question of quiz.questions || []) {
         await upsertQuestionWithAnswers(quizId, question);
       }
+    }
+
+    const discussionIds = [];
+    for (const discussion of course.discussions || []) {
+      if (!discussion?.authorEmail || !discussion?.content) continue;
+      const author = await findUserByEmail(discussion.authorEmail);
+      if (!author) continue;
+
+      const parentId = Number.isInteger(discussion.parentIndex)
+        ? (discussionIds[discussion.parentIndex] || null)
+        : null;
+
+      const discussionId = await upsertDiscussion({
+        courseId,
+        userId: author.id,
+        content: discussion.content,
+        parentId,
+      });
+
+      discussionIds.push(discussionId);
     }
 
     await ensureEnrollments(course.enrolledStudentEmails || [], courseId);

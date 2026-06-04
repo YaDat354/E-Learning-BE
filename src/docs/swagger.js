@@ -56,9 +56,15 @@ const swaggerDefinition = {
       },
       CreateCourseRequest: {
         type: 'object',
-        required: ['title'],
+        required: ['title', 'level'],
         properties: {
           title:       { type: 'string', example: 'English Communication Basics' },
+          level:       {
+            type: 'string',
+            enum: ['co_ban', 'trung_cap', 'cao_cap'],
+            example: 'co_ban',
+            description: 'Course level: co_ban (basic), trung_cap (intermediate), cao_cap (advanced)',
+          },
           description: { type: 'string', example: 'Build speaking confidence for daily situations' },
           thumbnail:   { type: 'string', format: 'uri', example: 'https://example.com/thumb.jpg' },
         },
@@ -86,6 +92,7 @@ const swaggerDefinition = {
         properties: {
           id:          { type: 'string', format: 'uuid' },
           title:       { type: 'string' },
+          level:       { type: 'string', enum: ['co_ban', 'trung_cap', 'cao_cap'] },
           description: { type: 'string', nullable: true },
           thumbnail:   { type: 'string', nullable: true },
           teacherId:   { type: 'string', format: 'uuid' },
@@ -295,6 +302,15 @@ const swaggerDefinition = {
         tags: ['Courses'],
         summary: 'List all published courses',
         description: 'Public endpoint — no auth required.',
+        parameters: [
+          {
+            in: 'query',
+            name: 'level',
+            required: false,
+            schema: { type: 'string', enum: ['co_ban', 'trung_cap', 'cao_cap'] },
+            description: 'Filter by course level',
+          },
+        ],
         responses: {
           200: {
             description: 'Array of courses',

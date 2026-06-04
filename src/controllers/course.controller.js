@@ -2,7 +2,9 @@ const asyncHandler = require('../utils/async-handler');
 const courseService = require('../services/course.service');
 
 const listCourses = asyncHandler(async (req, res) => {
-  const data = await courseService.listCourses();
+  const data = await courseService.listCourses({
+    level: req.query.level,
+  });
 
   res.json({
     success: true,
@@ -12,7 +14,7 @@ const listCourses = asyncHandler(async (req, res) => {
 });
 
 const getCourseById = asyncHandler(async (req, res) => {
-  const data = await courseService.getCourseById(req.params.courseId);
+  const data = await courseService.getCourseById(req.params.courseId, req.user || null);
 
   res.json({
     success: true,
@@ -24,6 +26,7 @@ const getCourseById = asyncHandler(async (req, res) => {
 const createCourse = asyncHandler(async (req, res) => {
   const data = await courseService.createCourse({
     ...req.body,
+    level: req.body.level,
     teacherId: req.user.id,
   });
 
@@ -39,6 +42,7 @@ const updateCourse = asyncHandler(async (req, res) => {
     req.params.courseId,
     {
       title: req.body.title,
+      level: req.body.level,
       description: req.body.description,
       thumbnail: req.body.thumbnail,
     },

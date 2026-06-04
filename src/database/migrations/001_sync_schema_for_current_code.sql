@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS courses (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   teacher_id UUID NOT NULL REFERENCES users(id) ON DELETE RESTRICT,
   title VARCHAR(255) NOT NULL,
+  level VARCHAR(20) NOT NULL DEFAULT 'co_ban',
   description TEXT,
   thumbnail TEXT,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -341,6 +342,42 @@ BEGIN
     ALTER TABLE assignments ALTER COLUMN course_id SET NOT NULL;
   END IF;
 END $$;
+
+-- courses: add and normalize level to 3 categories for FE filtering
+ALTER TABLE courses ADD COLUMN IF NOT EXISTS level VARCHAR(20);
+
+DO $$
+BEGIN
+  IF EXISTS (
+    SELECT 1 FROM pg_constraint WHERE conname = 'chk_courses_level'
+  ) THEN
+    ALTER TABLE courses DROP CONSTRAINT chk_courses_level;
+  END IF;
+END $$;
+
+UPDATE courses
+SET level = CASE
+  WHEN level IN ('co_ban', 'trung_cap', 'cao_cap') THEN level
+  WHEN level IN ('Cơ bản', 'Trung cấp', 'Nâng cao', 'Cao cấp') THEN
+    CASE
+      WHEN level = 'Cơ bản' THEN 'co_ban'
+      WHEN level = 'Trung cấp' THEN 'trung_cap'
+      ELSE 'cao_cap'
+    END
+  WHEN title ILIKE '%A1%' OR title ILIKE '%A2%' THEN 'co_ban'
+  WHEN title ILIKE '%B1%' THEN 'trung_cap'
+  ELSE 'cao_cap'
+END
+WHERE level IS NULL OR level = '' OR level NOT IN ('co_ban', 'trung_cap', 'cao_cap');
+
+DO $$
+BEGIN
+  ALTER TABLE courses
+    ADD CONSTRAINT chk_courses_level CHECK (level IN ('co_ban', 'trung_cap', 'cao_cap'));
+END $$;
+
+ALTER TABLE courses ALTER COLUMN level SET NOT NULL;
+ALTER TABLE courses ALTER COLUMN level SET DEFAULT 'co_ban';
 
 DO $$
 BEGIN

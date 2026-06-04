@@ -22,6 +22,30 @@ const authenticate = asyncHandler(async (req, res, next) => {
   next();
 });
 
+const optionalAuthenticate = asyncHandler(async (req, res, next) => {
+  const authorization = req.headers.authorization;
+
+  if (!authorization) {
+    return next();
+  }
+
+  if (!authorization.startsWith('Bearer ')) {
+    throw new HttpError(401, 'Authentication token is invalid');
+  }
+
+  const token = authorization.replace('Bearer ', '').trim();
+  const payload = verifyAccessToken(token);
+  const user = await userModel.findById(payload.userId);
+
+  if (!user) {
+    throw new HttpError(401, 'User not found');
+  }
+
+  req.user = user;
+  next();
+});
+
 module.exports = {
   authenticate,
+  optionalAuthenticate,
 };
