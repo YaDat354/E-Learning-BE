@@ -15,7 +15,7 @@
   ],
   "courses": [
     {
-      "title": "British Council Listening A1",
+      "title": "British Council Listening A1 - Pack 1",
       "level": "co_ban",
       "description": "Listening practice (A1) sourced from British Council public pages.",
       "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
@@ -25,56 +25,38 @@
           "orderIndex": 1,
           "title": "Request Your Boss",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/request-your-boss",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_A_request_from_your_boss.mp3",
+          "transcript": "Susanne : Hi, Mario. Can you help me prepare some things for the next month?\n Mario : OK, sure. What can I help you with?\n Susanne : I need to visit the customer in Germany. It's important.\n Mario : What can I do to help?\n Susanne : Can you send an email to the customer? Ask them when I can visit them next week. Please do this first. It's a priority and very urgent.\n Mario : Right. I'll do it today.\n Susanne : Thanks. This next task is also important. Can you invite everyone to the next team meeting?\n Mario : Yes, I will.\n Susanne : But first you need to book a meeting room. After that, please send everyone an email about it.\n Mario : Yes, of course.\n Susanne : And finally, can you write a short report about our new project? I have to give a presentation to our managers next month. Please do it when you have time – sometime in the next two or three weeks. It's not too urgent.\n Mario : Sure, no problem. I can do it this week.\n Susanne : There's no hurry. Take your time.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
           "orderIndex": 2,
           "title": "Voicemail Message",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/voicemail-message",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_A_voicemail_message.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 3,
-          "title": "Booking Table",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Booking_a_table.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 4,
-          "title": "Business Cards",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Business_cards.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 5,
-          "title": "Finding Library",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Finding_%20the_library.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 6,
-          "title": "Meeting New Team Member",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_a_new_team_member.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 7,
-          "title": "Meeting Other Students",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_other_students.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 8,
-          "title": "Meeting People Dinner",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_people_at_a_dinner.mp3",
+          "transcript": "John : Hi, this is John. Thanks for calling. I'm not here at the moment, so please leave a message and I'll call you back.\n Marina : Hi, John, this is Marina Silva calling from Old Time Toys. Your colleague Alex gave me your phone number. She said you can help me.\n I need some information on your new products. Could you please call me when you are back in the office? My phone number is 0-2-0-8, 6-5-5-7-6-2-1.\n Also, can you please email me your new brochure and information about your prices? My email address is Marina, that's M-A-R-I-N-A, dot Silva, S-I-L-V-A, at O-L-D-T-I-M-E hyphen toys dot com.\n Thanks a lot. I look forward to hearing from you.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         }
       ],
@@ -85,7 +67,267 @@
       ]
     },
     {
-      "title": "British Council Listening A2",
+      "title": "British Council Listening A1 - Pack 2",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Booking Table",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/booking-table",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Booking_a_table.mp3",
+          "transcript": "Staff : Hello, Gino's.\n Jamie : Hi. Can I book a table for tomorrow night, please?\n Staff : How many people is it for?\n Jamie : Four.\n Staff : And what time would you like?\n Jamie : About eight, eight thirty maybe?\n Staff : Let's see ... We're pretty busy tomorrow, so I can do half past seven or nine.\n Jamie : Oh. OK, then. Half seven, please.\n Staff : What name is it?\n Jamie : Jamie.\n Staff : J-A- ...?\n Jamie : M-I-E\n Staff : OK, so that's a table for four at half past seven tomorrow evening.\n Jamie : Great. Thanks! Bye.\n Staff : Bye.\n Staff : Hello, Gino's.\n Jamie : Hi, I called earlier to book a table for four and I was wondering if I can make it for six instead?\n Staff : Ah, what name was it?\n Jamie : It's Jamie.\n Staff : Table for four at half past seven. So you want to change it to 6 o'clock?\n Jamie : No, sorry. Can I make it for six people?\n Staff : Oh, I see. Sorry! That shouldn't be a problem. I can move you to a bigger table but it will be nearer the kitchen. Is that OK?\n Jamie : No problem. Is it possible to change the time as well? Make it a little bit later?\n Staff : Ah ... yeah, we can. Is eight OK for you?\n Jamie : Perfect, thanks!\n Staff : Lovely. See you tomorrow, then.\n Jamie : Thanks! Bye!\n Staff: Thanks. Ciao! \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Business Cards",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/business-cards",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Business_cards.mp3",
+          "transcript": "A \n\n A : Hello, Doctor Miller. It's nice to meet you. \n\n B : Please call me Peter.\n\n A : OK. Are you a medical doctor? It must be helpful when you sell medical equipment.\n\n B : Actually, no. My doctorate was in electronic engineering, but it's still helpful for me when I sell our equipment.\n\n B \n\n Good morning, everyone. I'm happy to be here today to tell you about our new project. My name is Alessandro Rossi. I'm the project leader on the Starlight programming project.\n\n C \n\n Pleased to meet you. Here's my card. My real name is Megumi Tanaka, but people who are not from my country think it's difficult to say my name, so I use another name, Meg, when I'm working internationally.\n\n D \n\n Hello, everyone. My name's Andres Mulligan. I'm very happy to be joining this team for the next few months and learning more about research and development.\n\n Reading text \n\n 1 \n\n DX Medical Equipment Ltd \n\n Dr Peter Miller \n\n Sales Director \n\n 2 \n\n *Space10 Designs* \n\n Alessandro Rossi \n\n Lead Programmer \n\n 3 \n\n Global Engineering Consults \n\n Megumi Tanaka \n\n Product Manager \n\n 4 \n\n MaXtin Ltd \n\n Andres Mulligan Jr \n\n Intern, R&D team \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A1 - Pack 3",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Finding Library",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/finding-library",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Finding_%20the_library.mp3",
+          "transcript": "Student : Hi. Excuse me.\n\n Student B : Yes?\n\n Student : Where's the library?\n\n Student B : The library? It's next to the registration office.\n\n Student : Ah ... sorry, I'm new. Where's the registration office?\n\n Student B : No problem. See the big building over there?\n\n Student : Yes.\n\n Student B : OK, so that's the lecture theatre. Next to that, on the right, is the registration office. And next to that is the library.\n\n Student : I see. Thanks!\n\n Student : Hello?\n\n Librarian : Hello.\n\n Student : Is this the library?\n\n Librarian : Yes, it is. Quiet, please.\n\n Student : Oh, sorry. Thank you.\n\n Librarian : Can I help you?\n\n Student : Er, yes, please. I want to borrow some books. What do I need?\n\n Librarian : You need a library card. Here's the application form. You can take up to six books maximum today.\n\n Student : OK. Six books.\n\n Librarian : Yes. You have two weeks to read the books. Then you bring them back.\n\n Student : And if I'm late?\n\n Librarian : Every day you are late there is a fee of fifty pence.\n\n Student : OK, 50p a day. Er, anything else?\n\n Librarian : Mobile phones must be switched off in the library. You can bring your laptop, but please use headphones to watch videos or listen to music.\n\n Student : OK, great.\n\n Librarian : And you can't bring food or drink.\n\n Student : No food, no drink. And ...?\n\n Librarian : And please speak quietly! People are working here.\n\n Student : Oh! Oh, OK. Thank you.\n\n Librarian : You're welcome.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Meeting New Team Member",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/meeting-new-team-member",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_a_new_team_member.mp3",
+          "transcript": "Peter : Hi, my name's Peter. What's your name?\n\n Carla : Hi, Peter. I'm Carla. I'm new here.\n\n Peter : Welcome to the company, Carla.\n\n Carla : Thanks, Peter. I'm happy to be here and it's nice to meet you.\n\n Peter : It's nice to meet you too.\n\n Carla : Where do you work?\n\n Peter : I work in the design team. We sit over there. \n\n Carla : I'm in the marketing team. I started last week.\n\n Peter : You work in marketing? That's very interesting.\n\n Carla : Yes, it is. I'm enjoying it. But there are a lot of new things to learn.\n\n Peter : I'm sure there are. I'm happy to help you if I can.\n\n Carla : Thank you, Peter. What do you do in the design department?\n\n Peter : I design new products. \n\n Carla : That sounds interesting. I plan marketing events for new products. So I think we'll work together sometimes.\n\n Peter : That would be great. So, where are you from, Carla?\n\n Carla : Brazil. And you?\n\n Peter : I'm from the UK.\n\n Carla : How long have you been here?\n\n Peter : I've worked here for three years but I actually moved here from the UK five years ago, to study.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n Task 3 \n\n Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A1 - Pack 4",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Meeting Other Students",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/meeting-other-students",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_other_students.mp3",
+          "transcript": "Teacher : So, now you've got the important information, it's time to meet each other. Everyone turn to the people next to you and introduce yourselves.\n\n Cara : So, hi. I'm Cara. And you are?\n\n Robert : Robert.\n\n Selim : Selim.\n\n Cara : Nice to meet you!\n\n Robert and Selim : You too.\n\n Robert : Nice accent. Where are you from?\n\n Cara : I'm from Glasgow.\n\n Robert : Oh, really? My mum's from near Glasgow, so I'm half Scottish.\n\n Cara : Cool. Do you live in Scotland?\n\n Robert : No, we live in England, near Manchester. My dad's from there. What about you, Selim?\n\n Selim : I'm from Leeds originally but I grew up near London.\n\n Cara : Are you both doing history on its own?\n\n Selim : No. I'm doing history and German.\n\n Robert : I'm doing it with maths, actually.\n\n Selim : History and maths. That's different!\n\n Robert : Yeah, I couldn't decide between arts and sciences. Maths doesn't help with remembering dates, though! And you?\n\n Cara : I'm doing history and French.\n\n Selim : I wanted to do French but German was easier, so I took that.\n\n Cara : German is so hard!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Meeting People Dinner",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/meeting-people-dinner",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Meeting_people_at_a_dinner.mp3",
+          "transcript": "Charles : Hello, Julian.\n\n Julian : Hello, Charles. How are you?\n\n Charles : I'm fine. Fine. Julian, do you remember Alyssa?\n\n Julian : No, I don't.\n\n Charles : She's Ben's sister. Do you remember? We were all at Ben's wedding together.\n\n Julian : Ah, yes, I do – in that old castle. Was it in January?\n\n Charles : Yes, it was! Alyssa was there.\n\n Alyssa : Hello. Nice to meet you ... again.\n\n Julian : Hello, nice to meet you too, Alison.\n\n Alyssa : I'm not Alison.\n\n Julian : What?\n\n Alyssa : My name isn't Alison. It's Alyssa.\n\n Julian : I'm sorry. Nice to meet you, Alyssa.\n\n Charles : Good. Would you like a drink?\n\n Julian : Good idea.\n\n Alyssa : Yes, please.\n\n Charles : Here you are.\n\n Alyssa and Julian : Thanks!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A1 - Pack 5",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Ordering Cafe",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/ordering-cafe",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Ordering_in_a_caf%C3%A9.mp3",
+          "transcript": "Customer 1 : Can I have an orange juice, please?\n Server : Regular or large?\n Customer 1 : How big is a large?\n Server : This is a large. This is a regular.\n Customer 1 : I'll have a large, then, please. Without ice.\n Server : OK, coming up.\n Customer 1 : Sorry, I wanted freshly squeezed orange juice.\n Server : I'm afraid we only have bottled juices.\n Customer 1 : Oh, then I'll have an apple juice instead, please.\n Server : Here you go. That's £3.50, please.\n Customer : Thanks.\n Server : Thank you.\n Server : Can I help anyone?\n Customer 2 : Who's next?\n Customer 3 : You were first, I think.\n Customer 2 : What teas do you have?\n Server : Breakfast tea, mint and green tea.\n Customer 2 : A mint tea and a slice of lemon cake, please.\n Server : To eat in or take away?\n Customer 2 : Take away, please.\n Server : There you go. That'll be £4.20, please.\n Customer 2 : Sorry, I've only got a fifty.\n Server : That's OK. Here's your change … 5, 10, 30, 50.\n Server : Who's next?\n Customer 4 : Can I have a ...\n Customer 3 : Sorry, I think I was in front of you. \n Customer 4 : Oh, sorry! \n Customer 3 : Can I have a chocolate chip cookie, please?\n Server : Would you like a drink with that?\n Customer 3 : No, thanks. Just the cookie.\n Server : OK, then. That's 95p, please.\n Customer 3 : Thanks. I think that's right.\n Server : 50, 70, 80, 85, 90, 92, 94, yep, 95. Thank you.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Organising Group Project",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/organising-group-project",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_Listening_A1_Organising_a_%20group_%20project.mp3",
+          "transcript": "Cara : So for our group project, do you want to start this week?\n\n Selim : Yeah, I want to start early so we have enough time.\n\n Robert : Me too, but I've got a big maths project too.\n\n Cara : How about we meet first to plan what we're going to do? Just for an hour.\n\n Robert : Good idea, Cara.\n\n Cara : When are you free?\n\n Robert : I can always do mornings before 10.\n\n Cara : Robert … Uh …\n\n Selim : I'm sleeping before 10!\n\n Robert : OK! OK, so when are you two free?\n\n Cara : Wednesdays are good for me. But not very early, please!\n\n Selim : I can't do the mornings on Wednesdays but I have 3 till 5 free.\n\n Robert : I can do 4 o'clock, just before my maths class.\n\n Cara : Great, 4 then. Where shall we meet?\n\n Selim : The library?\n\n Robert : I don't know. The library isn't a good place for a planning meeting as we can't talk in there.\n\n Cara : How about the university café? It's near the library. We can talk in there. And eat cake.\n\n Selim : Cake is good.\n\n Robert : OK, so Wednesday at the café. I need to leave at ten to five to go to my maths class.\n\n Cara : No problem. Planning will take less than an hour.\n\n Selim : OK! See you Wednesday for cake.\n\n Robert and Cara : See you, Selim!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A1 - Pack 6",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Shopping Clothes",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/shopping-clothes",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_Shopping_for_clothes.mp3",
+          "transcript": "Shop assistant : Hello, can I help you?\n\n Customer : I'm just looking, thanks.\n\n Customer: Excuse me?\n\n Shop assistant: Yes?\n\n Customer: Where are the changing rooms?\n\n Shop assistant: They're over there. Behind you.\n\n Customer: Thank you.\n\n Customer: Hi. Excuse me again. Do you have this jumper in black?\n\n Shop assistant: Yes, just a moment. What size do you need?\n\n Customer: Extra small, please.\n\n Shop assistant: Here you are.\n\n Customer: How much is this?\n\n Shop assistant: It's £29.\n\n Customer: Can I pay by credit card?\n\n Shop assistant: Yes, you can. Of course.\n\n Shop assistant: Would you like a bag for that?\n\n Customer: Yes, please.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "First English Class",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/first-english-class",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_The_first_English_class.mp3",
+          "transcript": "Hello, everyone. Hello! It's nice to see you all here. Welcome to British Life and Language. I am your teacher. My name is Lindsay Black. That's L-I-N-D-S-A-Y Black. Before we begin, some information about the class.\n\n Our class is in room 13, on the first floor. When you go upstairs, turn left to find the room. Again, that's room 13.\n\n We have class twice a week, on Monday and Wednesday. Our class begins at 4.30 p.m. and lasts 90 minutes, so we finish at 6 p.m. That's 4.30 to 6. Please arrive on time, OK?\n\n Also, I have an office hour if you have questions. I'm in office 7B on the second floor. My office hour is Friday at 6 p.m. So, if you have any questions or problems or want to talk to me, it's Friday at 6 p.m. in office 7B.\n\n We begin next week, on March the 13th. That's Monday, March the 13th. The course ends on May the 20th. May the 20th is the last day.\n\n I think that's all ... Oh, one more thing. For this course you need the book. Here it is: British Life and Language Level 1 Student's Book . So, please get a copy of the book. I don't want to see any photocopies of the book, thank you! Remember, it's level 1 student's book. Don't buy the teacher's book.\n\n I think that's all, everyone. I look forward to working with you. See you next Monday!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2 - Pack 1",
       "level": "co_ban",
       "description": "Listening practice (A2) sourced from British Council public pages.",
       "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
@@ -95,56 +337,38 @@
           "orderIndex": 1,
           "title": "Morning Briefing",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/morning-briefing",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Morning_briefing.mp3",
+          "transcript": "Hi, everyone. I know you're all busy so I'll keep this briefing quick. I have some important information about a change in the management team. As you already know, our head of department, James Watson, is leaving his position at the end of this week. His replacement is starting at the end of the next month. In the meantime, we'll continue with our projects as usual.\n\n I have two more quick points. Firstly, there will be some improvements made to the staff car park next month for a few weeks. It will be closed during that time.\n\n Don't worry, we've found a solution. We can use the local church car park until our own one is ready. If you arrive before 8.30 a.m., please use our small car park on Brown Street, and if you arrive after that, you should go directly to the church car park. It's only a five-minute walk away. But they need it in the evenings, so you have to leave before 6 p.m. Sorry about that – I know how much you all love working late!\n\n The other thing I wanted to tell you about is that the canteen has now introduced a cashless payment system. So, you can't use cash for payments any more. You can pay directly with your smartphone or you can pay using your company ID card. The total amount put on your company ID card comes off your salary at the end of each month.\n\n OK. That's it? Are there any questions?\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMyNDM=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Grouping_MjMyNDQ=.xml \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
           "orderIndex": 2,
           "title": "Invitation Party",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/invitation-party",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_An_invitation_to_a_party.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 3,
-          "title": "Changing Meeting Time",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_a_meeting_time.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 4,
-          "title": "Changing Plans",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_plans.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 5,
-          "title": "Facts Figures",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Facts_and_figures.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 6,
-          "title": "Four Conversations",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Four_conversations.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 7,
-          "title": "Instructions Assignment",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Academic_Instructions_for_an_assignment.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 8,
-          "title": "Leaving Message",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Leaving_a_message.mp3",
+          "transcript": "Automated message: You have two new messages. Message number one, received today at 3.45 p.m.\n\n Hi, it's me. How's it going? I guess you're at work and you don't have your phone on, right? First of all, thank you, THANK YOU for the birthday card and message. I received it this morning. That's so nice of you. I'm organising a little party for my birthday. It's nothing very big – only a few of my best and closest friends. That means you too! We're going to have it at my cousin's house. She lives in the countryside in a nice big house with a swimming pool. I'd love to see you there. It's going to be this Friday. I'll send you the instructions on how to get there later, OK? \n\n Anyway, have fun at work. Don't work too hard, OK? Talk soon.\n\n Automated message: You have two new messages. Message number two, received today at 5.15 p.m.\n\n Aw, you're still not answering your phone! OK, here are the instructions to get to my cousin's house for the party. Are you going to take your car? If you take the car, drive straight on Forest Road until you get to the motorway. Drive past Brownsville and take exit 13A. That's 13A. You drive down the road there and turn left. It's the first big house on the right. OK? If you're taking a bus, you can get the number 80 to Brownsville. Call me when you get there and somebody can pick you up in a car. I can't wait. This is going to be so great!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         }
       ],
@@ -155,7 +379,267 @@
       ]
     },
     {
-      "title": "British Council Listening B1",
+      "title": "British Council Listening A2 - Pack 2",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Changing Meeting Time",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/changing-meeting-time",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_a_meeting_time.mp3",
+          "transcript": "Lucy : Hi, Anna. Do you have a minute to talk about the meeting next Tuesday?\n\n Anna : Sure. We said 11, didn't we?\n\n Lucy : Yeah, we did. But I have a bit of a problem with the time. Would it be possible to move it?\n\n Anna : Oh, I see. We could postpone it to the afternoon, to 1 p.m., for example. Or bring it forward to earlier in the morning. What would suit you?\n\n Lucy : Could we make it 9 o'clock? That would really help me. I have another important meeting in the central office at 12.\n\n Anna : No problem. It's important you're there.\n\n Lucy : Thanks a lot, Anna.\n\n Anna : Do you need help with any preparation? Did you get the agenda I sent out?\n\n Lucy : Yes, I did. And no, that's all fine, thanks. My report is ready and I'm looking forward to presenting it.\n\n Anna : Great.\n\n Lucy : I can tell Sven about the time change. I'll see him later.\n\n Anna : Don't worry about telling Sven. I'll send an email to everyone to confirm the time has changed and with an updated meeting invite.\n\n Lucy : Great. Thanks, Anna.\n\n Anna : OK. I'm happy that works for you. We really need you there and it's good we don't have to cancel it.\n\n Lucy : See you then. Have a good weekend in the meantime.\n\n Anna : You too.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Changing Plans",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/changing-plans",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Changing_plans.mp3",
+          "transcript": "Francesco : Sachi? Sachi? Sachiko! \n\n Sachi : Francesco! Is everything OK?\n\n Francesco : Yes. Yes. Sorry, I saw you and I was across the street … I ran.\n\n Sachi : I see. What's up?\n\n Francesco : Do you have the tickets … for the play?\n\n Sachi : No, I don't. I'm going to buy them this afternoon.\n\n Francesco : Oh good, good. Listen, don't buy tickets for this Friday.\n\n Sachi : Oh? Why not?\n\n Francesco : I can't go to the theatre on Friday. Something's come up. I have a concert this Friday.\n\n Sachi : Another concert? But you said …\n\n Francesco : I know, I know. I'm sorry. I forgot.\n\n Sachi : Francesco! \n\n Francesco : How about next week? Are you free then? I can definitely go next Friday.\n\n Sachi : Francesco. You did this two weeks ago, remember? I had cinema tickets for the new Marvel movie and you changed the plans then too. For band practice.\n\n Francesco : I know, and I …\n\n Sachi : We also missed my favourite dance group. Because your band was playing at some child's birthday party.\n\n Francesco : It was my nephew's birthday …\n\n Sachi : Ha! \n\n Francesco : OK, why don't we go out for dinner before my concert? Then, next Friday we can go to the play.\n\n Sachi : Oh …\n\n Francesco : Come on, Sachi. Just this one more time.\n\n Sachi : OK, but promise me next Friday. OK?\n\n Francesco : I promise. I promise!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "MultipleChoice_MjMyNTU=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Matching_MjMyNTY=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2 - Pack 3",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Facts Figures",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/facts-figures",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Facts_and_figures.mp3",
+          "transcript": "… and the next part of this talk is on the Panama Canal. It's amazing how this one small section of a small country can be so important to the world. Let's learn a little bit about the canal itself, before we look at how it connects to everything else.\n\n The Panama Canal is an artificial waterway in the Central American country of Panama that connects the Atlantic and Pacific Ocean. It is only 82 kilometres long. If you go around South America by ship then you need to travel another 15,000 kilometres. So the canal saves a lot of travel time. It takes around 8 to 10 hours to cross the canal.\n\n The French started building the canal in 1881, but they couldn't finish it. The project was started again in 1904 by the United States and the canal was finally finished in 1914. Many people died while they were building the canal, some say up to 25,000. For the rest of the 20th century, the United States controlled the canal, but gave control back to Panama in 2000.\n\n Every year, around 40,000 ships come through the canal. These are mostly commercial ships. They transport goods for trade between Asia and America, or Europe. In 2016 the government of Panama made the canal bigger, so that now 99 per cent of ships can pass through it.\n\n Let's now turn to the role of the Panama Canal in the global economy …\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Four Conversations",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/four-conversations",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Four_conversations.mp3",
+          "transcript": "A \n\n Man : How did it go?\n\n Woman : Umm, I think it went quite well. I did a lot of research and prepared a lot. I was in there for ... I don't know ... half an hour?\n\n Man : And? What did they say?\n\n Woman : Nothing much. At the end I asked them, 'What happens now?', and the woman said, 'We'll call you back with news in three or four days.'\n\n Man : Really?\n\n Woman : Yeah, I think I've got the job. There weren't a lot of other people there. I was the only interview that day, you know?\n\n Man : Well, good luck with it.\n\n B \n\n Man : Anyway, you were saying ...\n\n Woman : Oh, yeah, um ... let's see. Yes, so I was in the museum and there were, I don't know, a hundred people waiting to get into the room. Finally, I got in, and I tried to see the Mona Lisa but I couldn't look at it.\n\n Man : Why not?\n\n Woman : Because the room was filled with people taking photographs of it!\n\n Man : Oh, right.\n\n Woman : Yes! And selfies.\n\n Man : Wait a minute. You can take photos while you're in there?\n\n Woman : Yes, but you can't use flash. I don't know ... Why do we take photos of everything we see when we travel?\n\n Man : I know. And we never look at the photos after.\n\n Woman : Exactly! I'm tired of always taking photos. I don't feel I'm enjoying things.\n\n C \n\n Man : Who took this?\n\n Woman : I can't remember. Hmmm ...\n\n Man : What am I doing?\n\n Woman : You're sitting on the sofa, watching TV and eating chocolates. Nothing changes!\n\n Man : Ha! Very funny. You look very young, though.\n\n Woman : I know. Look at my hair – it was so long!\n\n Man : Mine too, look at me! Hey … I think I know who took this photo.\n\n Woman : Umm … who? Was it Dad?\n\n Man : No, it wasn’t Dad or Mum. Do you remember Barry?\n\n Woman : No.\n\n Man : Yes, YES! You do remember. Barry, your boyfriend at high school. You were seventeen and he was sixteen and he was so very polite: 'Hello, I'm Barry. It's very nice to meet you ...'\n\n Woman : Stop it! He was nice.\n\n Man : Yeah, well, he took the photo.\n\n D \n\n Woman : Let's see. OK. I'm glad we could talk about this. It's not easy to say.\n\n Man : What?\n\n Woman : Well, you're not in our group – for the class project.\n\n Man : What do you mean? You know I'm always in a group with you.\n\n Woman : I know. It's just that this time … this time we made the group differently and because you were late ...\n\n Man : I see. You don't want me in the group?\n\n Woman : No, no. It isn't that. It's that we've already made the group, see? There's four of us already.\n\n Man : So? We can't be a group of five?\n\n Woman : Well, the teacher said four people per group.\n\n Man : Oh.\n\n Woman : It's not about you or your work or anything like that. It's ... errrr ... well, we already have the group.\n\n Man : So I have to find another group.\n\n Woman : I'm sorry.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2 - Pack 4",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Instructions Assignment",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/instructions-assignment",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Academic_Instructions_for_an_assignment.mp3",
+          "transcript": "I want to explain a few things about your essay.\n\n First of all, the deadline. The deadline for this essay is October the 18th. Not the 19th, not the 28th, not two days later because your dog was ill or your computer broke – the 18th. If it's late, I won't mark it. I won't even read it – you'll fail the assignment! So, please hand it in on time. You can even hand it in early, if you like!\n\n You can email me the essays at j.hartshorn@lmu.ac.uk. That's H-A-R-T-S-H-O-R-N. I'll reply to say I've got it. If I don't reply within a day, it might mean I didn't get it, so please email me again to make sure. You can also bring a paper copy of the essay to my office, but let's be kind to the trees, OK? Email is better for the trees and for me.\n\n Don't forget that you must reference every idea or quote you use that isn't your own idea. And the last page of your essay should be a list of all the books you used, in alphabetical order, not in the order you used them!\n\n And lastly, make it easy for me to read! That means use a clear font. Arial is best, but Times New Roman is fine too. Not Comic Sans please! Size 12 font for the essay, and size 14 for the titles and subheadings. And use page numbers. Any questions?\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Leaving Message",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/leaving-message",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Leaving_a_message.mp3",
+          "transcript": "Jane : Hello, this is the sales department. Jane Solomon speaking.\n\n Peter : Hello, is Maria Fernandez there, please?\n\n Jane : No, I'm sorry. She's not in the office at the moment. She's on her lunch break.\n\n Peter : Oh. Could you take a message, please? Could you tell her that Peter Griffin called?\n\n Jane : Sure. Could you give me your number?\n\n Peter : It's 0-7-4-6-0 double 9-0-1 double 8.\n\n Jane : Thanks. That's 0-7-4-6-0 2-9-0-1-2-8.\n\n Peter : Sorry, no. It's 0-7-4-6-0 9-9-0-1-8-8.\n\n Jane : 9-9-0-1-8-8.\n\n Peter : Yes. Please ask her to call me back, and tell her it's about the PXO project. I need the new project figures.\n\n Jane : The PXO project. Right. I'll give her your message when she comes back to the office.\n\n Peter : Thank you. In case I'm in a meeting when she calls back, can I give you my email address too?\n\n Jane : Of course.\n\n Peter : Great. It's P-E-T-E-R dot G-R-I-F-F-I-N at F-R-E-S-H dot com.\n\n Jane : Can I read that back to you?\n\n Peter : Sure.\n\n Jane : That's P-E-T-E-R dot G-R-I-F-F-I-N at F-R-E-S-H dot com.\n\n Peter : Yes, that's it.\n\n Jane : OK. I'll tell her you called.\n\n Peter : Thank you. Goodbye.\n\n Jane : Goodbye.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2 - Pack 5",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Missing Class",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/missing-class",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Missing_a_class.mp3",
+          "transcript": "Student : Excuse me, Ms Henderson?\n\n Teacher : Yes, Diana. How can I help you?\n\n Student : I'm sorry, but I can't come to class next Wednesday. I have a doctor's appointment.\n\n Teacher : OK. Thanks for letting me know.\n\n Student : Is there anything to do at home?\n\n Teacher : Let me just check my notebook. OK, first of all … you need to read chapters 17, 19 and 20 in the book. There are also some articles and a video to watch – those are online. I'll post the links online in the usual place.\n\n Student : Chapters 17 to 20.\n\n Teacher : Yes, except chapter 18. Chapters 17, 19 and 20.\n\n Student : Ah, OK. Um ... is there a deadline?\n\n Teacher : Yes, this Friday. But there's something else. I was going to give you all a practice test.\n\n Student : A practice test?\n\n Teacher : Yes, to help people prepare for the mid-term exam.\n\n Student : Ah. All right.\n\n Teacher : Don't worry, I can send you the practice test by email on Wednesday. Can you send it to me before Friday?\n\n Student : Sure, no problem.\n\n Teacher : And don't forget to bring a certificate from the doctor to the office.\n\n Student : Thanks, Ms Henderson! I'll do that.\n\n Teacher : You're welcome, Diana. Take care.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Transport Announcements",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/transport-announcements",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Transport_announcements.mp3",
+          "transcript": "A \n\n The next train to arrive at Platform 2 is the 12.20 to Bristol Temple Meads, calling at Reading, Oxford and Bristol Parkway. Platform 2 for the 12.20 to Bristol. First class is in the rear carriage.\n\n B \n\n This is a platform announcement for passengers for the 12.20 service to Bristol Temple Meads. This train is delayed by approximately 8 minutes. The train will now depart from Platform 9. Passengers for the 12.20 train to Bristol, please make your way to Platform 9.\n\n C \n\n Passengers for Flight EB380 to Paris please make your way to Gate 13 for boarding. Gate 13 for flight EB380 to Paris. Please have your passports and boarding passes ready. Your flight is ready to board.\n\n D \n\n This is a London Underground service to Liverpool Street. The next station is Liverpool Street. Upon arrival, the first set of doors will not open. Customers in the first carriage, please move towards the rear doors to leave the train. The next station is Liverpool Street. Change here for Central Line, Circle Line, Hammersmith & City Line and Metropolitan Line and Main Line Suburban rail services. Please mind the gap between the train and the platform. This train terminates at Redbridge.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2 - Pack 6",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Understanding Explanation",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/understanding-explanation",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Understanding_an_explanation.mp3",
+          "transcript": "Professor : OK, before we continue, does anybody have a question? Oh, lots of questions, I see. OK, we'll go one at a time. Yes?\n\n Student : Thank you. You talked about Fibonacci numbers in the lecture. Sorry, I don't understand. Can you explain?\n\n Professor : Of course. What do you want to know?\n\n Student : OK … I hope this isn't a silly question, but what does Fibonacci actually mean?\n\n Professor : No question is ever silly – it's always good to ask. OK, it's the name of a person. Fibonacci was a European mathematician in the Middle Ages.\n\n Student : Ah, OK. Thanks. So, we know he was a person, but what are the Fibonacci numbers? I don't get it.\n\n Professor : The Fibonacci numbers are a sequence of numbers. They go 1, 1, 2, 3, 5, 8 and so on. Do you see the sequence? Do you see how it works?\n\n Student : I'm not sure.\n\n Professor : OK. This is how it works. The first number is 1, then 1 again, then 2. The third number is the first number plus the second number. The fourth number is the second number plus the third number: 1 plus 2 is 3. The fifth number is the third number, 2, plus the fourth number, 3. So the fifth number in a Fibonacci sequence is 5.\n\n Student : Ah! I think I understand now. But what about their importance? You said these were very important.\n\n Professor : Yes, let me explain. This sequence of numbers is important because we see it in many things. Fibonacci numbers are common in geometry, they are common in nature, for example in plants. We see the sequence everywhere.\n\n Student : Could you give us some more examples?\n\n Professor : OK ... well, we don't have time right now but I can bring more examples in for next class, OK?\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "MultipleChoice_MjMzMzI=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "ReorderingHorizontal_MjMzMzM=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Whos Who Office",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/whos-who-office",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Who%27s_who_in_the_office.mp3",
+          "transcript": "Jani : Welcome to the department, Yuki. Let me show you around and tell you about your new colleagues. I'll introduce you to them all later.\n Yuki : Great. Thanks. So, who are those people over there?\n Jani : That's the order management team. Luciana deals with the new orders. She's the one with short, dark hair.\n Yuki : In the purple dress?\n Jani : Yeah, that's right. You'll probably work closely with her while you are learning about our ordering process.\n Yuki : Got it, thanks. And who's that over there? The guy who's on the phone?\n Jani : Oh, you mean the one by the window? In the green shirt? Ah, that's Ian. He's the marketing director. And that's Maria beside him. She's responsible for the internal IT systems.\n Yuki : OK, I'll try to remember all of this. I should probably be taking notes!\n Jani : Don't worry about it. For now it's just good to put some faces to names.\n Yuki : OK, great – and who do I talk to about setting up my mobile phone with email access? Is that also Maria?\n Jani : No, you need to talk to Sebastian who works in communications. He can help you. That's him over there, next to the printer. \n Yuki : Thanks. I'll introduce myself to him later. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMyMzE=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Matching_MjMyMzI=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1 - Pack 1",
       "level": "trung_cap",
       "description": "Listening practice (B1) sourced from British Council public pages.",
       "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
@@ -165,56 +649,38 @@
           "orderIndex": 1,
           "title": "Phone Call Customer",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/phone-call-customer",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_phone_call_from_a_customer.mp3",
+          "transcript": "Junko : Hello, Junko Mori speaking. How can I help you?\n Andrea : Hi, Junko, it's Andrea here from Red Band. I'm calling about our latest order.\n Junko : Everything arrived OK, right? We got the delivery confirmation at our end.\n Andrea : Yes, everything's fine with the order. I'm calling about the invoice and the payment terms. I need a favour.\n Junko : A favour? What do you need?\n Andrea : This is a little, er ... difficult, but I need an extension on the payment terms. I know they're usually 30 days, but we're having some cash flow problems. You'd really be helping us out if you could extend it to 60 days.\n Junko : I'm not sure if I can do that, Andrea. We've got regulations at our end, and also have to manage our own cash flow.\n Andrea : I promise this won't become the norm, Junko. Actually, I also want to place another new order. The same size order as last time. It's for an important customer and they pay on delivery.\n Junko : I see. So your cash flow problem will be solved after this new order is delivered.\n Andrea : Exactly.\n Junko : That sounds good. Hold on, Andrea. Let me see what I can do. Yes, I think we can make an exception this time.\n Andrea : That's great, Junko. I appreciate your help.\n Junko : And we appreciate your business, Andrea. It works both ways.\n Andrea : Thanks again, Junko. Can you send me a quick email confirmation of the payment terms extension?\n Junko : Sure, no problem. We're happy to help you.\n Andrea : Great. And I'll email you the new order.\n Junko : Thanks. I'll keep an eye out for it. Talk to you soon.\n Andrea : You too. Goodbye.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
           "orderIndex": 2,
           "title": "Student Discussion",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/student-discussion",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Student_discussion.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 3,
-          "title": "Team Meeting About Diversity",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Team_meeting_about_diversity.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 4,
-          "title": "Weather Forecast",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_weather_forecast.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 5,
-          "title": "Interview About Listening Skills",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_interview_about_listening_skills.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 6,
-          "title": "Introduction Lecture",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_introduction_to_a_lecture.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 7,
-          "title": "Arriving Late Class",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Arriving_late_to_class.mp3",
-          "duration": 20
-        },
-        {
-          "orderIndex": 8,
-          "title": "Chemist",
-          "content": "Interactive listening lesson metadata crawled from British Council.",
-          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_At_the_chemist.mp3",
+          "transcript": "Teacher : So you've got a few minutes to discuss with your partner.\n Student 1 : So, as far as I know, the main similarity between Mars and Earth is that they can both support human life.\n Student 2 : Yeah, but do we know that's actually true? I mean, Mars is much colder than Earth, isn't it? It says here it's about minus 55 degrees most of the time, whereas on Earth only places like Antarctica get that cold.\n Student 1 : True. Well then, I suppose you could say both planets are a similar distance from the Sun?\n Student 2 : No way! Mars is much further away! It says here it's about 228 million kilometres, while Earth is about 150 million.\n Student 1 : Yes, but in space that's not that far. Jupiter is, like, almost 780 million kilometres. That's why we use astronomical units when we talk about distances in space. Earth is 1 astronomical unit from the Sun and Mars is 1.3. The difference doesn't sound so big when you look at it that way.\n Student 2 : I see what you mean. Jupiter is 5.2 astronomical units so I guess you're right. What other similarities are there between the two planets?\n Student 1 : Let's see … not the colour, obviously!\n Student 2 : Yeah! Earth is called the blue planet and Mars is called the red planet for pretty obvious reasons!\n Student 1 : Their sizes are pretty different. Mars is about half the size of Earth.\n Student 2 : What about this? It looks like the days on both planets are almost the same length. Earth's day is 24 hours but Mars's is about half an hour longer.\n Student 1 : You're right. OK, any other things they both share?\n Student 2 : I suppose you could say they have water in common.\n Student 1 : Could you? How?\n Student 2 : Well, Earth is 70 per cent water and Mars probably had huge oceans in the past. It's just that most of the water there now is probably frozen.\n Student 1 : Ah, I see. I don't think we can say the air is the same, though. Most of Earth's air is nitrogen and oxygen, but Mars …?\n Student 2 : Mars doesn't really have air, not compared with Earth. It's got about one per cent as much air as Earth.\n Student 1 : Right, and it's mostly carbon dioxide.\n Student 2 : Gravity is another difference. I didn't know this, but Mars has higher gravity than the Moon. But it's much less than on Earth, of course.\n Student 1 : Oh, yes. It says Mars has about 38 per cent of Earth's gravity.\n Teacher : OK, let's see what you've found …\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Grouping_MjMzNzE=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "GapFillDragAndDrop_MjMzNzI=.xml \n\n <h3"
+            }
+          ],
           "duration": 20
         }
       ],
@@ -225,7 +691,267 @@
       ]
     },
     {
-      "title": "British Council Listening B2",
+      "title": "British Council Listening B1 - Pack 2",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Team Meeting About Diversity",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/team-meeting-about-diversity",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Team_meeting_about_diversity.mp3",
+          "transcript": "Nina : As you know, our team has grown a lot in the past year and we feel we need to address the diversity in the team.\n Brenda : How do you mean, 'address the diversity'?\n Nina : Well, we all know that diversity in teams is a good thing, but it can also be a challenge for some people to respect and value people's differences. We've got a really diverse team here – people of different nationalities, backgrounds, religions, ages … and sometimes I don't feel we make the most of this.\n Stefano : Yes, and even if it isn't specifically challenging, many people are simply unaware of the isolation that some team members may feel because they are different.\n Brenda : So, what does this mean? What are we going to do?\n Nina : Well, we need to create a workplace charter. You know, one that promotes equality, diversity and inclusion.\n Brenda : That sounds like a good idea. But will people just see it as something the management team has created? Maybe they won't even pay attention to it.\n Nina : I know. That's why we're going to involve everyone in creating it.\n Stefano : That's a good idea. We could run some workshops and get ideas from the employees about how we can create a more inclusive workplace.\n Nina : Exactly. I was thinking that before that we could run some team-building sessions so they can experience the value of diversity for themselves.\n Brenda : Yes, I like that. Many people see diversity as something negative, often because there are different opinions or ways of doing things.\n Nina : Yes, I know, but if there's no diversity, then the risk is that we all work in the same way, think the same and see the world the same. This makes it hard to be creative and to innovate.\n Stefano : I completely agree, Nina. OK. So, what do you want us to do?\n Nina : Stefano, can you look for a successful trainer who specialises in running workshops and team-building sessions on diversity and inclusion?\n Stefano : Sure. I'll be happy to.\n Nina : And Brenda, can you find a fun venue? Somewhere that is quite diverse itself. Something that's not the usual seminar-style environment?\n Brenda : Sure. That'll be fun.\n Nina : And I'm going to do some further research into how other organisations are benefiting from their diversity. I can share this with the whole team.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Weather Forecast",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/weather-forecast",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_weather_forecast.mp3",
+          "transcript": "Hello and good morning! Well, we're off to a good start in the south this week, as most of the rain from the weekend has disappeared – just a few patches of cloud and maybe some showers here on the east coast. They'll all clear up by lunchtime, though. Over the next day or so, London and the area around Kent can expect a couple of isolated showers, but mostly dry through until Thursday.\n\n It's not such good news for the north-west this week, I'm afraid: more wet weather, and not a lot of sunshine. Some of today's showers will be heavy – and even thundery in Manchester and across the Pennines. Leeds will escape the thunderstorms, with drizzle and light rain only throughout the rest of the day and tonight.\n\n Elsewhere it becomes dry today, but with some foggy patches towards Wales. In England, tomorrow morning will see a dry, bright start in most places, with high temperatures throughout the week. We might see one or two thunderstorms appearing as the week goes on, with temperatures everywhere at 29 to 30 degrees. \n\n By the weekend, unfortunately, the dry weather will make way for mostly cloudy skies and rain. The rain will move from Scotland, down towards the north and reach the south coast by Saturday afternoon. Temperatures, at least, will stay mostly warm at around 21 degrees for the weekend. It might feel like a nice change from the high twenties and early thirties we'll see in the week. That's all from me until tomorrow. Enjoy the mini-heatwave while you can!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1 - Pack 3",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Interview About Listening Skills",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/interview-about-listening-skills",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_interview_about_listening_skills.mp3",
+          "transcript": "Presenter : So, today's expert teacher is Gabriella, a university English teacher from Leeds. Gabriella, hi and thanks for joining us today.\n\n Gabriella : Thanks for having me!\n\n Presenter : So, I have to confess today's topic is something I am really bad at: listening. Most people say speaking is the most stressful part of learning a new language but, for me, with my B1 German, speaking isn't so bad. At least I'm in control of it. But listening … woah … people speak so fast and it's like my brain just shuts down. Am I just really strange and bad at listening? Tell me, honestly, I can take it.\n\n Gabriella : No, you're not strange. In fact, it's really common. You know, in exams most people do pretty well in speaking compared with listening. Of course, exams are a different situation from real life because in an exam you can't ask for something to be repeated or explained. You usually have just one or maybe two opportunities to listen to the dialogue and then it's gone.\n\n Presenter : Right, but in real life I feel stupid always saying, 'Sorry, can you repeat that, please?', especially if I still don't understand even when they repeat it. And people out there listening, I hope you don't do this – quite often the person just repeats what they said equally as fast and I'm still lost!\n\n Gabriella : They do, don't they? In real life, you've got two strategies. One is to pretend to understand and get out of the conversation as fast as you can.\n\n Presenter : Yep, sounds familiar!\n\n Gabriella : But, obviously that's not going to help if it's a conversation with high stakes. It might have important consequences. I mean, if you're just chatting with a stranger at the bus stop, it doesn't matter. But imagine you're at a government office or a bank, trying to find out what paperwork you need to get your ID or open a bank account. What can you do then?\n\n Presenter : I hope you've got the answer, Gabriella, because I'm coming out in a cold sweat just thinking about either of those situations!\n\n Gabriella : The other strategy is to summarise what they said.\n\n Presenter : But how can you do that if you didn't understand what they said?\n\n Gabriella : Ah, well, you only start the summary, so you might say, in German in your case, 'OK, so the first thing I have to do is …?' and make it a question. Or, for example, 'And which office is that again?' Break it down into smaller questions and the other person will naturally start answering them. That way you're controlling the conversation a bit more.\n\n Presenter : I get you ...\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMzNjg=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Matching_MjMzNjk=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Introduction Lecture",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/introduction-lecture",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_An_introduction_to_a_lecture.mp3",
+          "transcript": "Good afternoon, everyone. Welcome to the first lecture of our new course in Positive Psychology. While some people may associate psychology with looking at what's wrong with us, and at what problems we have, there is much more to psychology than that. Positive psychology, for example, looks at how to help people become happier.\n\n This lecture begins with a question: what makes a happy life?\n\n Now, I'm going to give you one possible answer. A happy life is a life in which you are completely absorbed in what you do. Now, how does this compare with what you and your partner said? \n\n This answer comes from the work of Mihaly Csikszentmihalyi and the theory of flow. Csikszentmihalyi is a psychologist who has spent much of his professional life on the study of what makes people happy and how we can find happiness.\n\n Csikszentmihalyi suggests the theory that happiness is not caused by external events or things that happen to us. Our perception of these things and how we see these events either makes us happy or sad. In other words, if we want happiness, we have to actively look for it. However, this does not mean that we should always look for happiness! Csikszentmihalyi believed that our happiest moments happen when we are in a state of flow.\n\n The theory of flow can be summarised like this: when we are totally involved in, or focused on, what we are doing, we are in a state of flow.\n\n Csikszentmihalyi got the inspiration for this theory when he noticed how artists worked in a studio. They completely lost track of time, they didn't notice they were hungry or tired, and they could work for hours, even days, without stopping. Anyone I have spoken to who has experienced this state of concentration has said it's difficult to explain. The best way to explain it is that it is like being in a river and the flow of the water carries you away.\n\n For the rest of this lecture, I will explore this theory of flow in more detail. First we will look at Csikszentmihalyi's life, and how it influenced his ideas. Then we will look at the conditions that go with a state of flow. What creates flow, exactly? Finally, we will look at activities that can help us achieve flow in our everyday lives. Will this course make you happy for life? Well, maybe. Maybe. \n\n Right, let's get started. If you look at the next slide …\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "ReorderingVertical_MjMzNDM=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "TrueOrFalse_MjMzNDQ=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1 - Pack 4",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Arriving Late Class",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/arriving-late-class",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Arriving_late_to_class.mp3",
+          "transcript": "Student 1 : Sorry. Sorry, excuse me. I'm just … just coming to sit over here. Phew. Hey. How's it going? So, what have I missed?\n Student 2 : Nothing. He just started around five minutes ago.\n Student 1 : Did he say anything about the mid-term?\n Student 2 : What?\n Student 1 : About the mid-term tests. Did he say anything about when he was going to hand them back?\n Student 2 : He's almost finished marking them, he said. We get them next Tuesday.\n Student 1 : I'm sorry, I didn't catch that. When do we get them?\n Student 2 : Tuesday. Next Tuesday.\n Student 1 : OK. Got it. Sorry. What page are we meant to be on?\n Student 2 : Page 34.\n Student 1 : Page … 34. Oh, wait. I don't have my textbook. Can I … share with you? Wow. This is hard stuff.\n Student 2 : Mmm.\n Student 1 : What does SEO mean?\n Student 2 : What?\n Student 1 : SEO. This is all about SEO but he hasn't said what it means.\n Student 2 : Search engine optimisation. How to appear on internet searches.\n Student 1 : Internet searches. Right. Right. OK.\n Student 2 : He said what it meant.\n Student 1 : What?\n Student 2 : He explained it before you got here.\n Student 1 : Oh. Right. OK.\n Student 2 : Can you be quiet? I'm trying to listen to the lecture.\n Student 1 : So am I. Sorry. Sorry, one more question. What does this have to do with the American Revolution?\n Student 2 : What?\n Student 1 : I don't get it. Why is he talking about search engines in a course on the American Revolution?\n Student 2 : What are you talking about? This is a class on software engineering.\n Student 1 : You mean, it's not Early American History?\n Student 2 : You're in the wrong class.\n Student 1 : Oh, wow. Now it all makes sense. I'm so sorry.\n Student 2 : It's fine. \n Student 1 : Here, I'll just … excuse me. I'm in the wrong class. Excuse me. Thanks. Sorry. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMzMzg=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "ReorderingHorizontal_MjMzMzk=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Chemist",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/chemist",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_At_the_chemist.mp3",
+          "transcript": "Chemist : Hello, can I help?\n Customer : Yes, my wife sent me here. I, erm, need something for a sore throat … and I can't stop coughing. It really hurts.\n Chemist : Do you have a headache too?\n Customer : Not really, no.\n Chemist : Well, we have this syrup. And these lozenges.\n Customer : Which is better? \n Chemist : They're both good. The syrup is more expensive.\n Customer : Oh, well … I'll take the lozenges, then. How many do I take?\n Chemist : Just one.\n Customer : Sorry, I'm sorry. Er, how often should I take it?\n Chemist : Just one every four to six hours. Take it before mealtimes. Are you allergic to any medicine?\n Customer : No.\n Chemist : Then you'll be fine with this.\n Customer : Can I get some antibiotics too?\n Chemist : I'm afraid you need a prescription for that.\n Customer : Ah.\n Chemist : You know, you should really see a doctor if that cough continues.\n Customer : Thanks. I know.\n Chemist : Anything else?\n Customer : No, thanks.\n Chemist : That'll be £7.49 then, please.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1 - Pack 5",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Chatting About Series",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/chatting-about-series",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Chatting_about_a_series.mp3",
+          "transcript": "Man : So, did you see the final episode last night?\n\n Woman : Of course! As if I would miss that!\n\n Man : And?\n\n Woman : It was by far the best episode, definitely.\n\n Man : Yeah, totally. The dragon at the end and all the special effects in that final scene were amazing.\n\n Woman : I loved that part! But I still don't think this series was as good as the others.\n\n Man : Really? But you said you wouldn't want to miss it?\n\n Woman : I know, but still … it's a lot more predictable than it used to be.\n\n Man : But that's because the story has been told so well that all the characters are reaching their destiny now.\n\n Woman : I don't know … before, anyone could die at any time so it was exciting! But, this series, no key characters died and we all knew they wouldn't. When Jaime fell in the water after the dragon attacked him, we knew he would make it somehow. And … oh, surprise, Bronn jumps in and saves him.\n\n Man : They did kill some characters in this series, though. What was that one's name …?\n\n Woman : Exactly, see! You can't even remember who died!\n\n Man : Hmm. The only thing I didn't like about this series was that it was shorter than the others. Seven episodes instead of ten. Maybe they spent all their money on that dragon!\n\n Woman : Right! I don't understand why they did it, as all the fans would happily watch ten episodes.\n\n Man : I reckon that now they're not using the story in the books any more, they don't have as many ideas.\n\n Woman : That would explain why they're not being as brave with the story too. It's more like a Hollywood film than a TV show now.\n\n Man : So, is Tyrion still your favourite character?\n\n Woman : You know … surprisingly, I think my favourite might be Cersei.\n\n Man : What?!\n\n Woman : She's so interesting! All the awful things she's done and the way she's just aiming for revenge, even though it won't make her happy. She still surprises us because we're expecting her to have a happy ending where she sees her mistakes and becomes a good person. But she never does, no matter what it costs her. She's unpredictable because we just can't believe anyone would be like her.\n\n Man : I guess. You don't have to like a character for them to be your favourite!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Matching_MjMzODA=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "MultipleChoice_MjMzODE=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Making Decision",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/making-decision",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Making_a_decision.mp3",
+          "transcript": "Jani : Thanks for coming, everyone. So, we're here today to define the timeline for our new project.\n Emiko : Yes, Jani, that's a great idea.\n Carolina : OK. What do you need from us?\n Emiko : Hold on a moment. I think we need to decide between us what to do, to make sure it works for all departments.\n Jani : Yes, exactly, don't worry. We're going to discuss this and make a decision together. Let's first think about the scheduling of each project phase. What do you think, Emiko?\n David : Can I interrupt? I think we should first be clear about the process we'll use to make the decision. How are we going to do it?\n Jani : Ah, yes. Good point. Well, I think the best way is for each of you to give your opinion and then we can discuss and make a decision.\n David : OK. That sounds good.\n Emiko : Yes, that works for me too. I know we're still planning the structure of the later phases of the project, but I think we should begin phase one as soon as possible. We can work out the rest later, as we go along.\n David : I'm sorry, I don't think so. How can we start phase one if we're not fully clear on where the rest of the project will take us? We might make a wrong decision and waste time.\n Jani : I agree with you on that point, David. However, we'll waste too much time if we wait until everything is planned before we actually start working on the project. I think we should take an agile approach.\n David : Agile approach?\n Jani : Well, it means that we start quickly and then adapt as we go along.\n Emiko : That's right.\n Jani : Carolina, you've been very quiet.\n Carolina : Um … I'm sorry. I didn't want to interrupt. I'm listening … and thinking.\n David : Do you agree we should get the plan right first, and then start with phase one?\n Carolina : I'm sorry, David. I don't think I agree with you. It's important to have a good plan. But plans can change, even the good ones – and business changes often. We need to be flexible, and we also need to move quickly.\n Jani : OK. So should we take a vote?\n Emiko : Well, you're the project leader. Let's go with your decision.\n Carolina : Yes, I'll follow your lead, Jani.\n David : Well, I guess that's decided then. We'll follow your agile approach, Jani. Start quickly and keep planning the later stages of the project.\n Jani : Yes, that's right.\n David : I still don't think this is the right decision, but I'm happy to go with the majority. We should add some space into the schedule later for additional work this 'flexibility' will need.\n Jani : Don't worry, David, we will. OK, so it's decided then. We'll start phase one as soon as possible, and in the background we'll continue planning the later phases and adapt them as we go along.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "MultipleChoice_MjMzNTQ=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Grouping_MjMzNDc=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1 - Pack 6",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Meeting Old Friend",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/meeting-old-friend",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Meeting_an_old_friend.mp3",
+          "transcript": "Selina : Patrick? Is that you?\n Patrick : Selina! Hello!\n Selina : Well, well. Patrick Eastwood. How have you been?\n Patrick : Good. Great, actually. How are you? I haven't seen you for ... how long?\n Selina : It's been ages. At least fifteen years. Wow.\n Patrick : Yeah. Wow.\n Patrick and Selina : So, what are you doing here?\n Selina : Sorry, you go first.\n Patrick : OK. What are you doing here? I thought you'd moved to London.\n Selina : I was in London for a couple of years. But it didn't work out.\n Patrick : Oh, I'm sorry to hear that. Are you ... OK?\n Selina : I'm fine! The dream job wasn't really a dream, you know? Um ... and London is great but it's so expensive. I mean, just the rent on a flat is ... uh … crazy expensive.\n Patrick : I see.\n Selina : So, I came back. I've been back now for almost five months. Living back home with Mum and Dad. Which is err ... interesting. Um ... but anyway, what about you?\n Patrick : Me? Oh, nothing new. You know me – 'Patrick the predictable'. I never left here.\n Selina : Oh. And is that ...?\n Patrick : Oh, I'm very happy. I'm married now. We've just celebrated our tenth anniversary.\n Selina : No way! You? Married? To …?\n Patrick : I don't think you know her. Her name's Marigold. And we've got two kids. They're five and eight years old.\n Selina : Married and with two kids? Wow!\n Patrick : Don't look so surprised!\n Selina : No, no … I'm just amazed how time flies! I'm happy for you. I really am.\n Patrick : Thanks. You should really come round to the house one day.\n Selina : That would be great. Let's swap numbers and ...\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMzNzQ=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "GapFillTyping_MjMzNzU=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Work Life Balance",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/work-life-balance",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_Work_life_balance.mp3",
+          "transcript": "Presenter : Good morning, everyone. On today's show, we've got Chris Svensson with us, the author of No more nine to five , the new best-selling book about work–life balance in the current working world. Good morning, Chris. Thanks for coming.\n\n Chris : Thanks for having me, Anna.\n\n Presenter : So, Chris, tell us about your book and how the concept of a work–life balance has been changing?\n\n Chris : Well, in the more traditional workplaces, people's working lives and their private lives are, or were, clearly divided. People often work from nine in the morning until five or six in the evening. People sometimes stay late in the office and work in the evenings. This is called working overtime.\n\n Presenter : OK, and what else?\n\n Chris : Well, in these environments it isn't common for people to work at the weekend or while they're on holiday. They can clearly separate their working lives and their private lives. And the evenings, weekends and holidays are free to focus on non-work areas of life, such as hobbies, interests, sports, spending time with the family and friends, and so on. It's important and healthy not to spend all your time just working, right?\n\n Presenter : Right! So what has changed? How are things different now?\n\n Chris : Well, for a start, most people can now access their work emails from their mobile phones. So they are more likely to quickly reply to an important mail in the evening or at the weekend. The same goes for laptops. It's easier to access your work in the evenings from home or even from your hotel when you're on holiday.\n\n Presenter : That doesn't sound like much of a work–life balance. It sounds like all work.\n\n Chris : Exactly, but this new mobility brings a lot of advantages with it. More people are now able to work flexibly, so if they need to leave the office early one afternoon to be with their family, they can catch up on work that evening from home or somewhere else.\n\n Presenter : That sounds good. So, what you're saying is that although traditional divisions between work and life are fading, many employees now have more freedom to do their work from different locations and at different times.\n\n Chris : Yes, that's it.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 1",
       "level": "cao_cap",
       "description": "Listening practice (B2) sourced from British Council public pages.",
       "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
@@ -235,56 +961,298 @@
           "orderIndex": 1,
           "title": "Business Interview",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/business-interview",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_business_interview.mp3",
+          "transcript": "Presenter : Welcome to today's show. We're very happy to have Anna Oliveira as our guest today. Anna is the creator and founder of HomeworX – spelled with an 'x' we should note – an app which helps teenagers with their homework. Thanks for coming in, Anna.\n Anna : Thanks for having me.\n Presenter : So, tell us about your app. How does it work?\n Anna : Well, teenagers and their parents have numerous challenges when it comes to homework these days. In many families both parents work and don't have much available time to help their kids with their homework. And even if they do have time to help, they may not be able to offer support with the content. What I mean is, they may not know, or at least remember, enough in any given subject to support.\n Presenter : You mean they might not be able to remember complex maths or might have never studied certain subjects, such as biology or economics, themselves?\n Anna : Exactly. So they might want to support their children with their homework, but have neither the time nor the knowledge to do so.\n Presenter : I see. So the app helps solve this problem?\n Anna : Yes, and more. The next issue is that tutors can be expensive, and there may be long waiting lists for specialist tutors in the town or region you live in. Our HomeworX app brings students and tutors together online. Students can search a database of pre-approved tutors and sign up for live online support. They don't need to be in the same town or city.\n Presenter : That sounds really great.\n Anna : It is. And this approach also enables us to offer the tutoring services at lower prices because there's no travelling time involved for the tutor to get to the student's home. And tutors who live in remote areas are happy to get access to more students, and be able to work from home, even at lower rates.\n Presenter : This all sounds great. So, how did you come up with the idea?\n Anna : Well, as you might guess, I was one of those parents I described earlier. I really wanted to help my son with his homework, but I was either too busy with work or I didn't actually know anything about the subjects he was having difficulty with. Also, we live in an area where there aren't many tutors and the ones that are there are either very expensive or have long waiting lists.\n Presenter : Yes. I can understand your predicament. Well, it sounds like a very useful app that is clearly meeting a need. And its popularity obviously speaks for itself.\n Anna : Thank you.\n Presenter : So, do you have plans for the future?\n Anna : We've just secured some funding and hope to expand the range of services we offer using the app.\n Presenter : We wish you the best of luck. Thanks again for coming in. That was Anna Oliveira, founder of the tutoring app HomeworX (with an 'x', don't forget!), which is available for both Apple and Android devices. Join us again next week for another business interview. Have a great week, everyone. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
           "orderIndex": 2,
           "title": "Design Presentation",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/design-presentation",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_design_presentation.mp3",
+          "transcript": "Hi, everyone. Thanks for coming to this short presentation on our new product design. As you know, we've already redeveloped our 'Adventure' shampoo to make it more modern and appealing. And we've renamed it 'Adventure Tech'. Our market research established the target market as men in the 18–40 age range who like to be outdoors and also like technical gadgets, such as smartwatches, drones and things like that. We needed to create a bottle which appeals to that market.\n So, today, I'm happy to unveil our new bottle design. As you can see, it's designed to look like a black metal drinking flask, with some digital features printed on it.\n I'd like to talk you through the following three points: the key features, sizing and our timeline for production.\n Firstly, you'll notice it has an ergonomic design. That means it fits smoothly into your hand and can be easily opened and squeezed using one hand. And, it looks like a flask you might use when hiking outdoors. The imitation digital displays are designed to remind the user of other tech devices they may have, such as a smartwatch or smart displays in their home.\n I'd now like to tell you about the sizes. It comes in two sizes: the regular size and a small travel size. The travel size is the same type of design – a flask, also with imitation digital displays on the bottle. We were thinking of starting with one and following with the travel-size in a few months, but we've worked hard and both are ready now.\n Finally, I'm going to talk to you about our timeline for production. You've probably heard that we're launching in two months. In preparation for that, we're starting the marketing campaign next month. You can see the complete overview of all phases in this Gantt chart.\n In summary, the bottle's been designed for men who like adventure and technology, and it comes in two sizes. The marketing campaign is starting next month and we're launching the product in two months.\n OK. So, any questions? Feel free to also email me for further information in case we run out of time.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMyNDY=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Matching_MjMyNDc=.xml \n\n <h3"
+            }
+          ],
           "duration": 20
-        },
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 2",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
         {
-          "orderIndex": 3,
+          "orderIndex": 1,
           "title": "Digital Detox Podcast",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/digital-detox-podcast",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Digital_detox_podcast.mp3",
+          "transcript": "Presenter : So, we're back in the studio. Welcome back, everyone. My name's Rick Walker. From our laptops to our televisions, from the displays on our smartphones to those on our satnavs, we are in front of screens all the time. Have you ever wondered what it would be like to disconnect completely? To choose not to have access to the internet? If you have, you may be in need of a digital detox – a total switch-off from all things digital. The idea of people taking a digital detox is becoming more and more popular, especially amongst young people – and today we're joined by someone who's tried a number of digital detox activities and is here to give us some advice about it. Amanda Vince, welcome to the studio.\n\n Amanda : Thank you very much.\n\n Presenter : So, Amanda, you work for a fashion magazine in London, right? I guess your work means you need to be online a lot.\n\n Amanda : Oh, yes. Apart from the hundreds of emails I get every day, I'm always browsing fashion websites, as well as online videos. I also need to be very active online, especially on Twitter and Instagram – sharing what we're doing in the magazine, interacting with designers, photographers, influencers … it never stops, literally. Then of course there's my friends and family to keep in touch with online too, and for me, my work grew out of my passion, so friends and work colleagues aren't two totally separate groups of people and it all gets a bit messy online sometimes. I think I'm online for at least 12 hours a day.\n\n Presenter : So, how did you get the idea for a digital detox?\n\n Amanda : I read a book about it, called Log Off: How to Stay Connected after Disconnecting . The author's name is Blake Snow. That book gave me some really good advice and made me think about trying to change some of my digital habits. I started with removing distraction.\n\n Presenter : What do you mean by that?\n\n Amanda : That means turning off alerts, buzzes, alarms or notifications of any kind. I had notifications set up for everything, and it meant I was always being forced to look at my phone. Removing all of them except for important contacts helped me focus immediately. The book also made a really good point, that we should ask ourselves 'Why?' every time we take out our phone. I realised that most of the times I looked at my phone were because I was trying to avoid or ignore something else happening right in front of me. It was an automatic habit.\n\n Presenter : I have to confess, that happens to me too. But what else are you going to do when you're standing in line at the bank or waiting for your train?\n\n Amanda : OK, yes, I'm the first to admit that it's great for helping time go by. But speaking personally, I found I wasn't just checking my phone to kill time when I was alone. I was also doing it with friends or family around.\n\n Presenter : Hmmm … right. Well, so far, this doesn't sound too drastic. Turning off notifications and becoming aware of when we use our devices. That sounds easy.\n\n Amanda : Yes, it's the first step. Once we begin to realise just how much of a grip our devices have on us, then we're ready to really take the next step. First, my partner and I did a weekend with absolutely no screens. She found it easier than I did. For me, it was a little bit scary at first but it turned out to be a pretty rewarding experience.\n\n Presenter : A whole weekend, huh? I don't know if I could ...\n\n Amanda : I think everyone has to do this at their own pace. If a weekend feels too much, maybe just try for an evening. Then work your way up to more. I guarantee, once you've tried it, you'll want to try it again. We're going to try for a whole week in the summer.\n\n Presenter : OK, let's pause there then and see what our listeners have to say. You can call us here directly, or send us a message on any of our social media channels ... oops, should I be saying that? Anyway, more after the break. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
-          "orderIndex": 4,
+          "orderIndex": 2,
           "title": "Lecture About Experiment",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/lecture-about-experiment",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_lecture_about_an_experiment.mp3",
+          "transcript": "In today's lecture we're going to be talking about experiments, and I thought it might be interesting for you all to learn about the world's oldest continuously running laboratory experiment that is still going today. In fact, it holds the Guinness World Record for being the longest-running experiment. This experiment began in 1927 and has been going ever since.\n\n It's called the 'pitch drop' experiment and it was created by Professor Thomas Parnell at the University of Queensland, Australia. Parnell was the university's first physics professor, and he wanted to show in this experiment that everyday materials, such as pitch, can have quite surprising properties.\n\n You see, when pitch is at room temperature, it feels solid. You can easily break it with a hammer. However, it isn't in fact solid. At room temperature, pitch is many billions of times more viscous than water, but it's actually fluid.\n\n In 1927, Professor Parnell took a sample of pitch. He heated it and poured it into a glass funnel. He allowed the pitch to cool and settle – for three years. He then turned the funnel upside down and cut the top off it.\n\n Since then, the pitch has slowly dropped out of the funnel. How slowly? Well, the first drop took eight years to fall. It took another forty years for another five drops to fall. Today it's been almost 90 years since the experiment started. Only nine drops have fallen from the funnel. The last drop fell in April 2014 and the next one is expected to fall in the 2020s.\n\n The experiment has a tragic story associated with it. Professor Parnell died without seeing a pitch drop. His replacement, Professor John Mainstone, became responsible for the pitch drop experiment from 1961. He held the job for 52 years, and missed seeing the drop fall three times – by a day in 1977, by just five minutes in 1988 and finally in 2000, when the webcam that was recording the experiment suffered a power outage for 20 minutes, during which time the pitch dropped.\n\n The pitch drop experiment is something we can all participate in now. There's a live web stream that allows anyone to watch the glass funnel and wait for the fateful moment. A similar experiment to the Queensland pitch drop was set up in Dublin, and the video of the moment the pitch actually dropped went viral on the internet. It's interesting to see how a very slow event can spread news so quickly.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
-        },
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 3",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
         {
-          "orderIndex": 5,
+          "orderIndex": 1,
           "title": "Talk About Motivation",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/talk-about-motivation",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_talk_about_motivation.mp3",
+          "transcript": "So, we think we know how to motivate people, right? Offer them a reward. Do this and you'll get this. Do this faster, earn more money. Do this better than everyone else, here's a promotion. We offer incentives when we want people to do things. We do it at work, at school, even at home with our kids. Tidy your room and you can watch TV.\n But when social psychologists test whether incentives work, they get surprising results. Sam Glucksberg, from Princeton University, America, set people a problem to solve and told them he was going to time them to see how long they took. Then he put them in two groups. He offered one group a reward for finishing fast. Five dollars for anyone finishing in the top 25 per cent and 20 dollars for the person who finished the fastest of all. To the other group he offered no incentive, but he told them he was going to use their times to calculate an average time.\n The first group, the ones with the reward, solved the problem faster, you'd think, right? Well, no, they actually took three and a half minutes longer than the group who just thought they were being timed. Incentive didn't work. In fact, it made them slower. This experiment has been repeated, with the same results, many times. But in business we still offer bonuses, promotions and rewards to staff.\n That's fine if we want them to do something simple, like chop wood. We'll pay you more if you chop the wood faster. An incentive works then. But if we want someone to do something complex, something creative, something where they have to think, rewards don't work. They might even have the opposite result, and make people perform worse. Another study, by Dan Ariely, showed that the bigger the reward, the worse the subjects performed on a complex task. The reward made them focus so hard on the result that they couldn't think creatively any more.\n And this all matters because more and more simple jobs will become automated. We'll be left with creative, problem-solving jobs that computers will never do. And we need to find a way to motivate people to do those jobs when we've proved the traditional incentives don't work.\n So what does work? Giving your workers freedom; freedom to work on the things they want to work on, freedom to choose when, where and how they work. Want to work from home three days a week, get up late and work into the night instead? Fine. Just do the job well. And evidence shows people who choose the way they work get results. Companies that give employees time during the week to work on things that interest them and are not part of their regular job achieve amazing things. Some of the big tech companies are good examples of this, with ping-pong tables and areas to relax in …\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
-          "orderIndex": 6,
+          "orderIndex": 2,
           "title": "Business News",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/business-news",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Business_news.mp3",
+          "transcript": "The first item in the news today is the recent elections that took place across the country. This was a crucial vote, which may see a dramatic change in how the country develops over the coming years. Overall, a 54.5 per cent voter turnout was registered. This represents an increase of 11 per cent over the previous election and six per cent above the average for the past 50 years. There has also been a slight change in demographics, with an increase in youth turnout in the 18- to 24- and 24- to 29-year-old brackets. Despite this increase, young people are still less likely to vote than older people; 84 per cent of voters in the 70 plus age group came to the polling stations.\n\n Moving on, the global digital powerhouse ONK today posted quarterly results which were above forecast. Back in March, Tim Bolling, CEO, issued a profit warning over fears that there would be losses following the recall of their leading product, the 40d device. In fact, the company posted quarterly revenue of US$14.8 billion which represents an increase of 11 per cent from the same quarter a year ago. They also announced that they had sold 21 million 40d devices over the quarter. The company has provided the information that with this level of revenue, there will be a gross margin of 34 to 35 per cent, ultimately leading to a US$1.20 per share cash dividend awarded to shareholders.\n\n And in our final news item we ask, will we soon be saying goodbye to coins and notes forever? The nationwide trend of using cashless payment options is increasing. There are a number of reasons for this development. A key reason for this is a growing interest in reducing the number of items people need to leave their homes with. As almost everyone carries a smartphone with them, and many people also have smartwatches, the ability to pay for things using one of these two technologies is particularly appealing. More and more retailers are accepting cashless payments and in some cases they've stopped accepting cash altogether.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
           "duration": 20
-        },
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 4",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
         {
-          "orderIndex": 7,
+          "orderIndex": 1,
           "title": "Creating Study Group",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/creating-study-group",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Creating_a_study_group.mp3",
+          "transcript": "Ali : Hey, you guys, I've been looking for you. I've got an idea – a study group. What do you think? Are you interested?\n\n Dina : Yes! I need a study group, in a big way.\n\n Bea : Me too.\n\n Ali : Do you think we have enough people here for a study group? I mean, there are only four of us …\n\n Bea : Sorry. Three of us. Chris can't do study group. Right, Chris?\n\n Chris : Yeah, there's no way I can do a study group. I have an assignment and then I'm too busy. But I'll stay for this first meeting.\n\n Ali : Should we try and get another group together with us for this?\n\n Bea : No, I don't think so. I think three is fine. Ideal size, really.\n\n Dina : Me too.\n\n Ali : OK, three people then. Four people for the first meeting. What next?\n\n Bea : What about a meeting place? We can't meet here in the library …\n\n Ali : It's not too bad, especially if those other people would go away.\n\n Bea : But we can't exactly ask them to leave, and people might get annoyed with us talking.\n\n Dina : Can I say something here?\n\n Ali : Sure, go ahead.\n\n Dina : There's a study hall next to the cafeteria. It's almost always empty. Could we meet there?\n\n Ali : A study hall?! Who knew? Well, it sounds good to me.\n\n Bea : Yeah. I've never been there but …\n\n Ali : So, we ought to decide how long for and how often.\n\n Dina : I read somewhere that you should make the meeting at the same time each week. Like a seminar. That way we'd take it more seriously.\n\n Bea : We may as well make it for this time since we're all here. Is this time OK?\n\n Dina : Works for me.\n\n Ali : Me too.\n\n Chris : Hang on just a minute. I know I'm not going to be in this group, but aren't we supposed to have a seminar at this time every other week?\n\n Dina : Umm, no.\n\n Bea: Thursday, no? \n\n Ali: No, that's on Thursday. \n\n Chris : Sorry. Forget I said anything.\n\n Ali : Don't worry about it.\n\n Bea : So everyone agrees that this time is fine? Every week?\n\n Ali : How long should we make it?\n\n Bea : An hour?\n\n Dina : Could we find a way of making it two hours?\n\n Ali : Two hours seems a bit like … too much. To start with then?\n\n Bea : Ninety minutes? Compromise?\n\n Ali : Is that OK with you, Dina?\n\n Dina : Fine by me.\n\n Ali : OK, so I guess all we have left to decide is exactly what we'll do when we meet. The final exam is a way off. I guess we could review our notes, or practise learning things by heart.\n\n Dina : I have a list of dos and don'ts actually that I got online. I could be a moderator, and we could use the ideas as a starting point …\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "MultipleChoice_MjMzMDM=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Matching_MjMzMDQ=.xml \n\n <h3"
+            }
+          ],
           "duration": 20
         },
         {
-          "orderIndex": 8,
+          "orderIndex": 2,
           "title": "Film Reviews",
           "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/film-reviews",
           "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Film_reviews.mp3",
+          "transcript": "Obviously, this is the sequel to Fun in the City , which is a film I didn't like so it's fair to say my expectations were low. So, you could say I wasn't disappointed, as it met my expectations. It was awful! It was so awful, I'd rather not spend any more time on it by talking about it. But, that wouldn't be a film review and I think I owe you all a review to save you wasting your money going to see it.\n\n So, it starts off with this big wedding scene. And, I won't go into why, but the whole scene is just there so they can make this one joke. It's not even a funny joke ... it's just, ah, it's just terrible. It's got nothing to do with the rest of the film. Anyway, it starts there. Then, instead of the characters and the plot staying in New York where the original film was set, one of them wins a ticket to India and decides to take all her friends. It's what directors do when they've run out of ideas … let's take our characters on tour!\n\n Anyway, they gossip, cry and shop, and they repeat this until the end. No real people would ever act like this. I didn't have any sympathy for their problems or even care what happened to them. Don't go and see it, you'll only encourage them to make another sequel. The world doesn't need three of these films. Please save your money and go and see the other big film this week: Twilight Mirror .\n\n So, if you're a fan of the book it's based on, you're probably as excited as I was about this. For everyone else, this is a film fans have been waiting ten years to see. I have to confess, I was a bit nervous. I'd seen the posters and they didn't look right. I didn't love them at all. And I wasn't sure about the actors they cast either. So I went in not sure what to expect. But … I loved it.\n\n One thing I really liked about it was the pace. They went backwards and forwards between the real world and the computer world and it worked really well. The special effects brought the computer world to life and I totally believed in it. But, more than that, I felt emotionally connected to the story and the characters. The whole film worked on so many levels. It reminded me of going to the cinema as a child – how much fun that was. I can't recommend it enough.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 5",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Getting Advice",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/getting-advice",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Getting_advice.mp3",
+          "transcript": "Clara : Hi, how are you? I haven't seen you in class for a while.\n Ben : Good, thanks. You? \n Clara : Great, as long as I don't think too hard about all the essays I have to write this term!\n Ben : Yeah … \n Clara : Hey, are you OK?\n Ben : I have to admit, I'm struggling a bit. Maybe even a lot. I've not been sleeping well at all and then I can't concentrate. And all these things are just going around and around in my head.\n Clara : Mmm … that doesn't sound good. So, you're sleeping badly and you can't concentrate. Is that all it is, do you think?\n Ben : Well, if I'm honest, it's more than that. I'm starting to dread going outside. I find myself worrying about stupid things like what if I forget the way home. Or, what if I go to class thinking it's Monday but actually it's Friday and I'm in the wrong place at the wrong time. It sounds even more stupid when I say it out loud. It took me two hours to leave the house today.\n Clara : It doesn't sound stupid at all. It actually sounds a lot like me last year.\n Ben : Really? But you're so together!\n Clara : I've learned to be, but even I still have bad days. I used to have panic attacks and everything. When you were trying to leave the house today, how did you feel?\n Ben : Like I couldn't breathe. And my heart was going way too fast.\n Clara : Hmm … that sounds like a panic attack to me.\n Ben : I thought I was going to die.\n Clara : You'd be surprised how common they are. Loads of people have them, they just don't talk about it.\n Ben : How did you get over them?\n Clara : I actually talked to a doctor about it, and you should too. But I learned some practical things as well. Though they're easier said than done, and they're going to sound weird, so hear me out, OK?\n Ben : OK …\n Clara : So, one thing I did was to try to reduce the power of the anxiety and the panic attacks when they came. So – and this may sound strange – at a time when you're feeling safe and OK, you literally do things that make your heart start racing faster and your breathing speed up. Like spinning around on a chair until you're dizzy or hyperventilating so you're short of breath.\n Ben : That sounds awful!\n Clara : It is, but it means you get used to the symptoms, so they feel less scary. \n Ben : Right. \n Clara : Then you have to deliberately do the things that usually make you feel panic. So, if it's going to class on Monday and being scared you've got the wrong day, on Monday you go to class. If you let the anxiety control you by making you stay at home, it just makes it worse the next time you really do have to go out.\n Ben : And what did you do if a panic attack came anyway?\n Clara : I had a distraction plan. So, I walked everywhere instead of taking the bus because the exercise helped, but also I did things like count trees or red cars or something. Whatever it was didn't matter, as long as I had something else to focus on.\n Ben : I can't tell you how much I appreciate this. I thought … \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "MultipleChoice_MjMzMDY=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "ReorderingVertical_MjMzMDc=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Joining Gym",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/joining-gym",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Joining_a_gym.mp3",
+          "transcript": "Receptionist : Hello, welcome to Shake it Off Fitness. How can I help you?\n\n Customer : Yes, thanks. I've been meaning to come in and find some information about here for some time. I was wondering if you could help me?\n\n Receptionist : Sure, of course. What would you like to know?\n\n Customer : I saw on the sign outside that you have the best budget membership in the city. Is that right?\n\n Receptionist : You've got that right, yes. If you find a better rate, then we'll match it. Also, we don't have any sign-up fees or cancellation fees.\n\n Customer : Sorry, what was that last bit?\n\n Receptionist : Cancellation fees. Some gyms charge you money if you leave before a minimum number of months or something like that. We don't do that.\n\n Customer : That's useful to know. Ummm, what times do you have?\n\n Receptionist : We open at 5 a.m. and close at midnight.\n\n Customer : Not 24 hours then, I see.\n\n Receptionist : No. Almost, though! We tried doing the 24-hour thing, but there really weren't a lot of people who wanted to do exercise at 2 in the morning.\n\n Customer : Makes sense. Another question: do you have trainers? Like, will you do a personalised evaluation of me?\n\n Receptionist : Sure we do. As we say on our brochure, we can show you what to do, how to do it and why you're doing it. Have you worked with a personal trainer before?\n\n Customer : Err, no. No, I haven't. No.\n\n Receptionist : So, it's very easy. For your first visits we'll assign you one of our expert personal trainers. He or she will design an exercise plan that's just right for you and show you exactly what to do. We even include nutrition advice in the plan.\n\n Customer : Let me get this straight. All of this is included in the price?\n\n Receptionist : Yes, it is. If you want to continue with your trainer after the first few classes, we can talk about that. It does cost extra though. OK?\n\n Customer : Yeah. Sounds ... great.\n\n Receptionist : Do you have any other questions?\n\n Customer : Hmmm, yeah. Um, OK. Why should I choose here instead of any of the other gyms in the city?\n\n Receptionist : What, you mean apart from our competitive rates and personalised attention?\n\n Customer : Yeah, I guess.\n\n Receptionist : Listen, here's a free day pass. Why don't you drop by and see for yourself? That way you can talk to other members, see the facilities and our staff.\n\n Customer : OK, I'll do that. Thanks very much!\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2 - Pack 6",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Office Party Planning",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/office-party-planning",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Office_party_planning.mp3",
+          "transcript": "Ayako : Hello, sales department. This is Ayako speaking. How can I help you?\n\n Sam : Hi, Ayako, this is Sam from Events-4-U. I'm calling about the piano you want at your Christmas party next month.\n\n Ayako : Oh, good. It would be a great surprise to have one there for our boss for the night. He can play and it would be a great addition for the party. Have you been able to source one?\n\n Sam : Well, yes, I have, but …\n\n Ayako : But what?\n\n Sam : Well, we're going to either have an issue with the logistics or the budget, or possibly both.\n\n Ayako : Oh dear.\n\n Sam : Well, we've found a baby grand piano, as you requested, and it's available for the date you want.\n\n Ayako : OK, great. So what's the issue? Is it too expensive?\n\n Sam : No, it's within the budget you gave me, so everything there is OK. But it's too wide for the entrance doorway into the building.\n\n Ayako : Oh, I see. So what are our options? Could we dismantle it outside and reassemble it inside?\n\n Sam : Er, no. Unfortunately, you can't really do that with pianos. But don't worry, I'm sure we can find some inventive solution.\n\n Ayako : Do you have any ideas?\n\n Sam : Well, we could hoist it up to the first-floor balcony. The door there would be large enough to fit it through.\n\n Ayako : Great. That sounds like a good plan.\n\n Sam : That would work, though it would increase the cost considerably as we'd need a crane, an extension on the insurance policy and probably two to three additional people to manage getting it successfully into the building.\n\n Ayako : Oh, I see. Well, we can definitely stretch the budget by about ten per cent, but we shouldn't go over that. If we exceed the budget by more than ten per cent, then other areas of the party budget will have to be cut. And we don't really want that.\n\n Sam : OK, so this idea won't work then. Sorry if I wasn't being clear. The considerable budget increase I was referring to would add a further fifty per cent. You know, cranes are expensive.\n\n Ayako : Oh … um … OK. So what other options do we have?\n\n Sam : Well, how fixed are you on the piano being a baby grand? Would an upright piano be an option?\n\n Ayako : Hmm. I don't know.\n\n Sam : It would fit through the door on the ground floor and cause fewer problems. I've also got the option on a really nice white vintage upright piano, with black design work.\n\n Ayako : OK. That sounds like it might work. Could you send me over some photos of it?\n\n Sam : I'll do it now, together with the rental and delivery information and costs.\n\n Ayako : Great. Thanks, Sam. Let me think about it and I'll call you back later today.\n\n Sam : Sure, no problem. I'll wait for your call. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        },
+        {
+          "orderIndex": 2,
+          "title": "Talking About Rumours",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/talking-about-rumours",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_Talking_about_rumours.mp3",
+          "transcript": "Will: Kiera, have you heard John isn't coming back and they might even fire him?\n\n Kiera: No! I knew he was away but I thought it was for personal reasons?\n\n Will: I'm pretty sure that's not the full story. Have you ever worked with him?\n\n Kiera: A long time ago, but … well, I've heard stories about him for years.\n\n Will: I've never worked with him directly but I know people that have and they say he was always shouting and screaming, threatening to fire people. And Susanne told me he took credit for one of her ideas. She had this idea for a project and she brought it up at the monthly creative workshop and he liked it – everybody did. But she saw the notes from the meeting and there was no mention of her name anywhere. John had agreed with her and repeated some of the things she said and the notes made it look like they were his ideas in the first place. He made her do all the work planning it, then when the project actually got started – it was that cars one – Susanne was moved to something else.\n\n Kiera: It won an award, didn't it?\n\n Will: Yeah, but Susanne didn't get to share it – there was zero recognition of her contribution. She was furious but she couldn't do anything about it. Not if she wanted to keep her job.\n\n Kiera: Yeah, it's almost impossible to report people who are as high up as John is, or was.\n\n Will: How did you find working with him, then?\n\n Kiera: Well, you know what you said about him shouting at people? I've been in meetings with him and we all learned to keep our mouths shut. It was horrible. People were genuinely afraid of him.\n\n Will: Did you ever see him stealing people's ideas?\n\n Kiera: It was never that obvious. He was a genius. He had incredible vision but, you know, there was a whole team of people working with him. Not every single idea came from him and after a while it's not easy to say, 'Oh, this idea was mine and this idea was yours.' For me, the bigger problem was that you could be in his good books and then suddenly, with no explanation, you were out. And if you were out, life got very difficult.\n\n Will: I heard women in particular had a hard time working with him.\n\n Kiera: Yeah, well, like I said, you had to stay in his good books. So, if there was a comment that made you feel uncomfortable, you didn't say anything.\n\n Will: Did that happen to you?\n\n Kiera: Not to me, no, but we all knew … and no one said anything. And I was lucky I didn't have that much contact with him myself.\n\n Will: They're doing a full investigation so I suppose a lot of these stories are going to come to light.\n\n Kiera: I hope so. I really hope he's not coming back.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMzNTk=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "GapFillDragAndDrop_MjMzNjA=.xml \n\n <h3"
+            }
+          ],
           "duration": 20
         }
       ],
@@ -297,7 +1265,7 @@
   ],
   "meta": {
     "source": "learnenglish.britishcouncil.org",
-    "generatedAt": "2026-06-04T07:48:03.409Z",
+    "generatedAt": "2026-06-04T10:46:35.126Z",
     "notes": "Metadata links only. Respect source website terms and copyright."
   }
 }

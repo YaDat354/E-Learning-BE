@@ -42,6 +42,8 @@ CREATE TABLE IF NOT EXISTS lessons (
   title VARCHAR(255) NOT NULL,
   content TEXT,
   video_url TEXT,
+  transcript TEXT,
+  tasks JSONB NOT NULL DEFAULT '[]'::jsonb,
   order_index INTEGER NOT NULL DEFAULT 0,
   duration INTEGER,
   created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -157,6 +159,10 @@ CREATE TABLE IF NOT EXISTS notifications (
 );
 
 -- Compatibility fixes for legacy schema variants
+
+-- lessons: support transcript/tasks for listening content
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS transcript TEXT;
+ALTER TABLE lessons ADD COLUMN IF NOT EXISTS tasks JSONB NOT NULL DEFAULT '[]'::jsonb;
 
 -- assignments: support old lesson_id model and backfill course_id for current BE
 ALTER TABLE assignments ADD COLUMN IF NOT EXISTS course_id UUID;

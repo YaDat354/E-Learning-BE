@@ -123,19 +123,37 @@ const upsertLesson = async (courseId, lesson) => {
        SET title = $1,
            content = $2,
            video_url = $3,
+           transcript = $4,
+           tasks = $5::jsonb,
            updated_at = NOW()
-       WHERE id = $4
+       WHERE id = $6
        RETURNING id`,
-      [lesson.title, lesson.content || null, lesson.videoUrl || null, found.rows[0].id]
+      [
+        lesson.title,
+        lesson.content || null,
+        lesson.videoUrl || null,
+        lesson.transcript || null,
+        JSON.stringify(Array.isArray(lesson.tasks) ? lesson.tasks : []),
+        found.rows[0].id,
+      ]
     );
     return updated.rows[0].id;
   }
 
   const inserted = await query(
-    `INSERT INTO lessons (course_id, title, content, video_url, order_index, duration, created_at, updated_at)
-     VALUES ($1, $2, $3, $4, $5, $6, NOW(), NOW())
+    `INSERT INTO lessons (course_id, title, content, video_url, transcript, tasks, order_index, duration, created_at, updated_at)
+     VALUES ($1, $2, $3, $4, $5, $6::jsonb, $7, $8, NOW(), NOW())
      RETURNING id`,
-    [courseId, lesson.title, lesson.content || null, lesson.videoUrl || null, lesson.orderIndex, lesson.duration || 0]
+    [
+      courseId,
+      lesson.title,
+      lesson.content || null,
+      lesson.videoUrl || null,
+      lesson.transcript || null,
+      JSON.stringify(Array.isArray(lesson.tasks) ? lesson.tasks : []),
+      lesson.orderIndex,
+      lesson.duration || 0,
+    ]
   );
   return inserted.rows[0].id;
 };

@@ -1,0 +1,155 @@
+{
+  "users": [
+    {
+      "fullName": "Crawler Teacher",
+      "email": "crawler.teacher@gmail.com",
+      "role": "teacher",
+      "password": "123456"
+    },
+    {
+      "fullName": "Crawler Student",
+      "email": "crawler.student@gmail.com",
+      "role": "student",
+      "password": "123456"
+    }
+  ],
+  "courses": [
+    {
+      "title": "British Council Listening A1",
+      "level": "co_ban",
+      "description": "Listening practice (A1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Request Your Boss",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a1/request-your-boss",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A1_A_request_from_your_boss.mp3",
+          "transcript": "Susanne : Hi, Mario. Can you help me prepare some things for the next month?\n Mario : OK, sure. What can I help you with?\n Susanne : I need to visit the customer in Germany. It's important.\n Mario : What can I do to help?\n Susanne : Can you send an email to the customer? Ask them when I can visit them next week. Please do this first. It's a priority and very urgent.\n Mario : Right. I'll do it today.\n Susanne : Thanks. This next task is also important. Can you invite everyone to the next team meeting?\n Mario : Yes, I will.\n Susanne : But first you need to book a meeting room. After that, please send everyone an email about it.\n Mario : Yes, of course.\n Susanne : And finally, can you write a short report about our new project? I have to give a presentation to our managers next month. Please do it when you have time – sometime in the next two or three weeks. It's not too urgent.\n Mario : Sure, no problem. I can do it this week.\n Susanne : There's no hurry. Take your time.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening A2",
+      "level": "co_ban",
+      "description": "Listening practice (A2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Morning Briefing",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/a2/morning-briefing",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_A2_Morning_briefing.mp3",
+          "transcript": "Hi, everyone. I know you're all busy so I'll keep this briefing quick. I have some important information about a change in the management team. As you already know, our head of department, James Watson, is leaving his position at the end of this week. His replacement is starting at the end of the next month. In the meantime, we'll continue with our projects as usual.\n\n I have two more quick points. Firstly, there will be some improvements made to the staff car park next month for a few weeks. It will be closed during that time.\n\n Don't worry, we've found a solution. We can use the local church car park until our own one is ready. If you arrive before 8.30 a.m., please use our small car park on Brown Street, and if you arrive after that, you should go directly to the church car park. It's only a five-minute walk away. But they need it in the evenings, so you have to leave before 6 p.m. Sorry about that – I know how much you all love working late!\n\n The other thing I wanted to tell you about is that the canteen has now introduced a cashless payment system. So, you can't use cash for payments any more. You can pay directly with your smartphone or you can pay using your company ID card. The total amount put on your company ID card comes off your salary at the end of each month.\n\n OK. That's it? Are there any questions?\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "TrueOrFalse_MjMyNDM=.xml \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Grouping_MjMyNDQ=.xml \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B1",
+      "level": "trung_cap",
+      "description": "Listening practice (B1) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Phone Call Customer",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b1/phone-call-customer",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B1_A_phone_call_from_a_customer.mp3",
+          "transcript": "Junko : Hello, Junko Mori speaking. How can I help you?\n Andrea : Hi, Junko, it's Andrea here from Red Band. I'm calling about our latest order.\n Junko : Everything arrived OK, right? We got the delivery confirmation at our end.\n Andrea : Yes, everything's fine with the order. I'm calling about the invoice and the payment terms. I need a favour.\n Junko : A favour? What do you need?\n Andrea : This is a little, er ... difficult, but I need an extension on the payment terms. I know they're usually 30 days, but we're having some cash flow problems. You'd really be helping us out if you could extend it to 60 days.\n Junko : I'm not sure if I can do that, Andrea. We've got regulations at our end, and also have to manage our own cash flow.\n Andrea : I promise this won't become the norm, Junko. Actually, I also want to place another new order. The same size order as last time. It's for an important customer and they pay on delivery.\n Junko : I see. So your cash flow problem will be solved after this new order is delivered.\n Andrea : Exactly.\n Junko : That sounds good. Hold on, Andrea. Let me see what I can do. Yes, I think we can make an exception this time.\n Andrea : That's great, Junko. I appreciate your help.\n Junko : And we appreciate your business, Andrea. It works both ways.\n Andrea : Thanks again, Junko. Can you send me a quick email confirmation of the payment terms extension?\n Junko : Sure, no problem. We're happy to help you.\n Andrea : Great. And I'll email you the new order.\n Junko : Thanks. I'll keep an eye out for it. Talk to you soon.\n Andrea : You too. Goodbye.\n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    },
+    {
+      "title": "British Council Listening B2",
+      "level": "cao_cap",
+      "description": "Listening practice (B2) sourced from British Council public pages.",
+      "thumbnail": "https://www.britishcouncil.org/sites/default/files/styles/bc-square-690x690/public/listening.jpg",
+      "teacherEmail": "crawler.teacher@gmail.com",
+      "lessons": [
+        {
+          "orderIndex": 1,
+          "title": "Business Interview",
+          "content": "Interactive listening lesson metadata crawled from British Council.",
+          "pageUrl": "https://learnenglish.britishcouncil.org/free-resources/listening/b2/business-interview",
+          "videoUrl": "https://learnenglish.britishcouncil.org/sites/podcasts/files/LE_listening_B2_A_business_interview.mp3",
+          "transcript": "Presenter : Welcome to today's show. We're very happy to have Anna Oliveira as our guest today. Anna is the creator and founder of HomeworX – spelled with an 'x' we should note – an app which helps teenagers with their homework. Thanks for coming in, Anna.\n Anna : Thanks for having me.\n Presenter : So, tell us about your app. How does it work?\n Anna : Well, teenagers and their parents have numerous challenges when it comes to homework these days. In many families both parents work and don't have much available time to help their kids with their homework. And even if they do have time to help, they may not be able to offer support with the content. What I mean is, they may not know, or at least remember, enough in any given subject to support.\n Presenter : You mean they might not be able to remember complex maths or might have never studied certain subjects, such as biology or economics, themselves?\n Anna : Exactly. So they might want to support their children with their homework, but have neither the time nor the knowledge to do so.\n Presenter : I see. So the app helps solve this problem?\n Anna : Yes, and more. The next issue is that tutors can be expensive, and there may be long waiting lists for specialist tutors in the town or region you live in. Our HomeworX app brings students and tutors together online. Students can search a database of pre-approved tutors and sign up for live online support. They don't need to be in the same town or city.\n Presenter : That sounds really great.\n Anna : It is. And this approach also enables us to offer the tutoring services at lower prices because there's no travelling time involved for the tutor to get to the student's home. And tutors who live in remote areas are happy to get access to more students, and be able to work from home, even at lower rates.\n Presenter : This all sounds great. So, how did you come up with the idea?\n Anna : Well, as you might guess, I was one of those parents I described earlier. I really wanted to help my son with his homework, but I was either too busy with work or I didn't actually know anything about the subjects he was having difficulty with. Also, we live in an area where there aren't many tutors and the ones that are there are either very expensive or have long waiting lists.\n Presenter : Yes. I can understand your predicament. Well, it sounds like a very useful app that is clearly meeting a need. And its popularity obviously speaks for itself.\n Anna : Thank you.\n Presenter : So, do you have plans for the future?\n Anna : We've just secured some funding and hope to expand the range of services we offer using the app.\n Presenter : We wish you the best of luck. Thanks again for coming in. That was Anna Oliveira, founder of the tutoring app HomeworX (with an 'x', don't forget!), which is available for both Apple and Android devices. Join us again next week for another business interview. Have a great week, everyone. \n\n<h3 class=\"field-group-format-toggler accordion-item\"",
+          "tasks": [
+            {
+              "title": "Task 1",
+              "content": "Exercise \n\n<h3 class=\"field-group-format-toggler accordion-item\""
+            },
+            {
+              "title": "Task 2",
+              "content": "Exercise \n\n <h3"
+            }
+          ],
+          "duration": 20
+        }
+      ],
+      "assignments": [],
+      "quizzes": [],
+      "enrolledStudentEmails": [
+        "crawler.student@gmail.com"
+      ]
+    }
+  ],
+  "meta": {
+    "source": "learnenglish.britishcouncil.org",
+    "generatedAt": "2026-06-04T10:18:36.497Z",
+    "notes": "Metadata links only. Respect source website terms and copyright."
+  }
+}

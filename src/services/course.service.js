@@ -2,8 +2,11 @@ const courseModel = require('../models/course.model');
 const lessonModel = require('../models/lesson.model');
 const enrollmentModel = require('../models/enrollment.model');
 const discussionModel = require('../models/discussion.model');
+const quizModel = require('../models/quiz.model');
 const HttpError = require('../utils/http-error');
 const { toMediaPayload } = require('../utils/media-source');
+const { sanitizeTranscript, sanitizeTasks } = require('../utils/lesson-content');
+const { attachLessonQuizzes } = require('../utils/lesson-quiz');
 
 const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
@@ -34,15 +37,17 @@ const formatDurationLabel = (totalMinutes) => {
   return `${hours} gio ${minutes} phut`;
 };
 
-const mapLessonForDetail = (lesson, index) => {
+const mapLessonForDetail = (lesson, index, courseQuizzes = []) => {
   const mediaState = toMediaPayload(lesson.video_url);
 
-  return {
+  return attachLessonQuizzes({
     id: lesson.id,
     courseId: lesson.course_id,
     title: lesson.title,
     content: lesson.content,
     videoUrl: lesson.video_url,
+    transcript: sanitizeTranscript(lesson.transcript),
+    tasks: sanitizeTasks(lesson.tasks),
     orderIndex: lesson.order_index,
     duration: lesson.duration,
     durationLabel: lesson.duration ? `${lesson.duration} phut` : 'Dang cap nhat',
@@ -52,7 +57,7 @@ const mapLessonForDetail = (lesson, index) => {
     media: mediaState.media,
     createdAt: lesson.created_at,
     updatedAt: lesson.updated_at,
-  };
+  }, courseQuizzes);
 };
 
 const getCourseById = async (courseId, currentUser) => {
@@ -63,7 +68,8 @@ const getCourseById = async (courseId, currentUser) => {
   }
 
   const lessons = await lessonModel.findByCourseId(courseId);
-  const mappedLessons = lessons.map(mapLessonForDetail);
+  const courseQuizzes = await quizModel.findByCourseId(courseId);
+  const mappedLessons = lessons.map((lesson, index) => mapLessonForDetail(lesson, index, courseQuizzes));
 
   const totalDurationMinutes = mappedLessons.reduce(
     (sum, lesson) => sum + (Number(lesson.duration) || 0),
