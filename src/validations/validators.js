@@ -46,7 +46,17 @@ const validateLogin = (req, res, next) => {
 
 const validateCreateCourse = (req, res, next) => {
   ensureBodyObject(req.body);
-  const { title, level, description, thumbnail } = req.body;
+  const {
+    title,
+    level,
+    description,
+    thumbnail,
+    price,
+    originalPrice,
+    duration,
+    category,
+    tags,
+  } = req.body;
   const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
   if (!isNonEmptyString(title)) throw new HttpError(400, 'title is required');
@@ -59,21 +69,75 @@ const validateCreateCourse = (req, res, next) => {
   if (thumbnail !== undefined && typeof thumbnail !== 'string') {
     throw new HttpError(400, 'thumbnail must be a string');
   }
+  if (price !== undefined && (Number.isNaN(Number(price)) || Number(price) < 0)) {
+    throw new HttpError(400, 'price must be a number >= 0');
+  }
+  if (originalPrice !== undefined && (Number.isNaN(Number(originalPrice)) || Number(originalPrice) < 0)) {
+    throw new HttpError(400, 'originalPrice must be a number >= 0');
+  }
+  if (duration !== undefined && (Number.isNaN(Number(duration)) || Number(duration) < 0)) {
+    throw new HttpError(400, 'duration must be a number >= 0');
+  }
+  if (category !== undefined && typeof category !== 'string') {
+    throw new HttpError(400, 'category must be a string');
+  }
+  if (tags !== undefined && !Array.isArray(tags)) {
+    throw new HttpError(400, 'tags must be an array of strings');
+  }
 
   next();
 };
 
 const validateUpdateCourse = (req, res, next) => {
   ensureBodyObject(req.body);
-  const { title, level, description, thumbnail } = req.body;
+  const {
+    title,
+    level,
+    description,
+    thumbnail,
+    price,
+    originalPrice,
+    duration,
+    category,
+    tags,
+  } = req.body;
   const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
   if (level !== undefined && (!isNonEmptyString(level) || !allowedLevels.includes(level))) {
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  if (title === undefined && level === undefined && description === undefined && thumbnail === undefined) {
-    throw new HttpError(400, 'At least one field (title, level, description, thumbnail) is required');
+  if (price !== undefined && (Number.isNaN(Number(price)) || Number(price) < 0)) {
+    throw new HttpError(400, 'price must be a number >= 0');
+  }
+  if (originalPrice !== undefined && (Number.isNaN(Number(originalPrice)) || Number(originalPrice) < 0)) {
+    throw new HttpError(400, 'originalPrice must be a number >= 0');
+  }
+  if (duration !== undefined && (Number.isNaN(Number(duration)) || Number(duration) < 0)) {
+    throw new HttpError(400, 'duration must be a number >= 0');
+  }
+  if (category !== undefined && typeof category !== 'string') {
+    throw new HttpError(400, 'category must be a string');
+  }
+  if (tags !== undefined && !Array.isArray(tags)) {
+    throw new HttpError(400, 'tags must be an array of strings');
+  }
+
+  if (
+    title === undefined
+    && level === undefined
+    && description === undefined
+    && thumbnail === undefined
+    && price === undefined
+    && originalPrice === undefined
+    && duration === undefined
+    && category === undefined
+    && tags === undefined
+  ) {
+    throw new HttpError(
+      400,
+      'At least one field (title, level, description, thumbnail, price, originalPrice, duration, category, tags) is required'
+    );
   }
 
   next();
@@ -166,6 +230,21 @@ const validateCreateQuiz = (req, res, next) => {
   next();
 };
 
+const validateUpdateQuiz = (req, res, next) => {
+  ensureBodyObject(req.body);
+  const { title, description, timeLimit } = req.body;
+
+  if (title === undefined && description === undefined && timeLimit === undefined) {
+    throw new HttpError(400, 'At least one field (title, description, timeLimit) is required');
+  }
+
+  if (timeLimit !== undefined && (Number.isNaN(Number(timeLimit)) || Number(timeLimit) <= 0)) {
+    throw new HttpError(400, 'timeLimit must be a number > 0');
+  }
+
+  next();
+};
+
 const validateAddQuestion = (req, res, next) => {
   ensureBodyObject(req.body);
   const { content, type, answers } = req.body;
@@ -181,6 +260,41 @@ const validateAddQuestion = (req, res, next) => {
 
     const hasCorrect = answers.some((item) => item && item.isCorrect === true);
     if (!hasCorrect) throw new HttpError(400, 'at least one answer must be correct');
+  }
+
+  next();
+};
+
+const validateUpdateQuestion = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const { content, type, orderIndex, answers } = req.body;
+  const allowed = ['single_choice', 'multiple_choice', 'text'];
+
+  if (content === undefined && type === undefined && orderIndex === undefined && answers === undefined) {
+    throw new HttpError(400, 'At least one field is required');
+  }
+
+  if (type !== undefined && !allowed.includes(type)) {
+    throw new HttpError(400, 'type is invalid');
+  }
+
+  if (orderIndex !== undefined && (!Number.isInteger(orderIndex) || orderIndex < 0)) {
+    throw new HttpError(400, 'orderIndex must be an integer >= 0');
+  }
+
+  if (answers !== undefined) {
+    if (!Array.isArray(answers)) {
+      throw new HttpError(400, 'answers must be an array');
+    }
+
+    const effectiveType = type || null;
+    if (effectiveType !== 'text') {
+      const hasCorrect = answers.some((item) => item && item.isCorrect === true);
+      if (answers.length < 2 || !hasCorrect) {
+        throw new HttpError(400, 'choice question answers must contain at least 2 items and one correct answer');
+      }
+    }
   }
 
   next();
@@ -288,7 +402,9 @@ module.exports = {
   validateSubmitAssignment,
   validateGradeSubmission,
   validateCreateQuiz,
+  validateUpdateQuiz,
   validateAddQuestion,
+  validateUpdateQuestion,
   validateSubmitQuiz,
   validateEnrollCourse,
   validateUpdateEnrollmentProgress,

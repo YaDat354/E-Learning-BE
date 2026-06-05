@@ -15,6 +15,7 @@ router.get('/:lessonId', authenticate, requireEnrollment, lessonController.getLe
 // Teacher / Admin only
 router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateCreateLesson, lessonController.createLesson);
 router.patch('/:lessonId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateLesson, lessonController.updateLesson);
+router.put('/:lessonId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateLesson, lessonController.updateLesson);
 router.delete('/:lessonId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), lessonController.deleteLesson);
 router.use('/:lessonId/files', lessonFileRoutes);
 

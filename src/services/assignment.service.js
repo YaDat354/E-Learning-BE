@@ -1,6 +1,7 @@
 const assignmentModel = require('../models/assignment.model');
 const courseModel = require('../models/course.model');
 const HttpError = require('../utils/http-error');
+const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
 // ── Helpers ───────────────────────────────────────────────────
 
@@ -17,18 +18,24 @@ const requireAssignment = async (courseId, assignmentId) => {
 };
 
 const assertTeacherOwns = (course, user) => {
-  if (user.role === 'teacher' && course.teacher_id !== user.id) throw new HttpError(403, 'Forbidden');
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 };
 
 // ── Assignment CRUD ───────────────────────────────────────────
 
-const getAssignments = async (courseId) => {
-  await requireCourse(courseId);
+const getAssignments = async (courseId, currentUser = null) => {
+  const course = await requireCourse(courseId);
+  if (currentUser && currentUser.role === 'teacher') {
+    assertTeacherOwns(course, currentUser);
+  }
   return assignmentModel.findByCourseId(courseId);
 };
 
-const getAssignmentById = async (courseId, assignmentId) => {
-  await requireCourse(courseId);
+const getAssignmentById = async (courseId, assignmentId, currentUser = null) => {
+  const course = await requireCourse(courseId);
+  if (currentUser && currentUser.role === 'teacher') {
+    assertTeacherOwns(course, currentUser);
+  }
   return requireAssignment(courseId, assignmentId);
 };
 

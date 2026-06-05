@@ -1,6 +1,9 @@
 const enrollmentModel = require('../models/enrollment.model');
 const lessonProgressModel = require('../models/lesson-progress.model');
 const lessonModel = require('../models/lesson.model');
+const courseModel = require('../models/course.model');
+const assignmentModel = require('../models/assignment.model');
+const roles = require('../constants/roles');
 const HttpError = require('../utils/http-error');
 
 /**
@@ -81,8 +84,66 @@ const updateLessonProgress = async (userId, lessonId, { lastPositionSec, isCompl
   });
 };
 
+const getMyTeachingCourses = async (user) => {
+  if (user.role !== roles.TEACHER) {
+    throw new HttpError(403, 'Only teacher can access teaching courses', 'RESOURCE_NOT_OWNED');
+  }
+
+  const courses = await courseModel.listAll({
+    teacherId: user.id,
+  });
+
+  return courses.map((course) => ({
+    id: String(course.id),
+    title: course.title,
+    level: course.level,
+    description: course.description,
+    thumbnail: course.thumbnail,
+    price: course.price !== null && course.price !== undefined ? Number(course.price) : 0,
+    originalPrice: course.original_price !== null && course.original_price !== undefined
+      ? Number(course.original_price)
+      : null,
+    duration: course.duration,
+    category: course.category,
+    tags: Array.isArray(course.tags) ? course.tags : [],
+    lessonCount: Number(course.lesson_count ?? 0),
+    teacherId: String(course.teacher_id),
+    teacherEmail: course.teacher_email,
+    teacherName: course.teacher_name,
+    createdAt: course.created_at,
+    updatedAt: course.updated_at,
+    // Backward compatibility for older FE fields.
+    teacher_id: course.teacher_id,
+    teacher_email: course.teacher_email,
+    teacher_name: course.teacher_name,
+    lesson_count: Number(course.lesson_count ?? 0),
+  }));
+};
+
+const getTeachingAssignmentsOverview = async (user) => {
+  if (user.role !== roles.TEACHER) {
+    throw new HttpError(403, 'Only teacher can access teaching assignments overview', 'RESOURCE_NOT_OWNED');
+  }
+
+  const rows = await assignmentModel.findTeachingOverviewByTeacher(user.id);
+
+  return rows.map((row) => ({
+    assignmentId: row.assignment_id,
+    assignmentTitle: row.assignment_title,
+    dueDate: row.due_date,
+    maxScore: row.max_score,
+    courseId: row.course_id,
+    courseTitle: row.course_title,
+    totalStudents: row.total_students,
+    submittedCount: row.submitted_count,
+    gradedCount: row.graded_count,
+  }));
+};
+
 module.exports = {
   getMyCourses,
   getContinueLearning,
   updateLessonProgress,
+  getMyTeachingCourses,
+  getTeachingAssignmentsOverview,
 };

@@ -1,10 +1,12 @@
 const lessonModel = require('../models/lesson.model');
 const courseModel = require('../models/course.model');
 const quizModel = require('../models/quiz.model');
+const enrollmentModel = require('../models/enrollment.model');
 const HttpError = require('../utils/http-error');
 const { toMediaPayload } = require('../utils/media-source');
 const { sanitizeTranscript, sanitizeTasks } = require('../utils/lesson-content');
 const { attachLessonQuizzes } = require('../utils/lesson-quiz');
+const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
 const mapLesson = (lesson, courseQuizzes = []) => {
   const mediaState = toMediaPayload(lesson.video_url);
@@ -48,14 +50,34 @@ const getLessonById = async (courseId, lessonId) => {
   return mapLesson(lesson, courseQuizzes);
 };
 
+const getLessonByIdStandalone = async (lessonId, user) => {
+  const lesson = await lessonModel.findById(lessonId);
+  if (!lesson) throw new HttpError(404, 'Lesson not found');
+
+  if (!user) {
+    throw new HttpError(401, 'Authentication token is required');
+  }
+
+  if (user.role === 'student') {
+    const enrollment = await enrollmentModel.findByStudentAndCourse(user.id, lesson.course_id);
+    if (!enrollment) throw new HttpError(403, 'You are not enrolled in this course', 'RESOURCE_NOT_OWNED');
+  }
+
+  if (user.role === 'teacher') {
+    const course = await courseModel.findById(lesson.course_id);
+    if (!course) throw new HttpError(404, 'Course not found');
+    assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
+  }
+
+  const courseQuizzes = await quizModel.findByCourseId(lesson.course_id);
+  return mapLesson(lesson, courseQuizzes);
+};
+
 const createLesson = async (courseId, body, user) => {
   const course = await courseModel.findById(courseId);
   if (!course) throw new HttpError(404, 'Course not found');
 
-  // teacher can only add lessons to their own courses
-  if (user.role === 'teacher' && course.teacher_id !== user.id) {
-    throw new HttpError(403, 'Forbidden');
-  }
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 
   const { title, content, videoUrl, transcript, tasks, orderIndex, duration } = body;
   const createdLesson = await lessonModel.create({ courseId, title, content, videoUrl, transcript, tasks, orderIndex, duration });
@@ -66,10 +88,21 @@ const updateLesson = async (courseId, lessonId, body, user) => {
   const lesson = await lessonModel.findById(lessonId);
   if (!lesson || lesson.course_id !== courseId) throw new HttpError(404, 'Lesson not found');
 
-  if (user.role === 'teacher') {
-    const course = await courseModel.findById(courseId);
-    if (course.teacher_id !== user.id) throw new HttpError(403, 'Forbidden');
-  }
+  const course = await courseModel.findById(courseId);
+  if (!course) throw new HttpError(404, 'Course not found');
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
+
+  const updatedLesson = await lessonModel.update(lessonId, body);
+  return mapLesson(updatedLesson);
+};
+
+const updateLessonByIdStandalone = async (lessonId, body, user) => {
+  const lesson = await lessonModel.findById(lessonId);
+  if (!lesson) throw new HttpError(404, 'Lesson not found');
+
+  const course = await courseModel.findById(lesson.course_id);
+  if (!course) throw new HttpError(404, 'Course not found');
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 
   const updatedLesson = await lessonModel.update(lessonId, body);
   return mapLesson(updatedLesson);
@@ -79,12 +112,31 @@ const deleteLesson = async (courseId, lessonId, user) => {
   const lesson = await lessonModel.findById(lessonId);
   if (!lesson || lesson.course_id !== courseId) throw new HttpError(404, 'Lesson not found');
 
-  if (user.role === 'teacher') {
-    const course = await courseModel.findById(courseId);
-    if (course.teacher_id !== user.id) throw new HttpError(403, 'Forbidden');
-  }
+  const course = await courseModel.findById(courseId);
+  if (!course) throw new HttpError(404, 'Course not found');
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 
   await lessonModel.remove(lessonId);
 };
 
-module.exports = { getLessons, getLessonById, createLesson, updateLesson, deleteLesson };
+const deleteLessonByIdStandalone = async (lessonId, user) => {
+  const lesson = await lessonModel.findById(lessonId);
+  if (!lesson) throw new HttpError(404, 'Lesson not found');
+
+  const course = await courseModel.findById(lesson.course_id);
+  if (!course) throw new HttpError(404, 'Course not found');
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
+
+  await lessonModel.remove(lessonId);
+};
+
+module.exports = {
+  getLessons,
+  getLessonById,
+  getLessonByIdStandalone,
+  createLesson,
+  updateLesson,
+  updateLessonByIdStandalone,
+  deleteLesson,
+  deleteLessonByIdStandalone,
+};

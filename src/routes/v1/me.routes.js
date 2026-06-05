@@ -10,6 +10,12 @@ router.use(authenticate);
 // GET /me/courses — list enrolled courses
 router.get('/courses', meController.getMyCourses);
 
+// GET /me/teaching-courses — list courses owned by current teacher
+router.get('/teaching-courses', meController.getMyTeachingCourses);
+
+// GET /me/teaching-assignments/overview — teacher dashboard aggregate
+router.get('/teaching-assignments/overview', meController.getTeachingAssignmentsOverview);
+
 // GET /me/continue-learning?limit=3 — last active lessons per course
 router.get('/continue-learning', meController.getContinueLearning);
 

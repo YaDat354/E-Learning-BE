@@ -17,4 +17,20 @@ const updateLessonProgress = asyncHandler(async (req, res) => {
   res.json({ success: true, data });
 });
 
-module.exports = { getMyCourses, getContinueLearning, updateLessonProgress };
+const getMyTeachingCourses = asyncHandler(async (req, res) => {
+  const data = await meService.getMyTeachingCourses(req.user);
+  res.json({ success: true, data });
+});
+
+const getTeachingAssignmentsOverview = asyncHandler(async (req, res) => {
+  const data = await meService.getTeachingAssignmentsOverview(req.user);
+  res.json({ success: true, data });
+});
+
+module.exports = {
+  getMyCourses,
+  getContinueLearning,
+  updateLessonProgress,
+  getMyTeachingCourses,
+  getTeachingAssignmentsOverview,
+};

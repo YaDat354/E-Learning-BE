@@ -105,8 +105,44 @@ const gradeSubmission = async (submissionId, { score, feedback }) => {
   return result.rows[0] || null;
 };
 
+const findTeachingOverviewByTeacher = async (teacherId = null) => {
+  const params = [];
+  let whereSql = '';
+
+  if (teacherId) {
+    params.push(teacherId);
+    whereSql = `WHERE c.teacher_id = $${params.length}`;
+  }
+
+  const result = await query(
+    `
+      SELECT
+        a.id AS assignment_id,
+        a.title AS assignment_title,
+        a.due_date,
+        a.max_score,
+        c.id AS course_id,
+        c.title AS course_title,
+        COUNT(DISTINCT e.student_id)::int AS total_students,
+        COUNT(DISTINCT s.id)::int AS submitted_count,
+        COUNT(DISTINCT CASE WHEN s.graded_at IS NOT NULL THEN s.id END)::int AS graded_count
+      FROM assignments a
+      JOIN courses c ON c.id = a.course_id
+      LEFT JOIN enrollments e ON e.course_id = c.id
+      LEFT JOIN submissions s ON s.assignment_id = a.id
+      ${whereSql}
+      GROUP BY a.id, a.title, a.due_date, a.max_score, c.id, c.title
+      ORDER BY a.due_date ASC NULLS LAST, a.created_at DESC
+    `,
+    params
+  );
+
+  return result.rows;
+};
+
 module.exports = {
   findByCourseId, findById, create, update, remove,
   findSubmission, findSubmissionsByAssignment, findSubmissionsByStudent,
   createSubmission, gradeSubmission,
+  findTeachingOverviewByTeacher,
 };

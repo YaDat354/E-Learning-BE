@@ -3,10 +3,20 @@ const { publicUser } = require('../services/auth.service');
 const userService = require('../services/user.service');
 
 const getCurrentUser = asyncHandler(async (req, res) => {
+  const user = publicUser(req.user);
+
   res.json({
     success: true,
     message: 'Current user fetched successfully',
-    data: publicUser(req.user),
+    data: {
+      id: String(user.id),
+      email: user.email,
+      role: user.role,
+      fullName: user.fullName,
+      avatar: user.avatar,
+      createdAt: user.createdAt,
+      updatedAt: user.updatedAt,
+    },
   });
 });
 

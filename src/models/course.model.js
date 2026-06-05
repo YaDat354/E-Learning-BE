@@ -1,12 +1,17 @@
 const { query } = require('../config/database');
 
-const listAll = async ({ level } = {}) => {
+const listAll = async ({ level, teacherId } = {}) => {
   const clauses = [];
   const params = [];
 
   if (level) {
     params.push(level);
     clauses.push(`c.level = $${params.length}`);
+  }
+
+  if (teacherId) {
+    params.push(teacherId);
+    clauses.push(`c.teacher_id = $${params.length}`);
   }
 
   const whereSql = clauses.length > 0 ? `WHERE ${clauses.join(' AND ')}` : '';
@@ -19,6 +24,16 @@ const listAll = async ({ level } = {}) => {
         c.level,
         c.description,
         c.thumbnail,
+        c.price,
+        c.original_price,
+        c.duration,
+        c.category,
+        c.tags,
+        (
+          SELECT COUNT(*)::int
+          FROM lessons l
+          WHERE l.course_id = c.id
+        ) AS lesson_count,
         c.created_at,
         c.updated_at,
         c.teacher_id,
@@ -51,6 +66,16 @@ const findById = async (courseId) => {
         c.level,
         c.description,
         c.thumbnail,
+        c.price,
+        c.original_price,
+        c.duration,
+        c.category,
+        c.tags,
+        (
+          SELECT COUNT(*)::int
+          FROM lessons l
+          WHERE l.course_id = c.id
+        ) AS lesson_count,
         c.created_at,
         c.updated_at,
         c.teacher_id,
@@ -67,20 +92,56 @@ const findById = async (courseId) => {
   return result.rows[0] || null;
 };
 
-const create = async ({ title, level, description, thumbnail, teacherId }) => {
+const create = async ({
+  title,
+  level,
+  description,
+  thumbnail,
+  teacherId,
+  price,
+  originalPrice,
+  duration,
+  category,
+  tags,
+}) => {
   const result = await query(
     `
-      INSERT INTO courses (title, level, description, thumbnail, teacher_id)
-      VALUES ($1, $2, $3, $4, $5)
-      RETURNING id, title, level, description, thumbnail, teacher_id, created_at, updated_at
+      INSERT INTO courses (
+        title,
+        level,
+        description,
+        thumbnail,
+        teacher_id,
+        price,
+        original_price,
+        duration,
+        category,
+        tags
+      )
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10::text[])
+      RETURNING id, title, level, description, thumbnail, price, original_price, duration, category, tags, teacher_id, created_at, updated_at
     `,
-    [title, level || 'co_ban', description || null, thumbnail || null, teacherId]
+    [
+      title,
+      level || 'co_ban',
+      description || null,
+      thumbnail || null,
+      teacherId,
+      price ?? 0,
+      originalPrice ?? null,
+      duration ?? null,
+      category ?? null,
+      Array.isArray(tags) ? tags : [],
+    ]
   );
 
   return result.rows[0] || null;
 };
 
-const updateById = async (courseId, { title, level, description, thumbnail }) => {
+const updateById = async (
+  courseId,
+  { title, level, description, thumbnail, price, originalPrice, duration, category, tags }
+) => {
   const result = await query(
     `
       UPDATE courses
@@ -89,11 +150,27 @@ const updateById = async (courseId, { title, level, description, thumbnail }) =>
         level = COALESCE($2, level),
         description = COALESCE($3, description),
         thumbnail = COALESCE($4, thumbnail),
+        price = COALESCE($5, price),
+        original_price = COALESCE($6, original_price),
+        duration = COALESCE($7, duration),
+        category = COALESCE($8, category),
+        tags = COALESCE($9::text[], tags),
         updated_at = NOW()
-      WHERE id = $5
-      RETURNING id, title, level, description, thumbnail, teacher_id, created_at, updated_at
+      WHERE id = $10
+      RETURNING id, title, level, description, thumbnail, price, original_price, duration, category, tags, teacher_id, created_at, updated_at
     `,
-    [title || null, level || null, description || null, thumbnail || null, courseId]
+    [
+      title || null,
+      level || null,
+      description || null,
+      thumbnail || null,
+      price ?? null,
+      originalPrice ?? null,
+      duration ?? null,
+      category ?? null,
+      tags !== undefined ? (Array.isArray(tags) ? tags : []) : null,
+      courseId,
+    ]
   );
 
   return result.rows[0] || null;

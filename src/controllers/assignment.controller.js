@@ -2,12 +2,12 @@ const asyncHandler = require('../utils/async-handler');
 const assignmentService = require('../services/assignment.service');
 
 const getAssignments = asyncHandler(async (req, res) => {
-  const data = await assignmentService.getAssignments(req.params.courseId);
+  const data = await assignmentService.getAssignments(req.params.courseId, req.user || null);
   res.json({ success: true, data });
 });
 
 const getAssignmentById = asyncHandler(async (req, res) => {
-  const data = await assignmentService.getAssignmentById(req.params.courseId, req.params.assignmentId);
+  const data = await assignmentService.getAssignmentById(req.params.courseId, req.params.assignmentId, req.user || null);
   res.json({ success: true, data });
 });
 

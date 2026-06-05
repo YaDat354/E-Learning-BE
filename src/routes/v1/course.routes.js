@@ -13,7 +13,7 @@ const discussionRoutes = require('./discussion.routes');
 
 const router = express.Router();
 
-router.get('/', courseController.listCourses);
+router.get('/', optionalAuthenticate, courseController.listCourses);
 router.get('/:courseId', optionalAuthenticate, courseController.getCourseById);
 router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateCreateCourse, courseController.createCourse);
 router.patch('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateCourse, courseController.updateCourse);
@@ -23,6 +23,7 @@ router.delete('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.AD
 router.post('/:courseId/enroll', authenticate, authorizeRoles(roles.STUDENT), enrollmentController.enrollByCourseId);
 
 router.use('/:courseId/lessons', lessonRoutes);
+router.use('/:courseId/lesson', lessonRoutes);
 router.use('/:courseId/assignments', assignmentRoutes);
 router.use('/:courseId/quizzes', quizRoutes);
 router.use('/:courseId/discussions', discussionRoutes);

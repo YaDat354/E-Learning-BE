@@ -11,6 +11,11 @@ const getLessonById = asyncHandler(async (req, res) => {
   res.json({ success: true, data });
 });
 
+const getLessonByIdStandalone = asyncHandler(async (req, res) => {
+  const data = await lessonService.getLessonByIdStandalone(req.params.lessonId, req.user);
+  res.json({ success: true, data });
+});
+
 const createLesson = asyncHandler(async (req, res) => {
   const data = await lessonService.createLesson(req.params.courseId, req.body, req.user);
   res.status(201).json({ success: true, data });
@@ -21,9 +26,28 @@ const updateLesson = asyncHandler(async (req, res) => {
   res.json({ success: true, data });
 });
 
+const updateLessonByIdStandalone = asyncHandler(async (req, res) => {
+  const data = await lessonService.updateLessonByIdStandalone(req.params.lessonId, req.body, req.user);
+  res.json({ success: true, data });
+});
+
 const deleteLesson = asyncHandler(async (req, res) => {
   await lessonService.deleteLesson(req.params.courseId, req.params.lessonId, req.user);
   res.json({ success: true, message: 'Lesson deleted' });
 });
 
-module.exports = { getLessons, getLessonById, createLesson, updateLesson, deleteLesson };
+const deleteLessonByIdStandalone = asyncHandler(async (req, res) => {
+  await lessonService.deleteLessonByIdStandalone(req.params.lessonId, req.user);
+  res.json({ success: true, message: 'Lesson deleted' });
+});
+
+module.exports = {
+  getLessons,
+  getLessonById,
+  getLessonByIdStandalone,
+  createLesson,
+  updateLesson,
+  updateLessonByIdStandalone,
+  deleteLesson,
+  deleteLessonByIdStandalone,
+};

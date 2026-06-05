@@ -1,6 +1,8 @@
 const HttpError = require('../utils/http-error');
 const enrollmentModel = require('../models/enrollment.model');
+const courseModel = require('../models/course.model');
 const roles = require('../constants/roles');
+const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
 const authorizeRoles = (...allowedRoles) => (req, res, next) => {
   if (!req.user) {
@@ -8,7 +10,7 @@ const authorizeRoles = (...allowedRoles) => (req, res, next) => {
   }
 
   if (!allowedRoles.includes(req.user.role)) {
-    return next(new HttpError(403, 'Forbidden'));
+    return next(new HttpError(403, 'Forbidden', 'FORBIDDEN_ROLE'));
   }
 
   return next();
@@ -27,19 +29,33 @@ const requireEnrollment = async (req, res, next) => {
       return next(new HttpError(401, 'Authentication token is required'));
     }
 
-    // Teachers and admins can access any course content
-    if (req.user.role === roles.TEACHER || req.user.role === roles.ADMIN) {
-      return next();
-    }
-
     const courseId = req.params.courseId;
     if (!courseId) {
       return next(new HttpError(400, 'courseId is missing from route'));
     }
 
+    if (req.user.role === roles.ADMIN) {
+      return next();
+    }
+
+    if (req.user.role === roles.TEACHER) {
+      const course = await courseModel.findById(courseId);
+      if (!course) {
+        return next(new HttpError(404, 'Course not found'));
+      }
+
+      try {
+        assertTeacherOwnsCourse(course, req.user, OWNERSHIP_ERROR_CODE);
+      } catch (error) {
+        return next(error);
+      }
+
+      return next();
+    }
+
     const enrollment = await enrollmentModel.findByStudentAndCourse(req.user.id, courseId);
     if (!enrollment) {
-      return next(new HttpError(403, 'You are not enrolled in this course'));
+      return next(new HttpError(403, 'You are not enrolled in this course', 'RESOURCE_NOT_OWNED'));
     }
 
     return next();

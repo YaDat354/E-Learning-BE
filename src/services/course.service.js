@@ -7,15 +7,32 @@ const HttpError = require('../utils/http-error');
 const { toMediaPayload } = require('../utils/media-source');
 const { sanitizeTranscript, sanitizeTasks } = require('../utils/lesson-content');
 const { attachLessonQuizzes } = require('../utils/lesson-quiz');
+const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
 const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
-const listCourses = async ({ level } = {}) => {
+const listCourses = async ({ level, mine = false, currentUser = null } = {}) => {
   if (level && !allowedLevels.includes(level)) {
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  return courseModel.listAll({ level });
+  if (mine) {
+    if (!currentUser) {
+      throw new HttpError(401, 'Authentication token is required');
+    }
+
+    if (currentUser.role !== 'teacher') {
+      throw new HttpError(403, 'Only teacher can query mine=true', 'RESOURCE_NOT_OWNED');
+    }
+  }
+
+  const isTeacherContext = currentUser && currentUser.role === 'teacher';
+
+  return courseModel.listAll({
+    level,
+    // In teacher context, default to own courses to avoid leaking all courses on teacher pages.
+    teacherId: (mine || isTeacherContext) ? currentUser.id : null,
+  });
 };
 
 const formatDurationLabel = (totalMinutes) => {
@@ -79,6 +96,10 @@ const getCourseById = async (courseId, currentUser) => {
   const totalStudents = await enrollmentModel.countByCourseId(courseId);
   const totalDiscussions = await discussionModel.countByCourseId(courseId);
 
+  if (currentUser && currentUser.role === 'teacher') {
+    assertTeacherOwnsCourse(course, currentUser, OWNERSHIP_ERROR_CODE);
+  }
+
   let isEnrolled = false;
   if (currentUser && currentUser.role === 'student') {
     const enrollment = await enrollmentModel.findByStudentAndCourse(currentUser.id, courseId);
@@ -105,7 +126,18 @@ const getCourseById = async (courseId, currentUser) => {
   };
 };
 
-const createCourse = async ({ title, level, description, thumbnail, teacherId }) => {
+const createCourse = async ({
+  title,
+  level,
+  description,
+  thumbnail,
+  teacherId,
+  price,
+  originalPrice,
+  duration,
+  category,
+  tags,
+}) => {
   if (!title) {
     throw new HttpError(400, 'title is required');
   }
@@ -114,29 +146,65 @@ const createCourse = async ({ title, level, description, thumbnail, teacherId })
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  return courseModel.create({ title, level, description, thumbnail, teacherId });
+  return courseModel.create({
+    title,
+    level,
+    description,
+    thumbnail,
+    teacherId,
+    price,
+    originalPrice,
+    duration,
+    category,
+    tags,
+  });
 };
 
-const updateCourse = async (courseId, { title, level, description, thumbnail }, user) => {
+const updateCourse = async (
+  courseId,
+  { title, level, description, thumbnail, price, originalPrice, duration, category, tags },
+  user
+) => {
   const course = await courseModel.findById(courseId);
 
   if (!course) {
     throw new HttpError(404, 'Course not found');
   }
 
-  if (user.role === 'teacher' && course.teacher_id !== user.id) {
-    throw new HttpError(403, 'Forbidden');
-  }
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 
   if (level && !allowedLevels.includes(level)) {
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  if (!title && !level && !description && !thumbnail) {
-    throw new HttpError(400, 'At least one field (title, level, description, thumbnail) is required');
+  if (
+    title === undefined
+    && level === undefined
+    && description === undefined
+    && thumbnail === undefined
+    && price === undefined
+    && originalPrice === undefined
+    && duration === undefined
+    && category === undefined
+    && tags === undefined
+  ) {
+    throw new HttpError(
+      400,
+      'At least one field (title, level, description, thumbnail, price, originalPrice, duration, category, tags) is required'
+    );
   }
 
-  return courseModel.updateById(courseId, { title, level, description, thumbnail });
+  return courseModel.updateById(courseId, {
+    title,
+    level,
+    description,
+    thumbnail,
+    price,
+    originalPrice,
+    duration,
+    category,
+    tags,
+  });
 };
 
 const deleteCourse = async (courseId, user) => {
@@ -146,9 +214,7 @@ const deleteCourse = async (courseId, user) => {
     throw new HttpError(404, 'Course not found');
   }
 
-  if (user.role === 'teacher' && course.teacher_id !== user.id) {
-    throw new HttpError(403, 'Forbidden');
-  }
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
 
   await courseModel.deleteById(courseId);
 };

@@ -28,6 +28,25 @@ const createQuiz = async ({ courseId, title, description, timeLimit }) => {
   return result.rows[0];
 };
 
+const updateQuiz = async (quizId, { title, description, timeLimit }) => {
+  const result = await query(
+    `UPDATE quizzes
+     SET title = COALESCE($1, title),
+         description = COALESCE($2, description),
+         time_limit = COALESCE($3, time_limit),
+         updated_at = NOW()
+     WHERE id = $4
+     RETURNING id, course_id, title, description, time_limit, created_at, updated_at`,
+    [title ?? null, description ?? null, timeLimit ?? null, quizId]
+  );
+  return result.rows[0] || null;
+};
+
+const deleteQuiz = async (quizId) => {
+  const result = await query('DELETE FROM quizzes WHERE id = $1 RETURNING id', [quizId]);
+  return result.rows[0] || null;
+};
+
 const createQuestion = async ({ quizId, content, type, orderIndex }) => {
   const result = await query(
     `INSERT INTO questions (quiz_id, content, type, order_index)
@@ -36,6 +55,38 @@ const createQuestion = async ({ quizId, content, type, orderIndex }) => {
     [quizId, content, type, orderIndex ?? 0]
   );
   return result.rows[0];
+};
+
+const findQuestionById = async (questionId) => {
+  const result = await query(
+    `SELECT id, quiz_id, content, type, order_index, created_at, updated_at
+     FROM questions WHERE id = $1 LIMIT 1`,
+    [questionId]
+  );
+  return result.rows[0] || null;
+};
+
+const updateQuestion = async (questionId, { content, type, orderIndex }) => {
+  const result = await query(
+    `UPDATE questions
+     SET content = COALESCE($1, content),
+         type = COALESCE($2, type),
+         order_index = COALESCE($3, order_index),
+         updated_at = NOW()
+     WHERE id = $4
+     RETURNING id, quiz_id, content, type, order_index, created_at, updated_at`,
+    [content ?? null, type ?? null, orderIndex ?? null, questionId]
+  );
+  return result.rows[0] || null;
+};
+
+const deleteQuestion = async (questionId) => {
+  const result = await query('DELETE FROM questions WHERE id = $1 RETURNING id', [questionId]);
+  return result.rows[0] || null;
+};
+
+const deleteAnswersByQuestionId = async (questionId) => {
+  await query('DELETE FROM answers WHERE question_id = $1', [questionId]);
 };
 
 const createAnswers = async (questionId, answers = []) => {
@@ -197,8 +248,14 @@ module.exports = {
   findByCourseId,
   findById,
   createQuiz,
+  updateQuiz,
+  deleteQuiz,
   createQuestion,
+  findQuestionById,
+  updateQuestion,
+  deleteQuestion,
   createAnswers,
+  deleteAnswersByQuestionId,
   findQuestionsWithAnswers,
   submitQuiz,
   findResultsByStudent,

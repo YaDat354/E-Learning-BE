@@ -1,7 +1,7 @@
 const express = require('express');
 
 const assignmentController = require('../../controllers/assignment.controller');
-const { authenticate } = require('../../middlewares/auth.middleware');
+const { authenticate, optionalAuthenticate } = require('../../middlewares/auth.middleware');
 const { authorizeRoles } = require('../../middlewares/role.middleware');
 const roles = require('../../constants/roles');
 const {
@@ -13,9 +13,9 @@ const {
 
 const router = express.Router({ mergeParams: true });
 
-// Public
-router.get('/', assignmentController.getAssignments);
-router.get('/:assignmentId', assignmentController.getAssignmentById);
+// Public (but teacher context is checked by ownership rules when logged in)
+router.get('/', optionalAuthenticate, assignmentController.getAssignments);
+router.get('/:assignmentId', optionalAuthenticate, assignmentController.getAssignmentById);
 
 // Teacher/Admin management
 router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateCreateAssignment, assignmentController.createAssignment);

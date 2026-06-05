@@ -9,6 +9,7 @@ const quizResultRoutes = require('./quiz-result.routes');
 const notificationRoutes = require('./notification.routes');
 const learningLogRoutes = require('./learning-log.routes');
 const meRoutes = require('./me.routes');
+const lessonStandaloneRoutes = require('./lesson-standalone.routes');
 
 const router = express.Router();
 
@@ -21,5 +22,6 @@ router.use('/quiz-results', quizResultRoutes);
 router.use('/notifications', notificationRoutes);
 router.use('/learning-logs', learningLogRoutes);
 router.use('/me', meRoutes);
+router.use('/lessons', lessonStandaloneRoutes);
 
 module.exports = router;

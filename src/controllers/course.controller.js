@@ -4,6 +4,8 @@ const courseService = require('../services/course.service');
 const listCourses = asyncHandler(async (req, res) => {
   const data = await courseService.listCourses({
     level: req.query.level,
+    mine: String(req.query.mine).toLowerCase() === 'true',
+    currentUser: req.user || null,
   });
 
   res.json({
@@ -45,6 +47,11 @@ const updateCourse = asyncHandler(async (req, res) => {
       level: req.body.level,
       description: req.body.description,
       thumbnail: req.body.thumbnail,
+      price: req.body.price,
+      originalPrice: req.body.originalPrice,
+      duration: req.body.duration,
+      category: req.body.category,
+      tags: req.body.tags,
     },
     req.user
   );

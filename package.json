@@ -16,6 +16,7 @@
     "db:reset-real": "node src/scripts/reset-and-import-real.js",
     "db:migrate2": "node src/database/run-sql-file.js src/database/migrations/002_lessons_assignments_quizzes.sql",
     "test:smoke": "node src/scripts/smoke-test.js",
+    "test:ownership": "node src/scripts/test-ownership-guards.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
