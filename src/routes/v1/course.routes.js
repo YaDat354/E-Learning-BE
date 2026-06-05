@@ -1,6 +1,7 @@
 const express = require('express');
 
 const courseController = require('../../controllers/course.controller');
+const enrollmentController = require('../../controllers/enrollment.controller');
 const lessonRoutes = require('./lesson.routes');
 const assignmentRoutes = require('./assignment.routes');
 const quizRoutes = require('./quiz.routes');
@@ -17,6 +18,10 @@ router.get('/:courseId', optionalAuthenticate, courseController.getCourseById);
 router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateCreateCourse, courseController.createCourse);
 router.patch('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateCourse, courseController.updateCourse);
 router.delete('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), courseController.deleteCourse);
+
+// Student enroll via course URL: POST /courses/:courseId/enroll
+router.post('/:courseId/enroll', authenticate, authorizeRoles(roles.STUDENT), enrollmentController.enrollByCourseId);
+
 router.use('/:courseId/lessons', lessonRoutes);
 router.use('/:courseId/assignments', assignmentRoutes);
 router.use('/:courseId/quizzes', quizRoutes);

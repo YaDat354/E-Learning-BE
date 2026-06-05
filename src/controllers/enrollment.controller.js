@@ -15,6 +15,21 @@ const enrollCourse = asyncHandler(async (req, res) => {
   });
 });
 
+// POST /courses/:courseId/enroll — enroll via course URL param (FE-friendly)
+const enrollByCourseId = asyncHandler(async (req, res) => {
+  const data = await enrollmentService.enrollCourse({
+    studentId: req.user.id,
+    userRole: req.user.role,
+    courseId: req.params.courseId,
+  });
+
+  res.status(201).json({
+    success: true,
+    message: 'Enrolled successfully',
+    data,
+  });
+});
+
 const getMyEnrollments = asyncHandler(async (req, res) => {
   const data = await enrollmentService.getMyEnrollments(req.user.id);
 
@@ -41,6 +56,7 @@ const updateEnrollmentProgress = asyncHandler(async (req, res) => {
 
 module.exports = {
   enrollCourse,
+  enrollByCourseId,
   getMyEnrollments,
   updateEnrollmentProgress,
 };
