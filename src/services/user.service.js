@@ -4,6 +4,22 @@ const userModel = require('../models/user.model');
 const HttpError = require('../utils/http-error');
 const roles = require('../constants/roles');
 
+const buildUserMutationError = (operation, statusCode, details) => {
+  const operationMap = {
+    create: 'CREATE',
+    update: 'UPDATE',
+    delete: 'DELETE',
+  };
+  const op = operationMap[operation] || 'UNKNOWN';
+
+  return new HttpError(
+    statusCode,
+    `${operation.charAt(0).toUpperCase()}${operation.slice(1)} user failed`,
+    `USER_${op}_FAILED`,
+    details
+  );
+};
+
 const updateMyProfile = async (userId, { fullName, avatar }) => {
   if (!fullName && !avatar) {
     throw new HttpError(400, 'At least one field (fullName or avatar) is required');
@@ -25,7 +41,7 @@ const listStudents = async () => {
 const createStudent = async ({ fullName, email, password, avatar }) => {
   const existing = await userModel.findByEmail(email);
   if (existing) {
-    throw new HttpError(409, 'Email already exists');
+    throw buildUserMutationError('create', 409, 'Email already exists');
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
@@ -37,7 +53,7 @@ const createStudent = async ({ fullName, email, password, avatar }) => {
   });
 
   if (!created) {
-    throw new HttpError(500, 'Failed to create student');
+    throw buildUserMutationError('create', 500, 'Unable to create user record');
   }
 
   if (avatar) {
@@ -50,16 +66,16 @@ const createStudent = async ({ fullName, email, password, avatar }) => {
 const updateStudent = async (userId, { fullName, email, password, avatar }) => {
   const user = await userModel.findById(userId);
   if (!user) {
-    throw new HttpError(404, 'User not found');
+    throw buildUserMutationError('update', 404, 'User not found');
   }
   if (user.role !== roles.STUDENT) {
-    throw new HttpError(400, 'Only student accounts can be updated by this endpoint');
+    throw buildUserMutationError('update', 400, 'Only student accounts can be updated by this endpoint');
   }
 
   if (email && email !== user.email) {
     const existing = await userModel.findByEmail(email);
     if (existing && existing.id !== userId) {
-      throw new HttpError(409, 'Email already exists');
+      throw buildUserMutationError('update', 409, 'Email already exists');
     }
   }
 
@@ -73,7 +89,7 @@ const updateStudent = async (userId, { fullName, email, password, avatar }) => {
   });
 
   if (!updated) {
-    throw new HttpError(404, 'User not found');
+    throw buildUserMutationError('update', 500, 'Unable to update user record');
   }
 
   return userModel.findById(userId);
@@ -82,13 +98,16 @@ const updateStudent = async (userId, { fullName, email, password, avatar }) => {
 const deleteStudent = async (userId) => {
   const user = await userModel.findById(userId);
   if (!user) {
-    throw new HttpError(404, 'User not found');
+    throw buildUserMutationError('delete', 404, 'User not found');
   }
   if (user.role !== roles.STUDENT) {
-    throw new HttpError(400, 'Only student accounts can be deleted by this endpoint');
+    throw buildUserMutationError('delete', 400, 'Only student accounts can be deleted by this endpoint');
   }
 
-  await userModel.deleteById(userId);
+  const deleted = await userModel.deleteById(userId);
+  if (!deleted) {
+    throw buildUserMutationError('delete', 500, 'Unable to delete user record');
+  }
 };
 
 module.exports = {

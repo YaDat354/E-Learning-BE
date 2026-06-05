@@ -11,6 +11,13 @@ const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/owne
 
 const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
+const mapCourseSummary = (course) => ({
+  ...course,
+  id: String(course.id),
+  lessonCount: Number(course.lesson_count ?? 0),
+  lesson_count: Number(course.lesson_count ?? 0),
+});
+
 const listCourses = async ({ level, mine = false, currentUser = null } = {}) => {
   if (level && !allowedLevels.includes(level)) {
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
@@ -28,11 +35,13 @@ const listCourses = async ({ level, mine = false, currentUser = null } = {}) => 
 
   const isTeacherContext = currentUser && currentUser.role === 'teacher';
 
-  return courseModel.listAll({
+  const courses = await courseModel.listAll({
     level,
     // In teacher context, default to own courses to avoid leaking all courses on teacher pages.
     teacherId: (mine || isTeacherContext) ? currentUser.id : null,
   });
+
+  return courses.map(mapCourseSummary);
 };
 
 const formatDurationLabel = (totalMinutes) => {
@@ -108,6 +117,8 @@ const getCourseById = async (courseId, currentUser) => {
 
   return {
     ...course,
+    lessonCount: Number(course.lesson_count ?? mappedLessons.length),
+    lesson_count: Number(course.lesson_count ?? mappedLessons.length),
     thumbnailUrl: course.thumbnail,
     teacher: {
       id: course.teacher_id,
@@ -146,7 +157,7 @@ const createCourse = async ({
     throw new HttpError(400, 'level must be one of: co_ban, trung_cap, cao_cap');
   }
 
-  return courseModel.create({
+  const created = await courseModel.create({
     title,
     level,
     description,
@@ -158,6 +169,13 @@ const createCourse = async ({
     category,
     tags,
   });
+
+  return {
+    ...created,
+    id: String(created.id),
+    lessonCount: 0,
+    lesson_count: 0,
+  };
 };
 
 const updateCourse = async (
@@ -194,7 +212,7 @@ const updateCourse = async (
     );
   }
 
-  return courseModel.updateById(courseId, {
+  const updated = await courseModel.updateById(courseId, {
     title,
     level,
     description,
@@ -205,6 +223,13 @@ const updateCourse = async (
     category,
     tags,
   });
+
+  return {
+    ...updated,
+    id: String(updated.id),
+    lessonCount: Number(course.lesson_count ?? 0),
+    lesson_count: Number(course.lesson_count ?? 0),
+  };
 };
 
 const deleteCourse = async (courseId, user) => {

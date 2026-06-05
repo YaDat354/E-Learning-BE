@@ -11,7 +11,13 @@ const HttpError = require('../utils/http-error');
  * Returns all courses the authenticated student is enrolled in.
  */
 const getMyCourses = async (userId) => {
-  return enrollmentModel.findByStudentId(userId);
+  const enrollments = await enrollmentModel.findByStudentId(userId);
+
+  return enrollments.map((row) => ({
+    ...row,
+    lessonCount: Number(row.lesson_count ?? 0),
+    lesson_count: Number(row.lesson_count ?? 0),
+  }));
 };
 
 /**

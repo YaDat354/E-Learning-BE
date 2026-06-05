@@ -37,7 +37,12 @@ const findByStudentId = async (studentId) => {
         c.id AS course_id,
         c.title,
         c.description,
-        c.thumbnail
+        c.thumbnail,
+        (
+          SELECT COUNT(*)::int
+          FROM lessons l
+          WHERE l.course_id = c.id
+        ) AS lesson_count
       FROM enrollments e
       JOIN courses c ON c.id = e.course_id
       WHERE e.student_id = $1

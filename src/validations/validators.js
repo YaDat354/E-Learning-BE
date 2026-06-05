@@ -390,6 +390,69 @@ const validateCreateDiscussion = (req, res, next) => {
   next();
 };
 
+const validateAdminCreateUser = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const { fullName, email, password, role, avatar } = req.body;
+  const allowed = ['student', 'teacher', 'admin'];
+
+  if (!isNonEmptyString(fullName)) throw new HttpError(400, 'fullName is required');
+  if (!isNonEmptyString(email)) throw new HttpError(400, 'email is required');
+  if (!email.includes('@')) throw new HttpError(400, 'email is invalid');
+  if (!isNonEmptyString(password) || password.length < 6) {
+    throw new HttpError(400, 'password must be at least 6 characters');
+  }
+  if (!isNonEmptyString(role) || !allowed.includes(role)) {
+    throw new HttpError(400, 'role must be one of: student, teacher, admin');
+  }
+  if (avatar !== undefined && typeof avatar !== 'string') {
+    throw new HttpError(400, 'avatar must be a string');
+  }
+
+  next();
+};
+
+const validateAdminUpdateUser = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const {
+    fullName,
+    email,
+    password,
+    role,
+    avatar,
+  } = req.body;
+  const allowed = ['student', 'teacher', 'admin'];
+
+  if (
+    fullName === undefined
+    && email === undefined
+    && password === undefined
+    && role === undefined
+    && avatar === undefined
+  ) {
+    throw new HttpError(400, 'At least one field (fullName, email, password, role, avatar) is required');
+  }
+
+  if (email !== undefined && (!isNonEmptyString(email) || !email.includes('@'))) {
+    throw new HttpError(400, 'email is invalid');
+  }
+
+  if (password !== undefined && (!isNonEmptyString(password) || password.length < 6)) {
+    throw new HttpError(400, 'password must be at least 6 characters');
+  }
+
+  if (role !== undefined && (!isNonEmptyString(role) || !allowed.includes(role))) {
+    throw new HttpError(400, 'role must be one of: student, teacher, admin');
+  }
+
+  if (avatar !== undefined && typeof avatar !== 'string') {
+    throw new HttpError(400, 'avatar must be a string');
+  }
+
+  next();
+};
+
 module.exports = {
   validateRegister,
   validateLogin,
@@ -414,4 +477,6 @@ module.exports = {
   validateCreateLessonFile,
   validateUpsertLearningLog,
   validateCreateDiscussion,
+  validateAdminCreateUser,
+  validateAdminUpdateUser,
 };
