@@ -27,10 +27,24 @@ const getTeachingAssignmentsOverview = asyncHandler(async (req, res) => {
   res.json({ success: true, data });
 });
 
+const getStudentDashboard = asyncHandler(async (req, res) => {
+  const locale = req.query.locale || req.headers['accept-language'] || 'vi';
+  const data = await meService.getStudentDashboard(req.user, locale);
+  res.json({ success: true, data });
+});
+
+const getTeacherDashboard = asyncHandler(async (req, res) => {
+  const locale = req.query.locale || req.headers['accept-language'] || 'vi';
+  const data = await meService.getTeacherDashboard(req.user, locale);
+  res.json({ success: true, data });
+});
+
 module.exports = {
   getMyCourses,
   getContinueLearning,
   updateLessonProgress,
   getMyTeachingCourses,
   getTeachingAssignmentsOverview,
+  getStudentDashboard,
+  getTeacherDashboard,
 };

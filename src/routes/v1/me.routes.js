@@ -17,6 +17,12 @@ router.get('/teaching-courses', meController.getMyTeachingCourses);
 // GET /me/teaching-assignments/overview — teacher dashboard aggregate
 router.get('/teaching-assignments/overview', meController.getTeachingAssignmentsOverview);
 
+// GET /me/dashboard/student — student dashboard media and highlights
+router.get('/dashboard/student', meController.getStudentDashboard);
+
+// GET /me/dashboard/teacher — teacher dashboard media and highlights
+router.get('/dashboard/teacher', meController.getTeacherDashboard);
+
 // GET /me/discussion-notifications — unread lesson discussion notifications
 router.get('/discussion-notifications', discussionController.getDiscussionNotifications);
 
