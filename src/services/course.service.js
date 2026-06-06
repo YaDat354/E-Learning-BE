@@ -11,12 +11,30 @@ const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/owne
 
 const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
-const mapCourseSummary = (course) => ({
-  ...course,
-  id: String(course.id),
-  lessonCount: Number(course.lesson_count ?? 0),
-  lesson_count: Number(course.lesson_count ?? 0),
-});
+const mapPricingFields = (course) => {
+  const numericPrice = Number(course.price ?? 0);
+  const numericOriginalPrice = course.original_price === null || course.original_price === undefined
+    ? null
+    : Number(course.original_price);
+
+  return {
+    ...course,
+    price: Number.isNaN(numericPrice) ? 0 : numericPrice,
+    original_price: Number.isNaN(numericOriginalPrice) ? null : numericOriginalPrice,
+    originalPrice: Number.isNaN(numericOriginalPrice) ? null : numericOriginalPrice,
+  };
+};
+
+const mapCourseSummary = (course) => {
+  const mapped = mapPricingFields(course);
+
+  return {
+    ...mapped,
+    id: String(mapped.id),
+    lessonCount: Number(mapped.lesson_count ?? 0),
+    lesson_count: Number(mapped.lesson_count ?? 0),
+  };
+};
 
 const listCourses = async ({ level, mine = false, currentUser = null } = {}) => {
   if (level && !allowedLevels.includes(level)) {
@@ -116,7 +134,7 @@ const getCourseById = async (courseId, currentUser) => {
   }
 
   return {
-    ...course,
+    ...mapPricingFields(course),
     lessonCount: Number(course.lesson_count ?? mappedLessons.length),
     lesson_count: Number(course.lesson_count ?? mappedLessons.length),
     thumbnailUrl: course.thumbnail,
@@ -171,7 +189,7 @@ const createCourse = async ({
   });
 
   return {
-    ...created,
+    ...mapPricingFields(created),
     id: String(created.id),
     lessonCount: 0,
     lesson_count: 0,
@@ -225,7 +243,7 @@ const updateCourse = async (
   });
 
   return {
-    ...updated,
+    ...mapPricingFields(updated),
     id: String(updated.id),
     lessonCount: Number(course.lesson_count ?? 0),
     lesson_count: Number(course.lesson_count ?? 0),

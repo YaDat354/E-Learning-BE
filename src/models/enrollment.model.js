@@ -38,6 +38,8 @@ const findByStudentId = async (studentId) => {
         c.title,
         c.description,
         c.thumbnail,
+        c.price,
+        c.original_price,
         (
           SELECT COUNT(*)::int
           FROM lessons l

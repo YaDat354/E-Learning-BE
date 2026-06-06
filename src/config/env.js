@@ -5,6 +5,13 @@ const env = {
   databaseUrl: process.env.DATABASE_URL,
   jwtSecret: process.env.JWT_SECRET,
   jwtExpiresIn: process.env.JWT_EXPIRES_IN || '1d',
+  vnpayTmnCode: process.env.VNPAY_TMN_CODE || '',
+  vnpayHashSecret: process.env.VNPAY_HASH_SECRET || '',
+  vnpayUrl: process.env.VNPAY_URL || 'https://sandbox.vnpayment.vn/paymentv2/vpcpay.html',
+  vnpayVersion: process.env.VNPAY_VERSION || '2.1.0',
+  vnpayCommand: process.env.VNPAY_COMMAND || 'pay',
+  vnpayCurrCode: process.env.VNPAY_CURR_CODE || 'VND',
+  vnpayLocale: process.env.VNPAY_LOCALE || 'vn',
 };
 
 if (!env.databaseUrl) {

@@ -15,6 +15,10 @@ const getMyCourses = async (userId) => {
 
   return enrollments.map((row) => ({
     ...row,
+    price: row.price !== null && row.price !== undefined ? Number(row.price) : 0,
+    originalPrice: row.original_price !== null && row.original_price !== undefined
+      ? Number(row.original_price)
+      : null,
     lessonCount: Number(row.lesson_count ?? 0),
     lesson_count: Number(row.lesson_count ?? 0),
   }));

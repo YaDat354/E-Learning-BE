@@ -11,6 +11,7 @@ const learningLogRoutes = require('./learning-log.routes');
 const meRoutes = require('./me.routes');
 const lessonStandaloneRoutes = require('./lesson-standalone.routes');
 const adminRoutes = require('./admin.routes');
+const paymentRoutes = require('./payment.routes');
 
 const router = express.Router();
 
@@ -25,5 +26,6 @@ router.use('/learning-logs', learningLogRoutes);
 router.use('/me', meRoutes);
 router.use('/lessons', lessonStandaloneRoutes);
 router.use('/admin', adminRoutes);
+router.use('/payments', paymentRoutes);
 
 module.exports = router;

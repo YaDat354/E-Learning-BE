@@ -323,6 +323,46 @@ const validateUpdateEnrollmentProgress = (req, res, next) => {
   next();
 };
 
+const validateVnpayCheckout = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const {
+    courseId,
+    courseTitle,
+    amount,
+    customerName,
+    customerEmail,
+    gateway,
+    returnUrl,
+    callbackUrl,
+    ipnUrl,
+  } = req.body;
+
+  if (!isNonEmptyString(courseId)) throw new HttpError(400, 'courseId is required');
+  if (!isNonEmptyString(courseTitle)) throw new HttpError(400, 'courseTitle is required');
+
+  const numericAmount = Number(amount);
+  if (Number.isNaN(numericAmount) || numericAmount <= 0) {
+    throw new HttpError(400, 'amount must be a number > 0');
+  }
+
+  if (!isNonEmptyString(customerName)) throw new HttpError(400, 'customerName is required');
+  if (!isNonEmptyString(customerEmail) || !customerEmail.includes('@')) {
+    throw new HttpError(400, 'customerEmail is invalid');
+  }
+
+  if (gateway !== undefined && (!isNonEmptyString(gateway) || gateway.toLowerCase() !== 'vnpay')) {
+    throw new HttpError(400, 'gateway must be vnpay');
+  }
+
+  if (!isNonEmptyString(returnUrl)) throw new HttpError(400, 'returnUrl is required');
+  if (!isNonEmptyString(callbackUrl) && !isNonEmptyString(ipnUrl)) {
+    throw new HttpError(400, 'callbackUrl or ipnUrl is required');
+  }
+
+  next();
+};
+
 const validateUpdateProfile = (req, res, next) => {
   ensureBodyObject(req.body);
   const { fullName, avatar } = req.body;
@@ -471,6 +511,7 @@ module.exports = {
   validateSubmitQuiz,
   validateEnrollCourse,
   validateUpdateEnrollmentProgress,
+  validateVnpayCheckout,
   validateUpdateProfile,
   validateCreateStudent,
   validateUpdateStudent,
