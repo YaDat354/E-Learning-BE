@@ -1,5 +1,6 @@
 const express = require('express');
 const meController = require('../../controllers/me.controller');
+const discussionController = require('../../controllers/discussion.controller');
 const { authenticate } = require('../../middlewares/auth.middleware');
 
 const router = express.Router();
@@ -15,6 +16,9 @@ router.get('/teaching-courses', meController.getMyTeachingCourses);
 
 // GET /me/teaching-assignments/overview — teacher dashboard aggregate
 router.get('/teaching-assignments/overview', meController.getTeachingAssignmentsOverview);
+
+// GET /me/discussion-notifications — unread lesson discussion notifications
+router.get('/discussion-notifications', discussionController.getDiscussionNotifications);
 
 // GET /me/continue-learning?limit=3 — last active lessons per course
 router.get('/continue-learning', meController.getContinueLearning);

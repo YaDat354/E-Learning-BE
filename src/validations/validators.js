@@ -424,9 +424,26 @@ const validateUpsertLearningLog = (req, res, next) => {
 
 const validateCreateDiscussion = (req, res, next) => {
   ensureBodyObject(req.body);
-  if (!isNonEmptyString(req.body.content)) {
-    throw new HttpError(400, 'content is required');
+  if (!isNonEmptyString(req.body.content) && !isNonEmptyString(req.body.text)) {
+    throw new HttpError(400, 'content or text is required');
   }
+  next();
+};
+
+const validateMarkLessonCommentsRead = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const hasCommentId = isNonEmptyString(req.body.lastSeenCommentId);
+  const hasSeenAt = isNonEmptyString(req.body.lastSeenAt);
+
+  if (!hasCommentId && !hasSeenAt) {
+    throw new HttpError(400, 'lastSeenCommentId or lastSeenAt is required');
+  }
+
+  if (hasSeenAt && Number.isNaN(Date.parse(req.body.lastSeenAt))) {
+    throw new HttpError(400, 'lastSeenAt must be a valid ISO datetime');
+  }
+
   next();
 };
 
@@ -518,6 +535,7 @@ module.exports = {
   validateCreateLessonFile,
   validateUpsertLearningLog,
   validateCreateDiscussion,
+  validateMarkLessonCommentsRead,
   validateAdminCreateUser,
   validateAdminUpdateUser,
 };

@@ -11,6 +11,7 @@
     "db:migrate4": "node src/database/run-sql-file.js src/database/migrations/004_create_payment_orders.sql",
     "db:seed": "node src/scripts/seed-sample-data.js",
     "db:migrate6": "node src/database/run-sql-file.js src/database/migrations/006_seed_course_prices_vnd.sql",
+    "db:migrate8": "node src/database/run-sql-file.js src/database/migrations/008_add_lesson_discussion_notifications.sql",
     "db:import-real": "node src/scripts/import-real-data.js",
     "db:crawl-english": "node src/scripts/crawl-english-data.js",
     "db:import-crawled": "node src/scripts/import-real-data.js data/crawled-english-data.json",
