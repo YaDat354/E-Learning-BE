@@ -8,6 +8,7 @@ const ensureBodyObject = (body) => {
 };
 
 const isNonEmptyString = (value) => typeof value === 'string' && value.trim().length > 0;
+const isUuid = (value) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
 
 const validateUuidLike = (value, fieldName) => {
   if (!isNonEmptyString(value)) {
@@ -510,6 +511,16 @@ const validateAdminUpdateUser = (req, res, next) => {
   next();
 };
 
+const validateAdminUserIdParam = (req, res, next) => {
+  const { userId } = req.params;
+
+  if (!isNonEmptyString(userId) || !isUuid(userId)) {
+    throw new HttpError(400, 'userId must be a valid UUID');
+  }
+
+  next();
+};
+
 module.exports = {
   validateRegister,
   validateLogin,
@@ -538,4 +549,5 @@ module.exports = {
   validateMarkLessonCommentsRead,
   validateAdminCreateUser,
   validateAdminUpdateUser,
+  validateAdminUserIdParam,
 };
