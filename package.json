@@ -10,6 +10,7 @@
     "db:sync": "node src/database/run-sql-file.js src/database/migrations/001_sync_schema_for_current_code.sql",
     "db:migrate4": "node src/database/run-sql-file.js src/database/migrations/004_create_payment_orders.sql",
     "db:seed": "node src/scripts/seed-sample-data.js",
+    "db:seed-learning-results": "node src/scripts/seed-learning-results-sample.js",
     "db:migrate6": "node src/database/run-sql-file.js src/database/migrations/006_seed_course_prices_vnd.sql",
     "db:migrate8": "node src/database/run-sql-file.js src/database/migrations/008_add_lesson_discussion_notifications.sql",
     "db:migrate9": "node src/database/run-sql-file.js src/database/migrations/009_create_course_reviews.sql",
@@ -23,6 +24,8 @@
     "db:migrate5": "node src/database/run-sql-file.js src/database/migrations/005_fix_course_price_default_and_null.sql",
     "db:migrate7": "node src/database/run-sql-file.js src/database/migrations/007_rename_momo_trans_id_to_gateway_trans_id.sql",
     "test:smoke": "node src/scripts/smoke-test.js",
+    "test:contract": "node src/scripts/test-api-contract.js",
+    "test:all": "npm run test:smoke && npm run test:ownership && npm run test:contract",
     "test:ownership": "node src/scripts/test-ownership-guards.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

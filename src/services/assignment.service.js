@@ -81,7 +81,25 @@ const getSubmissions = async (courseId, assignmentId, user) => {
 };
 
 const getMySubmissions = async (user) => {
-  return assignmentModel.findSubmissionsByStudent(user.id);
+  if (!user || user.role !== 'student') {
+    throw new HttpError(403, 'Only users with student role can view their submissions', 'FORBIDDEN_ROLE');
+  }
+
+  const rows = await assignmentModel.findSubmissionsByStudent(user.id);
+
+  return rows.map((row) => ({
+    ...row,
+    assignmentId: row.assignment_id,
+    studentId: row.student_id,
+    fileUrl: row.file_url,
+    submittedAt: row.submitted_at,
+    gradedAt: row.graded_at,
+    assignmentTitle: row.assignment_title,
+    courseId: row.course_id,
+    courseTitle: row.course_title,
+    lessonId: row.lesson_id,
+    lessonTitle: row.lesson_title,
+  }));
 };
 
 const gradeSubmission = async (courseId, assignmentId, submissionId, body, user) => {

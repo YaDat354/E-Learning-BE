@@ -1,5 +1,6 @@
 const quizModel = require('../models/quiz.model');
 const courseModel = require('../models/course.model');
+const enrollmentModel = require('../models/enrollment.model');
 const HttpError = require('../utils/http-error');
 const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
@@ -134,6 +135,11 @@ const submitQuiz = async (courseId, quizId, body, user) => {
   await requireCourse(courseId);
   await requireQuiz(courseId, quizId);
 
+  const enrollment = await enrollmentModel.findByStudentAndCourse(user.id, courseId);
+  if (!enrollment) {
+    throw new HttpError(403, 'You are not enrolled in this course', 'RESOURCE_NOT_OWNED');
+  }
+
   try {
     return await quizModel.submitQuiz({
       quizId,
@@ -149,7 +155,23 @@ const submitQuiz = async (courseId, quizId, body, user) => {
 };
 
 const getMyResults = async (user) => {
-  return quizModel.findResultsByStudent(user.id);
+  if (!user || user.role !== 'student') {
+    throw new HttpError(403, 'Only users with student role can view quiz results', 'FORBIDDEN_ROLE');
+  }
+
+  const rows = await quizModel.findResultsByStudent(user.id);
+
+  return rows.map((row) => ({
+    ...row,
+    quizId: row.quiz_id,
+    studentId: row.student_id,
+    submittedAt: row.submitted_at,
+    quizTitle: row.quiz_title,
+    courseId: row.course_id,
+    courseTitle: row.course_title,
+    lessonId: row.lesson_id,
+    lessonTitle: row.lesson_title,
+  }));
 };
 
 module.exports = {

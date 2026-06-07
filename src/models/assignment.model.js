@@ -73,10 +73,43 @@ const findSubmissionsByAssignment = async (assignmentId) => {
 
 const findSubmissionsByStudent = async (studentId) => {
   const result = await query(
-    `SELECT s.id, s.assignment_id, s.student_id, s.content, s.file_url, s.score, s.feedback,
-            s.submitted_at, s.graded_at, a.title AS assignment_title
+    `SELECT
+            s.id,
+            s.assignment_id,
+            s.student_id,
+            s.content,
+            s.file_url,
+            s.score,
+            s.feedback,
+            s.submitted_at,
+            s.graded_at,
+            a.title AS assignment_title,
+            a.course_id,
+            c.title AS course_title,
+            COALESCE(
+              a.lesson_id,
+              (
+                SELECT l2.id
+                FROM lessons l2
+                WHERE l2.course_id = a.course_id
+                ORDER BY l2.order_index ASC, l2.created_at ASC
+                LIMIT 1
+              )
+            ) AS lesson_id,
+            COALESCE(
+              l.title,
+              (
+                SELECT l2.title
+                FROM lessons l2
+                WHERE l2.course_id = a.course_id
+                ORDER BY l2.order_index ASC, l2.created_at ASC
+                LIMIT 1
+              )
+            ) AS lesson_title
      FROM submissions s
      JOIN assignments a ON a.id = s.assignment_id
+     LEFT JOIN courses c ON c.id = a.course_id
+     LEFT JOIN lessons l ON l.id = a.lesson_id
      WHERE s.student_id = $1
      ORDER BY s.submitted_at DESC`,
     [studentId]

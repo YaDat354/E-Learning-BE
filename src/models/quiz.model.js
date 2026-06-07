@@ -234,9 +234,39 @@ const submitQuiz = async ({ quizId, studentId, answers }) => {
 
 const findResultsByStudent = async (studentId) => {
   const result = await query(
-    `SELECT qr.id, qr.quiz_id, qr.student_id, qr.score, qr.submitted_at, q.title AS quiz_title
+    `SELECT
+        qr.id,
+        qr.quiz_id,
+        qr.student_id,
+        qr.score,
+        qr.submitted_at,
+        q.title AS quiz_title,
+        q.course_id,
+        c.title AS course_title,
+        COALESCE(
+          q.lesson_id,
+          (
+            SELECT l2.id
+            FROM lessons l2
+            WHERE l2.course_id = q.course_id
+            ORDER BY l2.order_index ASC, l2.created_at ASC
+            LIMIT 1
+          )
+        ) AS lesson_id,
+        COALESCE(
+          l.title,
+          (
+            SELECT l2.title
+            FROM lessons l2
+            WHERE l2.course_id = q.course_id
+            ORDER BY l2.order_index ASC, l2.created_at ASC
+            LIMIT 1
+          )
+        ) AS lesson_title
      FROM quiz_results qr
      JOIN quizzes q ON q.id = qr.quiz_id
+     LEFT JOIN courses c ON c.id = q.course_id
+     LEFT JOIN lessons l ON l.id = q.lesson_id
      WHERE qr.student_id = $1
      ORDER BY qr.submitted_at DESC`,
     [studentId]

@@ -74,6 +74,8 @@ const getMyCourses = async (userId) => {
     originalPrice: row.original_price !== null && row.original_price !== undefined
       ? Number(row.original_price)
       : null,
+    totalStudents: Number(row.total_students ?? 0),
+    total_students: Number(row.total_students ?? 0),
     lessonCount: Number(row.lesson_count ?? 0),
     lesson_count: Number(row.lesson_count ?? 0),
   }));
