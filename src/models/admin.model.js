@@ -150,6 +150,128 @@ const getTopCoursesByStudents = async (limit = 5) => {
   return result.rows;
 };
 
+const getRevenueByCategory = async () => {
+  const result = await query(
+    `
+      SELECT
+        COALESCE(NULLIF(TRIM(c.category), ''), 'Khac') AS category,
+        COALESCE(SUM(po.amount), 0)::numeric AS revenue
+      FROM payment_orders po
+      JOIN courses c ON c.id = po.course_id
+      WHERE po.status = 'paid'
+      GROUP BY COALESCE(NULLIF(TRIM(c.category), ''), 'Khac')
+      ORDER BY revenue DESC, category ASC
+    `
+  );
+
+  return result.rows;
+};
+
+const getRevenueByMonth = async () => {
+  const result = await query(
+    `
+      SELECT
+        to_char(
+          date_trunc('month', timezone('UTC', COALESCE(po.paid_at, po.updated_at, po.created_at))),
+          'YYYY-MM'
+        ) AS month,
+        COALESCE(SUM(po.amount), 0)::numeric AS revenue
+      FROM payment_orders po
+      WHERE po.status = 'paid'
+      GROUP BY 1
+      ORDER BY month ASC
+    `
+  );
+
+  return result.rows;
+};
+
+const getHighScoreRateByCourse = async (limit = 20) => {
+  const result = await query(
+    `
+      WITH student_course_best_scores AS (
+        SELECT
+          q.course_id,
+          qr.student_id,
+          MAX(qr.score) AS best_score
+        FROM quiz_results qr
+        JOIN quizzes q ON q.id = qr.quiz_id
+        GROUP BY q.course_id, qr.student_id
+      )
+      SELECT
+        c.id AS course_id,
+        c.title AS course_title,
+        COUNT(s.student_id)::int AS total_students_attempted,
+        COALESCE(
+          ROUND(
+            100.0 * COUNT(s.student_id) FILTER (WHERE s.best_score >= 80)
+            / NULLIF(COUNT(s.student_id), 0),
+            2
+          ),
+          0
+        )::numeric AS high_score_rate
+      FROM courses c
+      LEFT JOIN student_course_best_scores s ON s.course_id = c.id
+      GROUP BY c.id, c.title
+      HAVING COUNT(s.student_id) > 0
+      ORDER BY high_score_rate DESC, total_students_attempted DESC, c.title ASC
+      LIMIT $1
+    `,
+    [limit]
+  );
+
+  return result.rows;
+};
+
+const getCompletionRateByCourse = async (limit = 20) => {
+  const result = await query(
+    `
+      WITH lesson_counts AS (
+        SELECT c.id AS course_id, COUNT(l.id)::int AS total_lessons
+        FROM courses c
+        LEFT JOIN lessons l ON l.course_id = c.id
+        GROUP BY c.id
+      ),
+      completed_lessons_by_student AS (
+        SELECT
+          lp.course_id,
+          lp.user_id AS student_id,
+          COUNT(DISTINCT lp.lesson_id) FILTER (WHERE lp.is_completed = TRUE)::int AS completed_lessons
+        FROM lesson_progress lp
+        GROUP BY lp.course_id, lp.user_id
+      )
+      SELECT
+        c.id AS course_id,
+        c.title AS course_title,
+        lc.total_lessons,
+        COUNT(e.student_id)::int AS total_students_enrolled,
+        COALESCE(
+          ROUND(
+            100.0 * COUNT(e.student_id) FILTER (
+              WHERE lc.total_lessons > 0 AND COALESCE(cls.completed_lessons, 0) >= lc.total_lessons
+            )
+            / NULLIF(COUNT(e.student_id), 0),
+            2
+          ),
+          0
+        )::numeric AS completion_rate
+      FROM courses c
+      LEFT JOIN lesson_counts lc ON lc.course_id = c.id
+      LEFT JOIN enrollments e ON e.course_id = c.id
+      LEFT JOIN completed_lessons_by_student cls
+        ON cls.course_id = c.id
+       AND cls.student_id = e.student_id
+      GROUP BY c.id, c.title, lc.total_lessons
+      HAVING COUNT(e.student_id) > 0
+      ORDER BY completion_rate DESC, total_students_enrolled DESC, c.title ASC
+      LIMIT $1
+    `,
+    [limit]
+  );
+
+  return result.rows;
+};
+
 const listUsers = async ({
   page,
   limit,
@@ -334,6 +456,10 @@ module.exports = {
   updateUserById,
   deleteUserById,
   getTopCoursesByStudents,
+  getRevenueByCategory,
+  getRevenueByMonth,
+  getHighScoreRateByCourse,
+  getCompletionRateByCourse,
   listUsers,
   listCourses,
 };

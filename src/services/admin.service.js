@@ -71,17 +71,43 @@ const buildUserMutationError = (operation, statusCode, details) => {
   );
 };
 
+const levelLabelMap = {
+  co_ban: 'Co ban',
+  trung_cap: 'Trung cap',
+  cao_cap: 'Nang cao',
+};
+
+const toLevelLabel = (value) => levelLabelMap[value] || value;
+
+const toNumeric = (value, fallback = 0) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
+
 const getDashboard = async () => {
-  const [totals, coursesByLevel, topCoursesByStudents, usersSummary] = await Promise.all([
+  const [
+    totals,
+    coursesByLevel,
+    topCoursesByStudents,
+    usersSummary,
+    revenueByCategory,
+    revenueByMonth,
+    highScoreRateByCourse,
+    completionRateByCourse,
+  ] = await Promise.all([
     adminModel.getDashboardTotals(),
     adminModel.getCoursesByLevel(),
     adminModel.getTopCoursesByStudents(5),
     adminModel.getUsersSummary(),
+    adminModel.getRevenueByCategory(),
+    adminModel.getRevenueByMonth(),
+    adminModel.getHighScoreRateByCourse(20),
+    adminModel.getCompletionRateByCourse(20),
   ]);
 
   const mappedCoursesByLevel = coursesByLevel.map((row) => ({
-    level: row.level,
-    total: row.total,
+    level: toLevelLabel(row.level),
+    total: toNumeric(row.total),
   }));
 
   const mappedTopCourses = topCoursesByStudents.map((row) => ({
@@ -90,23 +116,58 @@ const getDashboard = async () => {
     level: row.level,
     teacherId: String(row.teacher_id),
     teacherEmail: row.teacher_email,
-    totalStudents: row.total_students,
-    lessonCount: row.lesson_count,
-    lesson_count: row.lesson_count,
+    totalStudents: toNumeric(row.total_students),
+    lessonCount: toNumeric(row.lesson_count),
+    lesson_count: toNumeric(row.lesson_count),
+  }));
+
+  const mappedRevenueByCategory = revenueByCategory.map((row) => ({
+    category: row.category,
+    revenue: toNumeric(row.revenue),
+  }));
+
+  const mappedRevenueByMonth = revenueByMonth.map((row) => ({
+    month: row.month,
+    revenue: toNumeric(row.revenue),
+  }));
+
+  const mappedHighScoreRateByCourse = highScoreRateByCourse.map((row) => ({
+    courseId: String(row.course_id),
+    courseTitle: row.course_title,
+    highScoreRate: toNumeric(row.high_score_rate),
+    totalStudentsAttempted: toNumeric(row.total_students_attempted),
+    course_id: String(row.course_id),
+    course_title: row.course_title,
+    high_score_rate: toNumeric(row.high_score_rate),
+  }));
+
+  const mappedCompletionRateByCourse = completionRateByCourse.map((row) => ({
+    courseId: String(row.course_id),
+    courseTitle: row.course_title,
+    completionRate: toNumeric(row.completion_rate),
+    totalStudentsEnrolled: toNumeric(row.total_students_enrolled),
+    totalLessons: toNumeric(row.total_lessons),
+    course_id: String(row.course_id),
+    course_title: row.course_title,
+    completion_rate: toNumeric(row.completion_rate),
   }));
 
   return {
-    totalCourses: totals.total_courses,
-    totalLessons: totals.total_lessons,
-    totalStudents: totals.total_students,
-    totalUsers: usersSummary.total_users,
+    totalCourses: toNumeric(totals.total_courses),
+    totalLessons: toNumeric(totals.total_lessons),
+    totalStudents: toNumeric(totals.total_students),
+    totalUsers: toNumeric(usersSummary.total_users),
     usersByRole: {
-      admin: usersSummary.total_admins,
-      teacher: usersSummary.total_teachers,
-      student: usersSummary.total_students,
+      admin: toNumeric(usersSummary.total_admins),
+      teacher: toNumeric(usersSummary.total_teachers),
+      student: toNumeric(usersSummary.total_students),
     },
     coursesByLevel: mappedCoursesByLevel,
     topCoursesByStudents: mappedTopCourses,
+    revenueByCategory: mappedRevenueByCategory,
+    revenueByMonth: mappedRevenueByMonth,
+    highScoreRateByCourse: mappedHighScoreRateByCourse,
+    completionRateByCourse: mappedCompletionRateByCourse,
     chartData: {
       coursesByLevel: {
         labels: mappedCoursesByLevel.map((row) => row.level),
@@ -120,10 +181,26 @@ const getDashboard = async () => {
       usersByRole: {
         labels: ['admin', 'teacher', 'student'],
         series: [
-          usersSummary.total_admins,
-          usersSummary.total_teachers,
-          usersSummary.total_students,
+          toNumeric(usersSummary.total_admins),
+          toNumeric(usersSummary.total_teachers),
+          toNumeric(usersSummary.total_students),
         ],
+      },
+      revenueByCategory: {
+        labels: mappedRevenueByCategory.map((row) => row.category),
+        series: mappedRevenueByCategory.map((row) => row.revenue),
+      },
+      revenueByMonth: {
+        labels: mappedRevenueByMonth.map((row) => row.month),
+        series: mappedRevenueByMonth.map((row) => row.revenue),
+      },
+      highScoreRateByCourse: {
+        labels: mappedHighScoreRateByCourse.map((row) => row.courseTitle),
+        series: mappedHighScoreRateByCourse.map((row) => row.highScoreRate),
+      },
+      completionRateByCourse: {
+        labels: mappedCompletionRateByCourse.map((row) => row.courseTitle),
+        series: mappedCompletionRateByCourse.map((row) => row.completionRate),
       },
     },
   };
