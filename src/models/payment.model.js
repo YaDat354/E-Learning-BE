@@ -113,8 +113,8 @@ const updateCheckoutInfo = async ({ orderId, paymentUrl, rawResponse, requestId 
   return result.rows[0] || null;
 };
 
-const updateStatusByOrderId = async ({ orderId, status, momoTransId, gatewayTransId, rawResponse, paidAt }) => {
-  const transId = gatewayTransId || momoTransId || null;
+const updateStatusByOrderId = async ({ orderId, status, gatewayTransId, rawResponse, paidAt }) => {
+  const transId = gatewayTransId || null;
 
   const result = await query(
     `

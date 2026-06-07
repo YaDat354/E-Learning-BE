@@ -53,12 +53,21 @@ DATABASE_URL=postgresql://postgres:YOUR_PASSWORD@localhost:5432/elearning_db
 JWT_SECRET=change-me-to-a-long-random-string
 JWT_EXPIRES_IN=1d
 
-# MoMo (sandbox)
-MOMO_ENDPOINT=https://test-payment.momo.vn/v2/gateway/api/create
-MOMO_PARTNER_CODE=your_partner_code
-MOMO_ACCESS_KEY=your_access_key
-MOMO_SECRET_KEY=your_secret_key
-MOMO_REQUEST_TYPE=captureWallet
+# CORS (comma-separated FE origins)
+CORS_ORIGINS=http://localhost:5173,http://127.0.0.1:5173
+
+# OpenAI gateway for chatbot
+OPENAI_API_KEY=your_openai_api_key
+OPENAI_MODEL=gpt-4o-mini
+
+# VNPAY (sandbox)
+VNPAY_TMN_CODE=your_tmn_code
+VNPAY_HASH_SECRET=your_hash_secret
+VNPAY_URL=https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+VNPAY_VERSION=2.1.0
+VNPAY_COMMAND=pay
+VNPAY_CURR_CODE=VND
+VNPAY_LOCALE=vn
 ```
 
 | Variable        | Required | Description                               |
@@ -67,11 +76,16 @@ MOMO_REQUEST_TYPE=captureWallet
 | `DATABASE_URL`  | Yes      | PostgreSQL connection string              |
 | `JWT_SECRET`    | Yes      | Secret for signing JWT tokens             |
 | `JWT_EXPIRES_IN`| No       | Token expiry (default `1d`)               |
-| `MOMO_ENDPOINT` | No       | MoMo create-payment endpoint (sandbox default) |
-| `MOMO_PARTNER_CODE` | Yes (for payment) | MoMo partner code |
-| `MOMO_ACCESS_KEY` | Yes (for payment) | MoMo access key |
-| `MOMO_SECRET_KEY` | Yes (for payment) | MoMo secret key (used for signatures) |
-| `MOMO_REQUEST_TYPE` | No | MoMo request type (default `captureWallet`) |
+| `CORS_ORIGINS`  | No       | Comma-separated allowed frontend origins  |
+| `OPENAI_API_KEY`| Yes (for chatbot) | API key used by BE gateway to call OpenAI |
+| `OPENAI_MODEL`  | No       | OpenAI model name (default `gpt-4o-mini`) |
+| `VNPAY_TMN_CODE` | Yes (for payment) | VNPAY terminal code |
+| `VNPAY_HASH_SECRET` | Yes (for payment) | Secret key for VNPAY signature |
+| `VNPAY_URL` | No | VNPAY payment URL (sandbox default) |
+| `VNPAY_VERSION` | No | VNPAY API version (default `2.1.0`) |
+| `VNPAY_COMMAND` | No | VNPAY command (default `pay`) |
+| `VNPAY_CURR_CODE` | No | Currency code (default `VND`) |
+| `VNPAY_LOCALE` | No | Payment locale (default `vn`) |
 
 ---
 
@@ -145,14 +159,53 @@ src/
 | GET    | /api/v1/users/me            | Bearer JWT | any             |
 | GET    | /api/v1/courses             | —          | —               |
 | GET    | /api/v1/courses/:courseId   | —          | —               |
+| POST   | /api/v1/chatbot/chat        | —          | —               |
+| POST   | /api/v1/ai/chat             | —          | —               |
+| POST   | /api/v1/assistant/chat      | —          | —               |
 | POST   | /api/v1/courses             | Bearer JWT | teacher / admin |
 | POST   | /api/v1/enrollments         | Bearer JWT | student         |
 | GET    | /api/v1/enrollments/me      | Bearer JWT | student         |
-| POST   | /api/v1/payments/momo/checkout | Bearer JWT | any authenticated |
-| POST   | /api/v1/payments/momo/webhook | — | MoMo server |
+| POST   | /api/v1/payments/vnpay/checkout | Bearer JWT | any authenticated |
+| GET/POST | /api/v1/payments/vnpay/ipn | — | VNPAY server |
 | GET    | /api/v1/payments/:orderId/status | Optional Bearer JWT | order owner when logged in |
 
 Full interactive docs: `GET /api-docs`
+
+### Chatbot Request/Response
+
+Request body:
+
+```json
+{
+    "message": "Giup minh luyen 5 cau giao tiep khi phong van",
+    "conversationId": "optional-conversation-id",
+    "history": [
+        { "role": "user", "content": "..." },
+        { "role": "assistant", "content": "..." }
+    ]
+}
+```
+
+Response body:
+
+```json
+{
+    "success": true,
+    "message": "Chat response generated",
+    "reply": "Noi dung phan hoi tu AI",
+    "conversationId": "conversation-id",
+    "data": {
+        "reply": "Noi dung phan hoi tu AI",
+        "conversationId": "conversation-id"
+    }
+}
+```
+
+Security notes:
+- Never expose `OPENAI_API_KEY` to FE.
+- Chatbot endpoint is rate-limited.
+- Basic prompt-injection patterns are blocked.
+- Logging uses request id and metadata only (no full prompt body).
 
 ---
 

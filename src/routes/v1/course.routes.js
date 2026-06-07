@@ -8,7 +8,12 @@ const quizRoutes = require('./quiz.routes');
 const { authenticate, optionalAuthenticate } = require('../../middlewares/auth.middleware');
 const { authorizeRoles } = require('../../middlewares/role.middleware');
 const roles = require('../../constants/roles');
-const { validateCreateCourse, validateUpdateCourse } = require('../../validations/validators');
+const {
+	validateCreateCourse,
+	validateUpdateCourse,
+	validateCourseIdParam,
+	validateCreateCourseReview,
+} = require('../../validations/validators');
 const discussionRoutes = require('./discussion.routes');
 
 const router = express.Router();
@@ -21,6 +26,17 @@ router.delete('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.AD
 
 // Student enroll via course URL: POST /courses/:courseId/enroll
 router.post('/:courseId/enroll', authenticate, authorizeRoles(roles.STUDENT), enrollmentController.enrollByCourseId);
+
+router.get('/:courseId/reviews', validateCourseIdParam, courseController.listCourseReviews);
+router.get('/:courseId/reviews/summary', validateCourseIdParam, courseController.getCourseReviewSummary);
+router.post(
+	'/:courseId/reviews',
+	authenticate,
+	authorizeRoles(roles.STUDENT),
+	validateCourseIdParam,
+	validateCreateCourseReview,
+	courseController.createCourseReview
+);
 
 router.use('/:courseId/lessons', lessonRoutes);
 router.use('/:courseId/lesson', lessonRoutes);

@@ -26,7 +26,22 @@ const apiLimiter = rateLimit({
 });
 
 app.use(helmet());
-app.use(cors());
+app.use(cors({
+  origin(origin, callback) {
+    // Allow non-browser clients and same-origin requests without an Origin header.
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    if (env.corsOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    return callback(new Error('CORS origin not allowed'));
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+}));
 app.use(morgan('dev'));
 app.use(express.json({ limit: '2mb' }));
 app.use(express.urlencoded({ extended: true, limit: '2mb' }));

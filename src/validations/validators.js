@@ -9,6 +9,7 @@ const ensureBodyObject = (body) => {
 
 const isNonEmptyString = (value) => typeof value === 'string' && value.trim().length > 0;
 const isUuid = (value) => /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(value);
+const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value || '').trim());
 
 const validateUuidLike = (value, fieldName) => {
   if (!isNonEmptyString(value)) {
@@ -22,7 +23,7 @@ const validateRegister = (req, res, next) => {
 
   if (!isNonEmptyString(fullName)) throw new HttpError(400, 'fullName is required');
   if (!isNonEmptyString(email)) throw new HttpError(400, 'email is required');
-  if (!email.includes('@')) throw new HttpError(400, 'email is invalid');
+  if (!isValidEmail(email)) throw new HttpError(400, 'email is invalid');
   if (!isNonEmptyString(password) || password.length < 6) {
     throw new HttpError(400, 'password must be at least 6 characters');
   }
@@ -40,6 +41,7 @@ const validateLogin = (req, res, next) => {
   const { email, password } = req.body;
 
   if (!isNonEmptyString(email)) throw new HttpError(400, 'email is required');
+  if (!isValidEmail(email)) throw new HttpError(400, 'email is invalid');
   if (!isNonEmptyString(password)) throw new HttpError(400, 'password is required');
 
   next();
@@ -379,7 +381,7 @@ const validateCreateStudent = (req, res, next) => {
 
   if (!isNonEmptyString(fullName)) throw new HttpError(400, 'fullName is required');
   if (!isNonEmptyString(email)) throw new HttpError(400, 'email is required');
-  if (!email.includes('@')) throw new HttpError(400, 'email is invalid');
+  if (!isValidEmail(email)) throw new HttpError(400, 'email is invalid');
   if (!isNonEmptyString(password) || password.length < 6) {
     throw new HttpError(400, 'password must be at least 6 characters');
   }
@@ -395,7 +397,7 @@ const validateUpdateStudent = (req, res, next) => {
     throw new HttpError(400, 'At least one field (fullName, email, password, avatar) is required');
   }
 
-  if (email !== undefined && (!isNonEmptyString(email) || !email.includes('@'))) {
+  if (email !== undefined && (!isNonEmptyString(email) || !isValidEmail(email))) {
     throw new HttpError(400, 'email is invalid');
   }
 
@@ -521,6 +523,87 @@ const validateAdminUserIdParam = (req, res, next) => {
   next();
 };
 
+const validateCourseIdParam = (req, res, next) => {
+  const { courseId } = req.params;
+
+  if (!isNonEmptyString(courseId) || !isUuid(courseId)) {
+    throw new HttpError(400, 'courseId must be a valid UUID');
+  }
+
+  next();
+};
+
+const validateCreateCourseReview = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const { rating, comment } = req.body;
+  const normalizedRating = Number.parseInt(rating, 10);
+
+  if (!Number.isInteger(normalizedRating) || normalizedRating < 1 || normalizedRating > 5) {
+    throw new HttpError(400, 'rating must be an integer between 1 and 5');
+  }
+
+  if (!isNonEmptyString(comment)) {
+    throw new HttpError(400, 'comment is required');
+  }
+
+  if (comment.trim().length > 1000) {
+    throw new HttpError(400, 'comment must be at most 1000 characters');
+  }
+
+  next();
+};
+
+const validateChatbotChat = (req, res, next) => {
+  ensureBodyObject(req.body);
+
+  const { message, conversationId, history } = req.body;
+
+  if (!isNonEmptyString(message)) {
+    throw new HttpError(400, 'message is required');
+  }
+
+  if (String(message).trim().length > 4000) {
+    throw new HttpError(400, 'message must be at most 4000 characters');
+  }
+
+  if (conversationId !== undefined && !isNonEmptyString(conversationId)) {
+    throw new HttpError(400, 'conversationId must be a non-empty string');
+  }
+
+  if (history !== undefined) {
+    if (!Array.isArray(history)) {
+      throw new HttpError(400, 'history must be an array');
+    }
+
+    if (history.length > 20) {
+      throw new HttpError(400, 'history must contain at most 20 messages');
+    }
+
+    for (let i = 0; i < history.length; i += 1) {
+      const item = history[i];
+      if (!item || typeof item !== 'object' || Array.isArray(item)) {
+        throw new HttpError(400, `history[${i}] must be an object`);
+      }
+
+      const role = String(item.role || '').trim();
+      if (!['user', 'assistant'].includes(role)) {
+        throw new HttpError(400, `history[${i}].role must be user or assistant`);
+      }
+
+      if (!isNonEmptyString(item.content)) {
+        throw new HttpError(400, `history[${i}].content is required`);
+      }
+
+      if (String(item.content).trim().length > 2000) {
+        throw new HttpError(400, `history[${i}].content must be at most 2000 characters`);
+      }
+    }
+  }
+
+  next();
+};
+
 module.exports = {
   validateRegister,
   validateLogin,
@@ -547,6 +630,9 @@ module.exports = {
   validateUpsertLearningLog,
   validateCreateDiscussion,
   validateMarkLessonCommentsRead,
+  validateChatbotChat,
+  validateCourseIdParam,
+  validateCreateCourseReview,
   validateAdminCreateUser,
   validateAdminUpdateUser,
   validateAdminUserIdParam,

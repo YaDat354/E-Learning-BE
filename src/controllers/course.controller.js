@@ -72,10 +72,47 @@ const deleteCourse = asyncHandler(async (req, res) => {
   });
 });
 
+const listCourseReviews = asyncHandler(async (req, res) => {
+  const data = await courseService.listCourseReviews(req.params.courseId, req.query);
+
+  res.json({
+    success: true,
+    message: 'Course reviews fetched successfully',
+    data,
+  });
+});
+
+const createCourseReview = asyncHandler(async (req, res) => {
+  const data = await courseService.createCourseReview(req.params.courseId, {
+    rating: req.body.rating,
+    comment: req.body.comment,
+    currentUser: req.user,
+  });
+
+  res.status(201).json({
+    success: true,
+    message: 'Course review saved successfully',
+    data,
+  });
+});
+
+const getCourseReviewSummary = asyncHandler(async (req, res) => {
+  const data = await courseService.getCourseReviewSummary(req.params.courseId);
+
+  res.json({
+    success: true,
+    message: 'Course review summary fetched successfully',
+    data,
+  });
+});
+
 module.exports = {
   listCourses,
   getCourseById,
   createCourse,
   updateCourse,
   deleteCourse,
+  listCourseReviews,
+  createCourseReview,
+  getCourseReviewSummary,
 };

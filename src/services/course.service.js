@@ -3,6 +3,7 @@ const lessonModel = require('../models/lesson.model');
 const enrollmentModel = require('../models/enrollment.model');
 const discussionModel = require('../models/discussion.model');
 const quizModel = require('../models/quiz.model');
+const courseReviewModel = require('../models/course-review.model');
 const HttpError = require('../utils/http-error');
 const { toMediaPayload } = require('../utils/media-source');
 const { sanitizeTranscript, sanitizeTasks } = require('../utils/lesson-content');
@@ -262,10 +263,125 @@ const deleteCourse = async (courseId, user) => {
   await courseModel.deleteById(courseId);
 };
 
+const toPagination = (page, limit, totalItems) => ({
+  page,
+  limit,
+  totalItems,
+  totalPages: Math.max(1, Math.ceil(totalItems / limit)),
+});
+
+const parsePaging = (query = {}) => {
+  const page = Math.max(1, Number.parseInt(query.page, 10) || 1);
+  const limit = Math.min(100, Math.max(1, Number.parseInt(query.limit, 10) || 10));
+
+  return { page, limit };
+};
+
+const listCourseReviews = async (courseId, query = {}) => {
+  const course = await courseModel.findById(courseId);
+  if (!course) {
+    throw new HttpError(404, 'Course not found');
+  }
+
+  const { page, limit } = parsePaging(query);
+  const offset = (page - 1) * limit;
+
+  const [items, totalItems, summary] = await Promise.all([
+    courseReviewModel.listByCourseId(courseId, { limit, offset }),
+    courseReviewModel.countByCourseId(courseId),
+    courseReviewModel.getSummaryByCourseId(courseId),
+  ]);
+
+  return {
+    summary: {
+      totalReviews: summary.total_reviews,
+      averageRating: Number(summary.average_rating || 0),
+      stars: {
+        1: summary.star_1,
+        2: summary.star_2,
+        3: summary.star_3,
+        4: summary.star_4,
+        5: summary.star_5,
+      },
+    },
+    items: items.map((review) => ({
+      id: String(review.id),
+      courseId: String(review.course_id),
+      studentId: String(review.student_id),
+      studentName: review.student_name,
+      studentEmail: review.student_email,
+      studentAvatar: review.student_avatar,
+      rating: Number(review.rating),
+      comment: review.comment,
+      createdAt: review.created_at,
+      updatedAt: review.updated_at,
+    })),
+    pagination: toPagination(page, limit, totalItems),
+  };
+};
+
+const createCourseReview = async (courseId, { rating, comment, currentUser }) => {
+  if (!currentUser) {
+    throw new HttpError(401, 'Authentication token is required');
+  }
+
+  const course = await courseModel.findById(courseId);
+  if (!course) {
+    throw new HttpError(404, 'Course not found');
+  }
+
+  const enrollment = await enrollmentModel.findByStudentAndCourse(currentUser.id, courseId);
+  if (!enrollment) {
+    throw new HttpError(403, 'Only enrolled students can review this course', 'RESOURCE_NOT_OWNED');
+  }
+
+  const saved = await courseReviewModel.upsert({
+    courseId,
+    studentId: currentUser.id,
+    rating: Number.parseInt(rating, 10),
+    comment: comment.trim(),
+  });
+
+  return {
+    id: String(saved.id),
+    courseId: String(saved.course_id),
+    studentId: String(saved.student_id),
+    rating: Number(saved.rating),
+    comment: saved.comment,
+    createdAt: saved.created_at,
+    updatedAt: saved.updated_at,
+  };
+};
+
+const getCourseReviewSummary = async (courseId) => {
+  const course = await courseModel.findById(courseId);
+  if (!course) {
+    throw new HttpError(404, 'Course not found');
+  }
+
+  const summary = await courseReviewModel.getSummaryByCourseId(courseId);
+
+  return {
+    courseId: String(courseId),
+    totalReviews: summary.total_reviews,
+    averageRating: Number(summary.average_rating || 0),
+    stars: {
+      1: summary.star_1,
+      2: summary.star_2,
+      3: summary.star_3,
+      4: summary.star_4,
+      5: summary.star_5,
+    },
+  };
+};
+
 module.exports = {
   listCourses,
   getCourseById,
   createCourse,
   updateCourse,
   deleteCourse,
+  listCourseReviews,
+  createCourseReview,
+  getCourseReviewSummary,
 };
