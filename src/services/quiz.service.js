@@ -174,6 +174,43 @@ const getMyResults = async (user) => {
   }));
 };
 
+const createQuizResult = async (body, user) => {
+  if (!user || user.role !== 'student') {
+    throw new HttpError(403, 'Only students can submit quiz results', 'FORBIDDEN_ROLE');
+  }
+
+  const { quizId, courseId, score, submittedAt } = body;
+  if (!quizId || !courseId) {
+    throw new HttpError(400, 'quizId and courseId are required');
+  }
+
+  const course = await courseModel.findById(courseId);
+  if (!course) throw new HttpError(404, 'Course not found');
+
+  const quiz = await quizModel.findById(quizId);
+  if (!quiz || quiz.course_id !== courseId) throw new HttpError(404, 'Quiz not found');
+
+  const enrollment = await enrollmentModel.findByStudentAndCourse(user.id, courseId);
+  if (!enrollment) {
+    throw new HttpError(403, 'You are not enrolled in this course', 'RESOURCE_NOT_OWNED');
+  }
+
+  const existing = await quizModel.findResultsByStudent(user.id).then((results) =>
+    results.find((r) => r.quiz_id === quizId)
+  );
+
+  if (existing) {
+    throw new HttpError(409, 'You already submitted this quiz');
+  }
+
+  return quizModel.createResult({
+    quizId,
+    studentId: user.id,
+    score: score || 0,
+    submittedAt: submittedAt || new Date().toISOString(),
+  });
+};
+
 module.exports = {
   getQuizzes,
   getQuizById,
@@ -185,4 +222,5 @@ module.exports = {
   deleteQuestion,
   submitQuiz,
   getMyResults,
+  createQuizResult,
 };

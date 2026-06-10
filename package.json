@@ -14,6 +14,7 @@
     "db:migrate6": "node src/database/run-sql-file.js src/database/migrations/006_seed_course_prices_vnd.sql",
     "db:migrate8": "node src/database/run-sql-file.js src/database/migrations/008_add_lesson_discussion_notifications.sql",
     "db:migrate9": "node src/database/run-sql-file.js src/database/migrations/009_create_course_reviews.sql",
+    "db:migrate10": "node src/database/run-sql-file.js src/database/migrations/010_create_meeting_notifications.sql",
     "db:seed-reviews": "node src/scripts/seed-course-reviews.js",
     "db:import-real": "node src/scripts/import-real-data.js",
     "db:crawl-english": "node src/scripts/crawl-english-data.js",
@@ -25,6 +26,7 @@
     "db:migrate7": "node src/database/run-sql-file.js src/database/migrations/007_rename_momo_trans_id_to_gateway_trans_id.sql",
     "test:smoke": "node src/scripts/smoke-test.js",
     "test:contract": "node src/scripts/test-api-contract.js",
+    "test:new-features": "node src/scripts/test-new-features.js",
     "test:all": "npm run test:smoke && npm run test:ownership && npm run test:contract",
     "test:ownership": "node src/scripts/test-ownership-guards.js",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -59,6 +59,7 @@ const validateCreateCourse = (req, res, next) => {
     duration,
     category,
     tags,
+    lessons,
   } = req.body;
   const allowedLevels = ['co_ban', 'trung_cap', 'cao_cap'];
 
@@ -86,6 +87,9 @@ const validateCreateCourse = (req, res, next) => {
   }
   if (tags !== undefined && !Array.isArray(tags)) {
     throw new HttpError(400, 'tags must be an array of strings');
+  }
+  if (lessons !== undefined && !Array.isArray(lessons)) {
+    throw new HttpError(400, 'lessons must be an array');
   }
 
   next();

@@ -102,6 +102,28 @@ const updateProgress = async (enrollmentId, progress) => {
   return result.rows[0] || null;
 };
 
+const findStudentsByCourseId = async (courseId) => {
+  const result = await query(
+    `
+      SELECT
+        e.id AS enrollment_id,
+        u.id AS student_id,
+        u.full_name,
+        u.email,
+        u.avatar,
+        e.progress,
+        e.enrolled_at
+      FROM enrollments e
+      JOIN users u ON u.id = e.student_id
+      WHERE e.course_id = $1
+      ORDER BY e.enrolled_at DESC
+    `,
+    [courseId]
+  );
+
+  return result.rows;
+};
+
 module.exports = {
   findByStudentAndCourse,
   create,
@@ -109,4 +131,5 @@ module.exports = {
   findById,
   countByCourseId,
   updateProgress,
+  findStudentsByCourseId,
 };

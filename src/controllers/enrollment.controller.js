@@ -40,6 +40,16 @@ const getMyEnrollments = asyncHandler(async (req, res) => {
   });
 });
 
+const getCourseStudents = asyncHandler(async (req, res) => {
+  const data = await enrollmentService.getCourseStudents(req.params.courseId, req.user);
+
+  res.json({
+    success: true,
+    message: 'Course students fetched successfully',
+    data,
+  });
+});
+
 const updateEnrollmentProgress = asyncHandler(async (req, res) => {
   const data = await enrollmentService.updateEnrollmentProgress({
     enrollmentId: req.params.enrollmentId,
@@ -58,5 +68,6 @@ module.exports = {
   enrollCourse,
   enrollByCourseId,
   getMyEnrollments,
+  getCourseStudents,
   updateEnrollmentProgress,
 };

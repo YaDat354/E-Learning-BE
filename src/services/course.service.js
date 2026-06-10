@@ -167,6 +167,7 @@ const createCourse = async ({
   duration,
   category,
   tags,
+  lessons,
 }) => {
   if (!title) {
     throw new HttpError(400, 'title is required');
@@ -189,12 +190,75 @@ const createCourse = async ({
     tags,
   });
 
-  return {
+  const courseData = {
     ...mapPricingFields(created),
     id: String(created.id),
     lessonCount: 0,
     lesson_count: 0,
   };
+
+  // Create lessons with quizzes if provided
+  if (Array.isArray(lessons) && lessons.length > 0) {
+    const createdLessons = [];
+    for (let i = 0; i < lessons.length; i++) {
+      const lessonData = lessons[i];
+      const lesson = await lessonModel.create({
+        courseId: created.id,
+        title: lessonData.title || `Lesson ${i + 1}`,
+        content: lessonData.content,
+        videoUrl: lessonData.audioUrl || lessonData.videoUrl,
+        transcript: lessonData.transcript,
+        orderIndex: i,
+        duration: lessonData.duration,
+      });
+
+      // Create quiz for this lesson if provided
+      if (lessonData.quiz) {
+        const quiz = await quizModel.createQuiz({
+          courseId: created.id,
+          title: lessonData.quiz.title || `Quiz for ${lesson.title}`,
+          description: lessonData.quiz.description,
+          timeLimit: lessonData.quiz.timeLimit,
+        });
+
+        // Create questions for this quiz if provided
+        if (Array.isArray(lessonData.quiz.questions)) {
+          for (const question of lessonData.quiz.questions) {
+            const createdQuestion = await quizModel.createQuestion({
+              quizId: quiz.id,
+              content: question.text || question.content,
+              type: question.type || 'single_choice',
+              orderIndex: question.orderIndex || 0,
+            });
+
+            // Create answers for this question if provided
+            if (Array.isArray(question.options)) {
+              const answers = question.options.map((option, optionIndex) => ({
+                content: option.text || option.content || option,
+                isCorrect:
+                  optionIndex === question.correctIndex ||
+                  (Array.isArray(question.correctIndex) && question.correctIndex.includes(optionIndex)),
+              }));
+              await quizModel.createAnswers(createdQuestion.id, answers);
+            }
+          }
+        }
+
+        createdLessons.push({
+          ...lesson,
+          quiz,
+        });
+      } else {
+        createdLessons.push(lesson);
+      }
+    }
+
+    courseData.lessonCount = createdLessons.length;
+    courseData.lesson_count = createdLessons.length;
+    courseData.lessons = createdLessons;
+  }
+
+  return courseData;
 };
 
 const updateCourse = async (

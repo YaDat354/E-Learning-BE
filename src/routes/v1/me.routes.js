@@ -1,7 +1,10 @@
 const express = require('express');
 const meController = require('../../controllers/me.controller');
 const discussionController = require('../../controllers/discussion.controller');
+const quizController = require('../../controllers/quiz.controller');
 const { authenticate } = require('../../middlewares/auth.middleware');
+const { authorizeRoles } = require('../../middlewares/role.middleware');
+const roles = require('../../constants/roles');
 
 const router = express.Router();
 
@@ -28,6 +31,9 @@ router.get('/discussion-notifications', discussionController.getDiscussionNotifi
 
 // GET /me/continue-learning?limit=3 — last active lessons per course
 router.get('/continue-learning', meController.getContinueLearning);
+
+// GET /me/quiz-results — student's quiz results
+router.get('/quiz-results', authorizeRoles(roles.STUDENT), quizController.getMyResults);
 
 // PATCH /me/lessons/:lessonId/progress — update lesson video position / completion
 router.patch('/lessons/:lessonId/progress', meController.updateLessonProgress);

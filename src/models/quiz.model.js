@@ -274,6 +274,16 @@ const findResultsByStudent = async (studentId) => {
   return result.rows;
 };
 
+const createResult = async ({ quizId, studentId, score, submittedAt }) => {
+  const result = await query(
+    `INSERT INTO quiz_results (quiz_id, student_id, score, submitted_at)
+     VALUES ($1, $2, $3, $4)
+     RETURNING id, quiz_id, student_id, score, submitted_at`,
+    [quizId, studentId, score || 0, submittedAt || new Date().toISOString()]
+  );
+  return result.rows[0] || null;
+};
+
 module.exports = {
   findByCourseId,
   findById,
@@ -289,4 +299,5 @@ module.exports = {
   findQuestionsWithAnswers,
   submitQuiz,
   findResultsByStudent,
+  createResult,
 };

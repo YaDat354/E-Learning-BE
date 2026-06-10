@@ -2,6 +2,7 @@ const roles = require('../constants/roles');
 const courseModel = require('../models/course.model');
 const enrollmentModel = require('../models/enrollment.model');
 const HttpError = require('../utils/http-error');
+const { assertTeacherOwnsCourse, OWNERSHIP_ERROR_CODE } = require('../utils/ownership');
 
 const enrollCourse = async ({ studentId, courseId, userRole }) => {
   if (userRole !== roles.STUDENT) {
@@ -28,6 +29,21 @@ const enrollCourse = async ({ studentId, courseId, userRole }) => {
 };
 
 const getMyEnrollments = async (studentId) => enrollmentModel.findByStudentId(studentId);
+
+const getCourseStudents = async (courseId, user) => {
+  if (!user || user.role !== roles.TEACHER) {
+    throw new HttpError(403, 'Only teachers can view enrolled students');
+  }
+
+  const course = await courseModel.findById(courseId);
+  if (!course) {
+    throw new HttpError(404, 'Course not found');
+  }
+
+  assertTeacherOwnsCourse(course, user, OWNERSHIP_ERROR_CODE);
+
+  return enrollmentModel.findStudentsByCourseId(courseId);
+};
 
 const updateEnrollmentProgress = async ({ enrollmentId, progress, user }) => {
   if (progress === undefined || progress === null) {
@@ -56,5 +72,6 @@ const updateEnrollmentProgress = async ({ enrollmentId, progress, user }) => {
 module.exports = {
   enrollCourse,
   getMyEnrollments,
+  getCourseStudents,
   updateEnrollmentProgress,
 };

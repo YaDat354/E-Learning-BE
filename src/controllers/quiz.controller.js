@@ -57,6 +57,11 @@ const getMyResults = asyncHandler(async (req, res) => {
   res.json({ success: true, data });
 });
 
+const createQuizResult = asyncHandler(async (req, res) => {
+  const data = await quizService.createQuizResult(req.body, req.user);
+  res.status(201).json({ success: true, data });
+});
+
 module.exports = {
   getQuizzes,
   getQuizById,
@@ -68,4 +73,5 @@ module.exports = {
   deleteQuestion,
   submitQuiz,
   getMyResults,
+  createQuizResult,
 };

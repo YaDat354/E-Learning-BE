@@ -2,6 +2,7 @@ const express = require('express');
 
 const courseController = require('../../controllers/course.controller');
 const enrollmentController = require('../../controllers/enrollment.controller');
+const meetingNotificationController = require('../../controllers/meeting-notification.controller');
 const lessonRoutes = require('./lesson.routes');
 const assignmentRoutes = require('./assignment.routes');
 const quizRoutes = require('./quiz.routes');
@@ -24,8 +25,14 @@ router.post('/', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), valid
 router.patch('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), validateUpdateCourse, courseController.updateCourse);
 router.delete('/:courseId', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), courseController.deleteCourse);
 
+// Get enrolled students in a course (teacher only)
+router.get('/:courseId/students', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), enrollmentController.getCourseStudents);
+
 // Student enroll via course URL: POST /courses/:courseId/enroll
 router.post('/:courseId/enroll', authenticate, authorizeRoles(roles.STUDENT), enrollmentController.enrollByCourseId);
+
+// Course meeting notifications
+router.post('/:courseId/meeting-notifications', authenticate, authorizeRoles(roles.TEACHER, roles.ADMIN), meetingNotificationController.createMeetingNotification);
 
 router.get('/:courseId/reviews', validateCourseIdParam, courseController.listCourseReviews);
 router.get('/:courseId/reviews/summary', validateCourseIdParam, courseController.getCourseReviewSummary);
