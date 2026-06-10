@@ -184,6 +184,8 @@ const getMyTeachingCourses = async (user) => {
     teacher_email: course.teacher_email,
     teacher_name: course.teacher_name,
     lesson_count: Number(course.lesson_count ?? 0),
+    studentCount: Number(course.student_count ?? 0),
+    student_count: Number(course.student_count ?? 0),
   }));
 };
 

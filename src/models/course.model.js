@@ -34,6 +34,11 @@ const listAll = async ({ level, teacherId } = {}) => {
           FROM lessons l
           WHERE l.course_id = c.id
         ) AS lesson_count,
+        (
+          SELECT COUNT(*)::int
+          FROM enrollments e
+          WHERE e.course_id = c.id
+        ) AS student_count,
         c.created_at,
         c.updated_at,
         c.teacher_id,
@@ -76,6 +81,11 @@ const findById = async (courseId) => {
           FROM lessons l
           WHERE l.course_id = c.id
         ) AS lesson_count,
+        (
+          SELECT COUNT(*)::int
+          FROM enrollments e
+          WHERE e.course_id = c.id
+        ) AS student_count,
         c.created_at,
         c.updated_at,
         c.teacher_id,

@@ -34,6 +34,8 @@ const mapCourseSummary = (course) => {
     id: String(mapped.id),
     lessonCount: Number(mapped.lesson_count ?? 0),
     lesson_count: Number(mapped.lesson_count ?? 0),
+    studentCount: Number(mapped.student_count ?? 0),
+    student_count: Number(mapped.student_count ?? 0),
   };
 };
 
