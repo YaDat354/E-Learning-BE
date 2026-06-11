@@ -18,6 +18,15 @@ const findById = async (id) => {
   return result.rows[0] || null;
 };
 
+const findByLessonId = async (lessonId) => {
+  const result = await query(
+    `SELECT id, course_id, lesson_id, title, description, due_date, max_score, created_at, updated_at
+     FROM assignments WHERE lesson_id = $1 LIMIT 1`,
+    [lessonId]
+  );
+  return result.rows[0] || null;
+};
+
 const create = async ({ courseId, title, description, dueDate, maxScore }) => {
   const result = await query(
     `INSERT INTO assignments (course_id, title, description, due_date, max_score)

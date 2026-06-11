@@ -5,6 +5,7 @@ const quizController = require('../../controllers/quiz.controller');
 const { authenticate } = require('../../middlewares/auth.middleware');
 const { authorizeRoles } = require('../../middlewares/role.middleware');
 const roles = require('../../constants/roles');
+const { validateSubmitAssignment, validateGradeSubmission } = require('../../validations/validators');
 
 const router = express.Router();
 
@@ -37,5 +38,28 @@ router.get('/quiz-results', authorizeRoles(roles.STUDENT), quizController.getMyR
 
 // PATCH /me/lessons/:lessonId/progress — update lesson video position / completion
 router.patch('/lessons/:lessonId/progress', meController.updateLessonProgress);
+
+// Student submit assignment for a lesson
+router.post(
+	'/lessons/:lessonId/assignments/submit',
+	authorizeRoles(roles.STUDENT),
+	validateSubmitAssignment,
+	meController.submitAssignmentByLesson
+);
+
+// Teacher: view submissions for an assignment
+router.get(
+	'/assignments/:assignmentId/submissions',
+	authorizeRoles(roles.TEACHER, roles.ADMIN),
+	meController.getAssignmentSubmissions
+);
+
+// Teacher: grade a submission
+router.patch(
+	'/assignments/:assignmentId/submissions/:submissionId/grade',
+	authorizeRoles(roles.TEACHER, roles.ADMIN),
+	validateGradeSubmission,
+	meController.gradeAssignmentSubmission
+);
 
 module.exports = router;
